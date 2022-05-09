@@ -1,6 +1,5 @@
 import { Box, Flex, HStack, Image, Text, Link } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import { homedir } from 'os';
 import { useEffect, useState } from 'react';
 // import Link from 'next/link';
 
@@ -37,7 +36,7 @@ const Header = () => {
           : ''
       }
       transition={navbar ? '0.5s ease' : ''}
-      pos="fixed"
+      pos={router.pathname === '/' ? 'fixed' : 'relative'}
       h="5rem"
       justify="space-between"
       align="center"
@@ -67,7 +66,7 @@ const Header = () => {
           <Text color={getNavLinks('/thoughts')}>Thoughts</Text>
         </Link>
         <Link href="/apply">
-          <Text color={getNavLinks('/apply')}>Work for us</Text>
+          <Text color={getNavLinks('/contact-us')}>Work for us</Text>
         </Link>
       </HStack>
     </Flex>
