@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Box, Button, Circle, Image, Text } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
@@ -34,7 +35,7 @@ const Testimonials = () => {
     infinite: true,
     speed: 500,
     autoplay: true,
-  // asNavFor: '.slider-nav',
+    // asNavFor: '.slider-nav',
     nextArrow: <BsChevronRight color="white" />,
     prevArrow: <BsChevronLeft color="white" />,
   };
