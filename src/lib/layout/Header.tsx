@@ -1,7 +1,7 @@
 import { Box, Flex, Stack, Image, Text, Link } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { CgMenuRight } from 'react-icons/cg';
+import { BsBorderWidth } from 'react-icons/bs';
 // import Link from 'next/link';
 
 // import ThemeToggle from "./ThemeToggle";
@@ -96,7 +96,7 @@ const Header = () => {
         display={['block', 'none']}
         onClick={() => openMobileMenu()}
       >
-        <CgMenuRight fontSize="2rem" />
+        <BsBorderWidth fontSize="1.5rem" />
       </Box>
     </Flex>
   );
