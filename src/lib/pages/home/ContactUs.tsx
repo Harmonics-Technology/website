@@ -24,10 +24,14 @@ function ContactUs() {
     <>
       <PagesHero />
       <Box textAlign="center" my="3rem">
-        <Heading fontSize="2.5rem" fontFamily="brSemi" color="brand.200">
+        <Heading
+          fontSize={['1.2rem', '2.5rem']}
+          fontFamily="brSemi"
+          color="brand.200"
+        >
           Get in touch !
         </Heading>
-        <Text fontSize=".9rem" fontWeight="regular" w="95%">
+        <Text fontSize=".9rem" fontWeight="regular" w="90%" mx="auto">
           Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
         </Text>
       </Box>
@@ -38,17 +42,19 @@ function ContactUs() {
         w="90%"
         mx="auto"
         mb="3rem"
+        flexDirection={['column', 'row']}
       >
         <Box
           bg="brand.100"
           py="2rem"
-          w="40%"
+          w={['full', '40%']}
           borderLeftRadius="10px"
+          borderRightRadius={['10px', '0']}
           color="white"
           pl="1rem"
         >
           <Box mb="2.5rem">
-            <Text fontSize="2rem" fontWeight="700">
+            <Text fontSize={['1.2rem', '2rem']} fontWeight="700">
               Contact Information
             </Text>
             <Text fontSize="14px" w="80%">
@@ -77,7 +83,7 @@ function ContactUs() {
             </Box>
             <Image
               src="/laptop.png"
-              width="auto"
+              width={['95%', 'auto']}
               height="auto"
               mt="3rem !important"
             />
@@ -94,7 +100,7 @@ function ContactUs() {
             </Circle>
           </HStack>
         </Box>
-        <Box w="60%" px="2rem" py="3rem">
+        <Box w={['full', '60%']} px="2rem" py="3rem">
           <SimpleGrid columns={2} spacing={8}>
             <GridItem colSpan={2}>
               <FormControl>
@@ -104,7 +110,7 @@ function ContactUs() {
                 <Input variant="filled" />
               </FormControl>
             </GridItem>
-            <GridItem colSpan={1}>
+            <GridItem colSpan={[2, 1]}>
               <FormControl>
                 <FormLabel color="brand.200" fontSize=".9rem">
                   Email Address
@@ -112,7 +118,7 @@ function ContactUs() {
                 <Input variant="filled" />
               </FormControl>
             </GridItem>
-            <GridItem colSpan={1}>
+            <GridItem colSpan={[2, 1]}>
               <FormControl>
                 <FormLabel color="brand.200" fontSize=".9rem">
                   Phone Number

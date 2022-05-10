@@ -11,7 +11,9 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => (
   <Box margin="0 auto" transition="0.5s ease-out">
     <Header />
-    <Box as="main">{children}</Box>
+    <Box as="main" mt={['5rem', 'unset']}>
+      {children}
+    </Box>
     <Footer />
   </Box>
 );
