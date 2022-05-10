@@ -65,7 +65,7 @@ const Header = () => {
         <Link href="/thoughts">
           <Text color={getNavLinks('/thoughts')}>Thoughts</Text>
         </Link>
-        <Link href="/apply">
+        <Link href="/contact-us">
           <Text color={getNavLinks('/contact-us')}>Work for us</Text>
         </Link>
       </HStack>

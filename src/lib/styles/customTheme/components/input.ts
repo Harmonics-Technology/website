@@ -15,6 +15,14 @@ const Input: DeepPartial<Theme['components']['Input']> = {
         },
       },
     },
+    filled: {
+      field: {
+        backgroundColor: 'white',
+        borderRadius: '5px',
+        width: '100%',
+        height: '3rem',
+      },
+    },
   },
 };
 
