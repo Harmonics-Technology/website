@@ -20,11 +20,11 @@ const Gist = () => (
       align="center"
       spacing={[5, 10]}
       direction={['column', 'row']}
-      mt={[5, 10]}
+      mt={[3, 10]}
     >
-      <VStack w={{ base: 'full', md: '60%', lg: '45%' }} spacing="10">
+      <VStack w={{ base: 'full', md: '60%', lg: '45%' }} spacing={[5, 10]}>
         <Heading
-          fontSize={{ base: '1.5rem', md: '2rem', xl: '2.5rem' }}
+          fontSize={{ base: '1.1rem', md: '1.5rem', xl: '2.5rem' }}
           color="brand.200"
         >
           Digital tools make a big difference
