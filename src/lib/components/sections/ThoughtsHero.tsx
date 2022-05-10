@@ -9,14 +9,14 @@ function ThoughtsHero() {
       flexDirection="column"
       justifyContent="center"
       backgroundColor="rgba(4, 12, 33, 0.7)"
-      backgroundImage="/heros.png"
+      backgroundImage="/thoughthero.png"
       backgroundBlendMode="overlay"
       backgroundSize="cover"
       px={['1rem', 16]}
     >
       <Text
         color="white"
-        fontSize={['1.2rem', '52px']}
+        fontSize={{ base: '1.2rem', md: '44px', lg: '52px' }}
         fontFamily="brEbold"
         mb={3}
       >
@@ -32,7 +32,7 @@ function ThoughtsHero() {
       </Text>
       <Stack
         direction={['column', 'row']}
-        w={{ base: 'full', md: '80%', lg: '50%' }}
+        w={{ base: 'full', md: '80%', xl: '50%' }}
         spacing={4}
         mt="5"
       >
@@ -43,7 +43,13 @@ function ThoughtsHero() {
           size="lg"
         />
 
-        <Button bgColor="brand.100" rounded="5" color="white" h="3rem" px="14">
+        <Button
+          bgColor="brand.100"
+          rounded="5"
+          color="white"
+          height={12}
+          px="14"
+        >
           Subscribe
         </Button>
       </Stack>
