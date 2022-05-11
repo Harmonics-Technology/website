@@ -13,42 +13,42 @@ const MeetourPeople = () => {
   const employeeInfo: EmployeeInfo[] = [
     {
       name: 'john doe',
-      title: 'produuct designer',
+      title: 'product designer',
     },
 
     {
       name: 'john doe',
-      title: 'produuct designer',
+      title: 'product designer',
     },
 
     {
       name: 'john doe',
-      title: 'produuct designer',
+      title: 'product designer',
     },
 
     {
       name: 'john doe',
-      title: 'produuct designer',
+      title: 'product designer',
     },
 
     {
       name: 'john doe',
-      title: 'produuct designer',
+      title: 'product designer',
     },
 
     {
       name: 'john doe',
-      title: 'produuct designer',
+      title: 'product designer',
     },
 
     {
       name: 'john doe',
-      title: 'produuct designer',
+      title: 'product designer',
     },
 
     {
       name: 'john doe',
-      title: 'produuct designer',
+      title: 'product designer',
     },
   ];
 
