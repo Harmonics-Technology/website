@@ -55,8 +55,21 @@ export const FooterImage = () => (
 );
 
 export const FooterWidget = () => (
-  <Flex w="100%" bg="white" px={20} pt="3rem" pb="1rem" bgColor="brand.200">
-    <SimpleGrid columns={5} w="full" spacingY={5}>
+  <Flex
+    w="100%"
+    bg="white"
+    px={['1rem', 20]}
+    pt="3rem"
+    pb="1rem"
+    bgColor="brand.200"
+  >
+    <SimpleGrid
+      columns={5}
+      w="full"
+      spacingY={5}
+      display={['flex', 'grid']}
+      flexDirection={['column-reverse']}
+    >
       <FooterMenu />
       <FooterMenu />
       <FooterMenu />
@@ -66,8 +79,21 @@ export const FooterWidget = () => (
 );
 
 export const FooterLinks = () => (
-  <Flex height="3.4rem" w="full" justify="space-between" px={40} align="center">
-    <Text fontSize=".7rem" color="white" fontWeight="medium">
+  <Flex
+    height={['auto', '3.4rem']}
+    w="full"
+    justify="space-between"
+    px={['1rem', 40]}
+    align="center"
+    flexDirection={['column', 'row']}
+    pb={['1rem', 'unset']}
+  >
+    <Text
+      fontSize=".7rem"
+      color="white"
+      fontWeight="medium"
+      mb={['.5rem', 'unset']}
+    >
       © 2021 Nigeria Harmonicdev. All rights reserved
     </Text>
     <HStack spacing={5}>
