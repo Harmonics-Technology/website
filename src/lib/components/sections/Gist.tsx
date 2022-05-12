@@ -13,6 +13,7 @@ const Gist = () => (
     <Heading
       fontSize={{ base: '1.5rem', md: '2rem', xl: '2.5rem' }}
       color="brand.200"
+      textAlign={{ base: 'center', md: 'center', lg: 'left' }}
     >
       Latest Gist
     </Heading>

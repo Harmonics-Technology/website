@@ -81,8 +81,8 @@ const Header = () => {
         <Link href="/about">
           <Text color={getNavLinks('/about')}>About us</Text>
         </Link>
-        <Link href="/services">
-          <Text color={getNavLinks('/services')}>Our works</Text>
+        <Link href="/our-work">
+          <Text color={getNavLinks('/our-work')}>Our works</Text>
         </Link>
         <Link href="/thoughts">
           <Text color={getNavLinks('/thoughts')}>Thoughts</Text>

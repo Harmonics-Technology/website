@@ -75,6 +75,7 @@ const MeetourPeople = () => {
               fontSize: '48px',
             },
           }}
+          textAlign={['center', 'left']}
         >
           meet our people
         </Heading>

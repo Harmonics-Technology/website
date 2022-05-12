@@ -6,72 +6,78 @@
 /* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
 import { Box, Flex, Heading, Image } from '@chakra-ui/react';
+import Sliders from './sections/Sliders';
+import BrandSliders from './sections/BrandSlider';
 
 const Brands = () => {
   const [images, setImages] = useState<string[]>([
-    '/Frame1.svg',
-    '/Frame.svg',
+    '/brands/liquede.png',
+    '/brands/flypal.png',
     '/Frame2.svg',
     '/Frame3.svg',
     '/Frame4.svg',
   ]);
 
   return (
-    <Box
-      w="100%"
-      mt="40px"
-      mb="50px"
-      boxShadow="0 20px 10px -9px rgba(0, 0, 0, 0.18)"
-      pb="20px"
-    >
+    <Box w="100%" mt="40px" mb="50px">
       <Box w="100%">
         <Heading
           w="95%"
           margin="auto"
+          fontFamily="brSemi"
           sx={{
             '::first-letter': {
               textTransform: 'uppercase',
             },
             '@media(min-width: 800px)': {
-              fontSize: '48px',
+              fontSize: '45px',
               width: '90%',
             },
           }}
           lineHeight={1.5}
           fontSize="24px"
+          textAlign={['center', 'left']}
         >
-          notable brands we have worked with
+          some notable brands we have worked with
         </Heading>
         <Box
           w="100%"
+          boxShadow="0px 20px 25px rgba(212, 212, 212, 0.35)"
           sx={{
             '@media(min-width: 800px)': {
-              width: '90%',
+              width: '100%',
               margin: 'auto',
             },
           }}
         >
-          <Flex
-            w="100%"
-            overflow="hidden"
-            justifyContent="space-between"
-            align="center"
-            mt="20px"
+          <Box
+            w="90%"
+            // overflow="hidden"
+            py="2rem"
+            display="block"
+            placeContent="center"
+            h="8rem"
+            mx="auto"
           >
-            {images.map((image, index) => {
-              return (
-                <Image
-                  key={index}
-                  src={image}
-                  alt="logipsum"
-                  w="154px"
-                  h="27px"
-                  objectFit="cover"
-                  mr="10px"
-                />
-              );
-            })}
-          </Flex>
+            <BrandSliders
+              item={images.map((image, index) => {
+                return (
+                  <Image
+                    key={index}
+                    src={image}
+                    alt="logipsum"
+                    w="9rem"
+                    h="auto"
+                    // objectFit="cover"
+                    mr="10px"
+                    cursor="pointer"
+                    filter="grayscale(100%)"
+                    _hover={{ filter: 'grayscale(0%)' }}
+                  />
+                );
+              })}
+            />
+          </Box>
         </Box>
       </Box>
     </Box>

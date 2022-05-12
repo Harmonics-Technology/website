@@ -29,6 +29,7 @@ const Services = () => (
             fontSize: '2.5rem',
           },
         }}
+        textAlign={['center', 'left']}
       >
         What we do
       </Heading>

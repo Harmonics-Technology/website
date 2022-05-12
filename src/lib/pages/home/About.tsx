@@ -1,18 +1,20 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable prettier/prettier */
-import { Box, Button, Flex, Grid, Text, Heading } from '@chakra-ui/react';
+import { Box, Button, Flex, Grid, Text, Heading, Link } from '@chakra-ui/react';
 import Brands from 'lib/components/Brands';
-import AboutusHeader from 'lib/components/sections/AboutusHeader';
+// import AboutusHeader from 'lib/components/sections/AboutusHeader';
 import MeetourPeople from 'lib/components/sections/MeetourPeople';
+import PagesHero from 'lib/components/sections/PagesHero';
 import Services from 'lib/components/sections/Services';
+import NextLink from 'next/link';
 // import { useRef } from 'react';
 // import useRandomJokes from './useRandomJokes';
 
 function About() {
   return (
     <Box w="full" border="2px hidden red">
-      <AboutusHeader />
+      <PagesHero />
 
       <Box w="100%" mt="40px">
         <Grid
@@ -102,30 +104,14 @@ function About() {
           >
             <Heading
               fontSize="24px"
+              textAlign={['center', 'left']}
               lineHeight={1.5}
               mb="10px"
-              sx={{
-                '@media(min-width: 800px)': {
-                  fontSize: '48px',
-                },
-
-                '::first-letter': {
-                  textTransform: 'uppercase',
-                },
-              }}
             >
-              who are we ?
+              Who are we ?
             </Heading>
 
-            <Text
-              fontSize="18px"
-              lineHeight={1.5}
-              sx={{
-                '@media(min-width: 800px)': {
-                  fontSize: '20px',
-                },
-              }}
-            >
+            <Text fontSize={['16px', '18px']} lineHeight={1.5}>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
               penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -148,37 +134,41 @@ function About() {
 
       <Services />
 
-      <Flex
-        direction="column"
-        w="95%"
-        margin="20px auto"
-        sx={{
-          '@media(min-width: 800px)': {
-            width: '90%',
-            flexDirection: 'row',
-            justifyContent: 'flex-end',
-          },
-        }}
-      >
-        <Button
-          textTransform="capitalize"
-          w="100%"
-          outline="none"
-          _hover={{
-            outline: 'none',
-          }}
-          _focus={{
-            outline: 'none',
-          }}
-          sx={{
-            '@media(min-width: 800px)': {
-              width: '300px',
-            },
-          }}
-        >
-          work with us
-        </Button>
-      </Flex>
+      <NextLink href="/contact-us" passHref>
+        <Link>
+          <Flex
+            direction="column"
+            w="95%"
+            margin="20px auto"
+            sx={{
+              '@media(min-width: 800px)': {
+                width: '90%',
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+              },
+            }}
+          >
+            <Button
+              textTransform="capitalize"
+              w="100%"
+              outline="none"
+              _hover={{
+                outline: 'none',
+              }}
+              _focus={{
+                outline: 'none',
+              }}
+              sx={{
+                '@media(min-width: 800px)': {
+                  width: '300px',
+                },
+              }}
+            >
+              work with us
+            </Button>
+          </Flex>
+        </Link>
+      </NextLink>
 
       <MeetourPeople />
     </Box>
