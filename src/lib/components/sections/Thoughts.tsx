@@ -9,63 +9,120 @@ import {
 } from '@chakra-ui/react';
 import { BsArrowRight } from 'react-icons/bs';
 
-const Thoughts = () => (
-  <Box px={16} my="8rem">
-    <Flex justify="space-between" w="full" align="center">
-      <Heading fontSize="2.5rem" fontFamily="brSemi" color="brand.200">
-        Courses
-      </Heading>
-    </Flex>
-    <SimpleGrid columns={3} spacing={5} height="420px" mt="2rem">
-      <GridItem
-        colSpan={1}
-        h="full"
-        borderRadius="10px"
-        boxShadow="0px 20px 25px rgba(212, 212, 212, 0.35);"
-        bg="white"
-      >
-        <Box
-          pos="relative"
-          _before={{
-            content: '""',
-            width: '5rem',
-            height: '5rem',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%,-50%)',
-            zIndex: '3',
-            backgroundImage: 'url(Play.png)',
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
+const Thoughts = () => {
+  const thoughts = [
+    {
+      heading: '5 Importance of Sktech in Design',
+      textContent:
+        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous',
+    },
+
+    {
+      heading: '5 Importance of Sktech in Design',
+      textContent:
+        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous',
+    },
+
+    {
+      heading: '5 Importance of Sktech in Design',
+      textContent:
+        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous',
+    },
+  ];
+  return (
+    <Box my="3rem" w="90%" mr="auto" ml="auto">
+      <Flex justify="space-between" w="full" align="center">
+        <Heading
+          fontSize="24px"
+          fontFamily="brSemi"
+          color="brand.200"
+          sx={{
+            '@media(min-width: 700px)': {
+              fontSize: '2rem',
+            },
           }}
         >
-          <Image
-            src="/Rectangle 1.png"
-            alt="course1"
-            borderRadius="10px 10px 0 0"
-          />
-        </Box>
-        <Box px={4} pt="1.5rem">
-          <Text
-            fontWeight="500"
-            fontSize="1.1rem"
-            color="brand.200"
-            lineHeight={1.2}
+          Our thought
+        </Heading>
+      </Flex>
+      <SimpleGrid
+        columns={2}
+        spacing={5}
+        mt="2rem"
+        sx={{
+          '@media(min-width: 700px)': {
+            gridTemplateColumns: 'repeat(3, 1fr)',
+          },
+        }}
+      >
+        {thoughts.map((item, index) => (
+          <GridItem
+            key={index}
+            colSpan={1}
+            h="full"
+            borderRadius="10px"
+            boxShadow="0px 20px 25px rgba(212, 212, 212, 0.35);"
+            bg="white"
+            display={index === 2 ? 'none' : ''}
+            sx={{
+              '@media(min-width: 700px)': {
+                fontSize: '1rem',
+                display: index === 2 ? 'block' : '',
+              },
+            }}
           >
-            5 Importance of Sktech in Design
-          </Text>
-          <Text fontWeight="400" fontSize=".9rem" color="brand.200" mt={3}>
-            You know how often we try to save up for a purpose, to meet a target
-            or just a general “putting aside some money” for miscellaneous
-            expenses.
-          </Text>
-          <Flex justify="flex-end" mt="1.4rem">
-            <BsArrowRight />
-          </Flex>
-        </Box>
-      </GridItem>
-    </SimpleGrid>
-  </Box>
-);
+            <Box
+              w="100%"
+              h="100px"
+              sx={{
+                '@media(min-width: 700px)': {
+                  height: '200px',
+                },
+              }}
+            >
+              <Image
+                src="/Rectangle1.png"
+                alt="course1"
+                borderRadius="10px 10px 0 0"
+                w="100%"
+                h="100%"
+              />
+            </Box>
+            <Box padding="10px">
+              <Text
+                fontWeight="500"
+                fontSize="16px"
+                color="brand.200"
+                lineHeight={1.2}
+                sx={{
+                  '@media(min-width: 700px)': {
+                    fontSize: '1.5rem',
+                  },
+                }}
+              >
+                {item.heading}
+              </Text>
+              <Text
+                fontWeight="400"
+                fontSize="10px"
+                color="brand.200"
+                mt={3}
+                sx={{
+                  '@media(min-width: 700px)': {
+                    fontSize: '0.8rem',
+                  },
+                }}
+              >
+                {item.textContent}
+              </Text>
+              <Flex justify="flex-end" mt="1.4rem">
+                <BsArrowRight />
+              </Flex>
+            </Box>
+          </GridItem>
+        ))}
+      </SimpleGrid>
+    </Box>
+  );
+};
 export default Thoughts;
