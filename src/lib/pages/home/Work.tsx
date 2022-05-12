@@ -9,8 +9,8 @@ const Works = () => (
       templateColumns="repeat(2,1fr)"
       w="90%"
       mx="auto"
-      gap={10}
-      p={['5rem', '2rem']}
+      gap={[3,10]}
+      p={['2rem', '5rem']}
     >
       <Work />
       <Work />
