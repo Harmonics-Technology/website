@@ -1,7 +1,4 @@
-/* eslint-disable prettier/prettier */
 import { Box, Text } from '@chakra-ui/react';
-
-import Sliders from './Sliders';
 
 const Testimonials = () => (
   <Box bgColor="brand.100" h="780px" w="full" px={['1rem', 16]} py={10}>
@@ -14,7 +11,7 @@ const Testimonials = () => (
       Here is what our Clients are saying About us
     </Text>
     <Box w={['full', '70%']} mx="auto" mt="2rem">
-      <Sliders />
+      {/* <Sliders /> */}
     </Box>
   </Box>
 );

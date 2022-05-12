@@ -1,12 +1,5 @@
-/* eslint-disable no-console */
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-/* eslint-disable @typescript-eslint/restrict-plus-operands */
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable arrow-body-style */
-import React, { useState } from 'react';
-import { Box, Flex, Heading, Image } from '@chakra-ui/react';
-import Sliders from './sections/Sliders';
+import { useState } from 'react';
+import { Box, Heading, Image } from '@chakra-ui/react';
 import BrandSliders from './sections/BrandSlider';
 
 const Brands = () => {
@@ -60,22 +53,20 @@ const Brands = () => {
             mx="auto"
           >
             <BrandSliders
-              item={images.map((image, index) => {
-                return (
-                  <Image
-                    key={index}
-                    src={image}
-                    alt="logipsum"
-                    w="9rem"
-                    h="auto"
-                    // objectFit="cover"
-                    mr="10px"
-                    cursor="pointer"
-                    filter="grayscale(100%)"
-                    _hover={{ filter: 'grayscale(0%)' }}
-                  />
-                );
-              })}
+              item={images.map((image, index) => (
+                <Image
+                  key={index}
+                  src={image}
+                  alt="logipsum"
+                  w="9rem"
+                  h="auto"
+                  // objectFit="cover"
+                  mr="10px"
+                  cursor="pointer"
+                  filter="grayscale(100%)"
+                  _hover={{ filter: 'grayscale(0%)' }}
+                />
+              ))}
             />
           </Box>
         </Box>

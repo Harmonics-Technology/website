@@ -1,8 +1,4 @@
-/* eslint-disable react/self-closing-comp */
-/* eslint-disable arrow-body-style */
-/* eslint-disable prettier/prettier */
 import { Box, Grid, Heading, Text } from '@chakra-ui/react';
-import React from 'react';
 
 interface EmployeeInfo {
   name: string;
@@ -89,25 +85,23 @@ const MeetourPeople = () => {
           columnGap={4}
           mt="20px"
         >
-          {employeeInfo.map((details, index) => {
-            return (
-              <Box key={index} mb="20px">
-                <Box
-                  w="100%"
-                  h={['193px', '400px']}
-                  bg="brand.700"
-                  borderRadius="10px"
-                ></Box>
+          {employeeInfo.map((details, index) => (
+            <Box key={index} mb="20px">
+              <Box
+                w="100%"
+                h={['193px', '400px']}
+                bg="brand.700"
+                borderRadius="10px"
+              />
 
-                <Box margin="10px auto">
-                  <Text fontWeight={700} textTransform="capitalize">
-                    {details.name}
-                  </Text>
-                  <Text textTransform="capitalize">{details.title}</Text>
-                </Box>
+              <Box margin="10px auto">
+                <Text fontWeight={700} textTransform="capitalize">
+                  {details.name}
+                </Text>
+                <Text textTransform="capitalize">{details.title}</Text>
               </Box>
-            );
-          })}
+            </Box>
+          ))}
         </Grid>
       </Box>
     </Box>

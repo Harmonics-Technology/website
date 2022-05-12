@@ -1,12 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {
-  Box,
-  Flex,
-  GridItem,
-  Heading,
-  SimpleGrid,
-  Text,
-} from '@chakra-ui/react';
+import { Box, GridItem, Heading, SimpleGrid, Text } from '@chakra-ui/react';
 
 const Services = () => (
   <Box

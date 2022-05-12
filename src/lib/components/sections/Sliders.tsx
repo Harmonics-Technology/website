@@ -27,6 +27,7 @@ function Sliders() {
       infinite
     >
       <Box
+        as="div"
         w={['90%', '60% !important']}
         h="350px"
         px="1rem"
@@ -54,6 +55,7 @@ function Sliders() {
         </Text>
       </Box>
       <Box
+        as="div"
         w={['90%', '60% !important']}
         h="350px"
         px="1rem"
@@ -81,6 +83,7 @@ function Sliders() {
         </Text>
       </Box>
       <Box
+        as="div"
         w={['90%', '60% !important']}
         h="350px"
         px="1rem"
@@ -108,6 +111,7 @@ function Sliders() {
         </Text>
       </Box>
       <Box
+        as="div"
         w={['90%', '60% !important']}
         h="350px"
         px="1rem"
