@@ -23,7 +23,7 @@ Button,
           <Text fontWeight="400" fontSize={['.7rem','1.2rem']} color="brand.200" my={['1.1rem !important','2.5rem !important']}>
           Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.
             </Text>
-            <Button bgColor='brand.800' color='#fff'  w={['100%', '50%']}>Read More</Button>
+            <Button bgColor='brand.800' color='#fff'  w={['50%', '50%']}>Read More</Button>
         </Stack>
       </Box>
 

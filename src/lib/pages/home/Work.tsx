@@ -7,10 +7,10 @@ const Works = () => (
     <PagesHero/>
     <Grid
       templateColumns="repeat(2,1fr)"
-      w="90%"
+      w={["100%","90%"]}
       mx="auto"
-      gap={[3,10]}
-      p={['2rem', '5rem']}
+      gap={['2','10']}
+      p={['1rem', '5rem']}
     >
       <Work />
       <Work />
