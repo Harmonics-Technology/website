@@ -45,7 +45,7 @@ const Hero = () => (
     <VStack w="full">
       <Box h={['400px', '690px']} w="full" borderRadius="0px 0px 0px 150px;">
         <Image
-          src="/Rectangle 2.png"
+          src="/Rectangle2.png"
           h="full"
           w="full"
           objectFit="cover"
