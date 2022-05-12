@@ -10,13 +10,13 @@ import {
 
 const Services = () => (
   <Box
-    w="95%"
+    w="90%"
     margin="20px auto"
-    sx={{
-      '@media(min-width: 800px)': {
-        width: '90%',
-      },
-    }}
+    // sx={{
+    //   '@media(min-width: 800px)': {
+    //     width: '90%',
+    //   },
+    // }}
   >
     <Box w="100%" mt="20px">
       <Heading

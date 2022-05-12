@@ -7,6 +7,7 @@ const Works = () => (
     <PagesHero />
     <Grid
       templateColumns="repeat(2,1fr)"
+<<<<<<< HEAD
       w={['full', '95%']}
       mx="auto"
       mt="2rem"
@@ -20,6 +21,20 @@ const Works = () => (
       <Work bg="#f8c8ff" />
       <Work bg="#CFAFFF" />
     </Grid>
+=======
+      w={["100%","90%"]}
+      mx="auto"
+      gap={['2','10']}
+      p={['1rem', '5rem']}
+    >
+      <Work color="#f8c8ff" />
+      <Work color="#cfafff" />
+      <Work color="#f8c8ff" />
+      <Work color="#cfafff" />
+      <Work color="#f8c8ff" />
+      <Work color="#cfafff" />
+  </Grid>
+>>>>>>> fb3b1acbb40e943caccfd560de4f7ce7455c3481
   </>
 );
 

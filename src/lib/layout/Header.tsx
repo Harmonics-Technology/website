@@ -81,7 +81,11 @@ const Header = () => {
         <Link href="/about">
           <Text color={getNavLinks('/about')}>About us</Text>
         </Link>
+<<<<<<< HEAD
         <Link href="/our-work">
+=======
+        <Link href="/services">
+>>>>>>> fb3b1acbb40e943caccfd560de4f7ce7455c3481
           <Text color={getNavLinks('/our-work')}>Our works</Text>
         </Link>
         <Link href="/thoughts">
