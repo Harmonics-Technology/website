@@ -8,8 +8,8 @@ const Button: DeepPartial<Theme['components']['Button']> = {
     solid: {
       backgroundColor: 'brand.100',
       color: 'white',
-      minWidth: '200px',
-      height: '55px',
+      minWidth: '12.5rem',
+      height: '3.4rem',
       _hover: {
         backgroundColor: 'brand.100',
       },
@@ -17,8 +17,8 @@ const Button: DeepPartial<Theme['components']['Button']> = {
     outline: {
       color: 'brand.100',
       borderColor: 'brand.100',
-      minWidth: '200px',
-      height: '55px',
+      minWidth: '12.5rem',
+      height: '3.4rem',
       _hover: {
         backgroundColor: 'brand.100',
         color: 'white',

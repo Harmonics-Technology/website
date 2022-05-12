@@ -8,10 +8,10 @@ import {
 Button,
 } from '@chakra-ui/react';
   
-  const Work = () => (
+  const Work = (props) => (
 
     
-      <Box w='90%'  h='40rem'  bg='#f8c8ff' boxShadow='2xl'  rounded='md'  p='6' overflow='hidden'>
+      <Box w='90%'  h='40rem'  bg={props.color} boxShadow='2xl'  rounded='md'  p='6' overflow='hidden'>
         <Box h='20rem' bg='#c4c4c4' mt='-6' mx='-6' mb='6' pos='relative'>
           <Image
             src="/ourWork.svg"
@@ -23,7 +23,7 @@ Button,
           <Text fontWeight="400" fontSize={['.7rem','1.2rem']} color="brand.200" my={['1.1rem !important','2.5rem !important']}>
           Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.
             </Text>
-            <Button bgColor='brand.800' color='#fff'  w={['50%', '50%']}>Read More</Button>
+            <Button bgColor='brand.800' color='#fff' mb='.75rem'  w={['50%', '50%']}>Read More</Button>
         </Stack>
       </Box>
 

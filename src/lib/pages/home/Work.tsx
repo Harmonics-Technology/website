@@ -12,12 +12,12 @@ const Works = () => (
       gap={['2','10']}
       p={['1rem', '5rem']}
     >
-      <Work />
-      <Work />
-      <Work />
-      <Work />
-      <Work />
-      <Work />
+      <Work color="#f8c8ff" />
+      <Work color="#cfafff" />
+      <Work color="#f8c8ff" />
+      <Work color="#cfafff" />
+      <Work color="#f8c8ff" />
+      <Work color="#cfafff" />
   </Grid>
   </>
 );
