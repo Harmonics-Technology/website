@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable react/jsx-props-no-spreading */
 import { ColorModeScript } from '@chakra-ui/react';
 import type { DocumentContext } from 'next/document';

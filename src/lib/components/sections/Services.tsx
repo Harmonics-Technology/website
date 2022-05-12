@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   Box,
   Flex,
@@ -8,28 +9,56 @@ import {
 } from '@chakra-ui/react';
 
 const Services = () => (
-  <Box px={16} my="8rem">
-    <Flex justify="space-between" w="full" align="center">
-      <Heading fontSize="2.5rem" fontFamily="brSemi" color="brand.200">
+  <Box
+    w="95%"
+    margin="20px auto"
+    sx={{
+      '@media(min-width: 800px)': {
+        width: '90%',
+      },
+    }}
+  >
+    <Box w="100%" mt="20px">
+      <Heading
+        fontSize="1.5rem"
+        fontFamily="brSemi"
+        lineHeight={1.5}
+        color="brand.200"
+        sx={{
+          '@media(min-width: 800px)': {
+            fontSize: '2.5rem',
+          },
+        }}
+      >
         What we do
       </Heading>
-    </Flex>
-    <SimpleGrid columns={3} spacing={5} height="320px" mt="2rem">
+    </Box>
+    <SimpleGrid columns={[1, 3]} spacing={5} mt="2rem">
       <GridItem
         colSpan={1}
         h="full"
-        borderRadius="10px"
+        borderRadius={['5px', '10px']}
         bg="rgba(160, 60, 174, 0.08)"
-        px="1rem"
+        padding="1.5rem"
         display="flex"
         alignItems="center"
         justifyContent="center"
       >
         <Box>
-          <Text fontSize="2rem" fontWeight="bold" color="brand.100">
+          <Text
+            fontSize={['1.25rem', '2rem']}
+            fontWeight="bold"
+            color="brand.100"
+          >
             Product Design
           </Text>
-          <Text fontSize="1rem" fontWeight="regular" mt="1rem">
+          <Text
+            fontSize="1rem"
+            fontWeight="regular"
+            mt="1rem"
+            lineHeight={1.5}
+            pb="5px"
+          >
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
             penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -40,18 +69,28 @@ const Services = () => (
       <GridItem
         colSpan={1}
         h="full"
-        borderRadius="10px"
+        borderRadius={['5px', '10px']}
         bg="rgba(255, 0, 0, 0.08)"
-        px="1rem"
+        padding="1.5rem"
         display="flex"
         alignItems="center"
         justifyContent="center"
       >
         <Box>
-          <Text fontSize="2rem" fontWeight="bold" color="brand.100">
+          <Text
+            fontSize={['1.25rem', '2rem']}
+            fontWeight="bold"
+            color="brand.100"
+          >
             Product Design
           </Text>
-          <Text fontSize="1rem" fontWeight="regular" mt="1rem">
+          <Text
+            fontSize="1rem"
+            fontWeight="regular"
+            mt="1rem"
+            lineHeight={1.5}
+            pb="5px"
+          >
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
             penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -62,18 +101,28 @@ const Services = () => (
       <GridItem
         colSpan={1}
         h="full"
-        borderRadius="10px"
+        borderRadius={['5px', '10px']}
         bg="rgba(0, 137, 47, 0.08)"
-        px="1rem"
+        padding="1.5rem"
         display="flex"
         alignItems="center"
         justifyContent="center"
       >
         <Box>
-          <Text fontSize="2rem" fontWeight="bold" color="brand.100">
+          <Text
+            fontSize={['1.25rem', '2rem']}
+            fontWeight="bold"
+            color="brand.100"
+          >
             Product Design
           </Text>
-          <Text fontSize="1rem" fontWeight="regular" mt="1rem">
+          <Text
+            fontSize="1rem"
+            fontWeight="regular"
+            mt="1rem"
+            lineHeight={1.5}
+            pb="5px"
+          >
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
             penatibus et magnis dis parturient montes, nascetur ridiculus mus.
