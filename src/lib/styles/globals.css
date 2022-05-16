@@ -24,6 +24,9 @@
   font-family: 'BR Firma Medium';
   src: url('/brfirma/BR\ Firma\ Regular.otf') format('opentype');
 }
+.react-multi-carousel-track {
+  align-items: center;
+}
 .react-multiple-carousel__arrow {
   background: none !important;
 }
