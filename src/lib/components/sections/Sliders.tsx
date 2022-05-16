@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Circle, Image, Text } from '@chakra-ui/react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -23,36 +23,41 @@ function Sliders() {
       showDots={false}
       arrows
       removeArrowOnDeviceType={['tablet', 'mobile']}
-      autoPlay
+      autoPlay={false}
       infinite
     >
-      <Box
-        as="div"
-        w={['90%', '60% !important']}
-        h="350px"
-        px="1rem"
-        bgColor="white"
-        mx="auto"
-        borderRadius="12px"
-        display="flex !important"
-        flexDirection="column"
-        justifyContent="center"
-      >
-        <Text
-          fontWeight="bold"
-          fontSize={['1rem', '22px']}
-          textAlign="center"
-          mb={4}
+      <Box>
+        <Box
+          as="div"
+          w={['90%', '60% !important']}
+          h="350px"
+          px="1rem"
+          bgColor="white"
+          mx="auto"
+          borderRadius="12px"
+          display="flex !important"
+          flexDirection="column"
+          justifyContent="center"
         >
-          It was a very good experience
-        </Text>
-        <Text fontSize={['.9rem', '1rem']} textAlign="center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh
-          mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget
-          nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
-          felis id augue sit cursus pellentesque enim arcu. Elementum felis
-          magna{' '}
-        </Text>
+          <Text
+            fontWeight="bold"
+            fontSize={['1rem', '22px']}
+            textAlign="center"
+            mb={4}
+          >
+            It was a very good experience
+          </Text>
+          <Text fontSize={['.9rem', '1rem']} textAlign="center">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus nibh
+            mauris, nec turpis orci lectus maecenas. Suspendisse sed magna eget
+            nibh in turpis. Consequat duis diam lacus arcu. Faucibus venenatis
+            felis id augue sit cursus pellentesque enim arcu. Elementum felis
+            magna{' '}
+          </Text>
+        </Box>
+        <Circle bgColor="red" size="8rem" mx="auto">
+          <Image src="" />
+        </Circle>
       </Box>
       <Box
         as="div"
