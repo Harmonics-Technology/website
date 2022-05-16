@@ -136,7 +136,7 @@ export const FooterLinks = () => (
       display={['grid', 'flex']}
       gridTemplateColumns="repeat(2, 1fr)"
       position={['absolute', 'unset']}
-      top="94.8%"
+      top="170px"
       left="50%"
       gap={[5, 0]}
     >
@@ -156,7 +156,7 @@ export const FooterLinks = () => (
   </Flex>
 );
 const Footer = () => (
-  <VStack h="fit-content" bgColor="brand.200">
+  <VStack h="fit-content" bgColor="brand.200" pos="relative">
     <FooterWidget />
     <Divider />
     <FooterLinks />
