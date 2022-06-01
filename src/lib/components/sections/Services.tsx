@@ -45,15 +45,9 @@ const Services = () => (
             lineHeight={1.5}
             pb="5px"
           >
-<<<<<<< HEAD
             Our appetite for curiosity has led us to create ideas that are built
             on empathy which has over the years motivated our design thinking to
             produce functional prototypes and usable designs.
-=======
-            Our appetite for curiosity has led us to create ideas that are built on 
-            empathy which has over the years motivated our design thinking to produce
-             functional prototypes and usable designs. {' '}
->>>>>>> 111d7dc9246865d43d1d1264f11370c79aa4e9b8
           </Text>
         </Box>
       </GridItem>
@@ -82,15 +76,9 @@ const Services = () => (
             lineHeight={1.5}
             pb="5px"
           >
-<<<<<<< HEAD
             We are dedicated to guaranteeing modern designs that are usable and
             relatable to our clients by creating and maintaining applications
             that would help their businesses thrive in any weather.
-=======
-            We are dedicated to guaranteeing modern designs that are usable and relatable to our 
-            clients by creating and maintaining applications that would help their businesses 
-            thrive in any weather.{' '}
->>>>>>> 111d7dc9246865d43d1d1264f11370c79aa4e9b8
           </Text>
         </Box>
       </GridItem>
@@ -119,17 +107,10 @@ const Services = () => (
             lineHeight={1.5}
             pb="5px"
           >
-<<<<<<< HEAD
             We create engaging content that consists of projecting visual
             communications intended to transmit specific messages to social
             groups, with specific objectives. We create and recreate brand
             identity that makes your business stand out.
-=======
-            We create engaging content that consists of projecting visual communications intended to
-             transmit specific messages to social groups, with specific objectives. We create and recreate 
-             brand identity that makes your business stand out.
-            {' '}
->>>>>>> 111d7dc9246865d43d1d1264f11370c79aa4e9b8
           </Text>
         </Box>
       </GridItem>
