@@ -119,16 +119,11 @@ const About = () => (
           }}
           lineHeight={1.5}
         >
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, <br />
-          <br />
-          pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-          fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-          rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis
-          eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
-          elementum semper nisi. Aenean vulputate eleifend tellus.
+         We are a brand that is powered by an ingenious team committed to creating world-class products that reflect your ideas. Our goal is to provide organizations with services that add value to their businesses and solve problems thereby allowing the space for financial growth.
+
+<br/>As a team, we are attentive & empathetic to our client’s needs & wants and we strive to create unique design solutions that are user-centred for their various businesses.
+
+<br/>At harmonic technologies, we believe in continuity, so we provide courses in uiux, software development(frontend & Backend ), Graphics. to help build your career in tech.
         </Text>
         <Button variant="outline">Learn More</Button>
       </Box>

@@ -53,10 +53,9 @@ const Services = () => (
             lineHeight={1.5}
             pb="5px"
           >
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu,{' '}
+            Our appetite for curiosity has led us to create ideas that are built on 
+            empathy which has over the years motivated our design thinking to produce
+             functional prototypes and usable designs. {' '}
           </Text>
         </Box>
       </GridItem>
@@ -85,10 +84,9 @@ const Services = () => (
             lineHeight={1.5}
             pb="5px"
           >
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu,{' '}
+            We are dedicated to guaranteeing modern designs that are usable and relatable to our 
+            clients by creating and maintaining applications that would help their businesses 
+            thrive in any weather.{' '}
           </Text>
         </Box>
       </GridItem>
@@ -117,10 +115,10 @@ const Services = () => (
             lineHeight={1.5}
             pb="5px"
           >
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            Donec quam felis, ultricies nec, pellentesque eu,{' '}
+            We create engaging content that consists of projecting visual communications intended to
+             transmit specific messages to social groups, with specific objectives. We create and recreate 
+             brand identity that makes your business stand out.
+            {' '}
           </Text>
         </Box>
       </GridItem>

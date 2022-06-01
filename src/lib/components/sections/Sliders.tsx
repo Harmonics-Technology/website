@@ -97,11 +97,12 @@ function Sliders() {
               It was a very good experience
             </Text>
             <Text fontSize={['.9rem', '1rem']} textAlign="center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-              nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed
-              magna eget nibh in turpis. Consequat duis diam lacus arcu.
-              Faucibus venenatis felis id augue sit cursus pellentesque enim
-              arcu. Elementum felis magna{' '}
+              “Over the years I have had to struggle with growth in my business
+              but with the help of Harmonic Technologies, my business has been
+              able to grow. During the design period, they carried me along with
+              all their progress so far by conducting weekly meetings where they
+              provide me with updates on my design and we deliberate more on
+              achieving my goal.”{' '}
             </Text>
             <Text
               textAlign="center"
@@ -166,11 +167,12 @@ function Sliders() {
               The best team
             </Text>
             <Text fontSize={['.9rem', '1rem']} textAlign="center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-              nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed
-              magna eget nibh in turpis. Consequat duis diam lacus arcu.
-              Faucibus venenatis felis id augue sit cursus pellentesque enim
-              arcu. Elementum felis magna{' '}
+              “Over the years I have had to struggle with growth in my business
+              but with the help of Harmonic Technologies, my business has been
+              able to grow. During the design period, they carried me along with
+              all their progress so far by conducting weekly meetings where they
+              provide me with updates on my design and we deliberate more on
+              achieving my goal.”{' '}
             </Text>
             <Text
               textAlign="center"
@@ -235,11 +237,12 @@ function Sliders() {
               It was a very good experience
             </Text>
             <Text fontSize={['.9rem', '1rem']} textAlign="center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-              nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed
-              magna eget nibh in turpis. Consequat duis diam lacus arcu.
-              Faucibus venenatis felis id augue sit cursus pellentesque enim
-              arcu. Elementum felis magna{' '}
+              “Over the years I have had to struggle with growth in my business
+              but with the help of Harmonic Technologies, my business has been
+              able to grow. During the design period, they carried me along with
+              all their progress so far by conducting weekly meetings where they
+              provide me with updates on my design and we deliberate more on
+              achieving my goal.”{' '}
             </Text>
             <Text
               textAlign="center"
@@ -304,11 +307,12 @@ function Sliders() {
               It was a very good experience
             </Text>
             <Text fontSize={['.9rem', '1rem']} textAlign="center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-              nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed
-              magna eget nibh in turpis. Consequat duis diam lacus arcu.
-              Faucibus venenatis felis id augue sit cursus pellentesque enim
-              arcu. Elementum felis magna{' '}
+              “Over the years I have had to struggle with growth in my business
+              but with the help of Harmonic Technologies, my business has been
+              able to grow. During the design period, they carried me along with
+              all their progress so far by conducting weekly meetings where they
+              provide me with updates on my design and we deliberate more on
+              achieving my goal.”{' '}
             </Text>
             <Text
               textAlign="center"

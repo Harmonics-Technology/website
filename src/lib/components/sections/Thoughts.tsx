@@ -14,19 +14,19 @@ const Thoughts = () => {
     {
       heading: '5 Importance of Sktech in Design',
       textContent:
-        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous',
+        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous expenses.',
     },
 
     {
       heading: '5 Importance of Sktech in Design',
       textContent:
-        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous',
+        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous expenses.',
     },
 
     {
       heading: '5 Importance of Sktech in Design',
       textContent:
-        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous',
+        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous expenses.',
     },
   ];
   return (
