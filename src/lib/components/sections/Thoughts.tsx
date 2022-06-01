@@ -14,27 +14,13 @@ const Thoughts = () => {
     {
       heading: 'My Tech Journey: How I Started My Career In Product Design',
       textContent:
-<<<<<<< HEAD
         'I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father’s land, as a teacher, in a private school.',
-=======
-        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous expenses.',
->>>>>>> 111d7dc9246865d43d1d1264f11370c79aa4e9b8
     },
 
     {
       heading: 'The Differences between UI design and UX design',
       textContent:
-<<<<<<< HEAD
         'Often times, the term UI and UX Design are being used mutually in the industry and outside the design industry. Incase you don’t know, UI and UX are two different words but work together. UI means User Interface while UX means User Experience.',
-=======
-        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous expenses.',
-    },
-
-    {
-      heading: '5 Importance of Sktech in Design',
-      textContent:
-        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous expenses.',
->>>>>>> 111d7dc9246865d43d1d1264f11370c79aa4e9b8
     },
   ];
   return (

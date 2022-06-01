@@ -120,7 +120,6 @@ const About = () => (
           }}
           lineHeight={1.5}
         >
-<<<<<<< HEAD
           Harmonics Technologies is an online education platform aimed at
           educating and inspiring designers and developers around the world. As
           an innovative product market, we offer a wealth of advanced e-learning
@@ -128,13 +127,6 @@ const About = () => (
           <br /> <br /> We are committed to growing the community in the
           technology industry by providing practical user-centric design and
           product knowledge to increase creativity and passion.
-=======
-         We are a brand that is powered by an ingenious team committed to creating world-class products that reflect your ideas. Our goal is to provide organizations with services that add value to their businesses and solve problems thereby allowing the space for financial growth.
-
-<br/>As a team, we are attentive & empathetic to our client’s needs & wants and we strive to create unique design solutions that are user-centred for their various businesses.
-
-<br/>At harmonic technologies, we believe in continuity, so we provide courses in uiux, software development(frontend & Backend ), Graphics. to help build your career in tech.
->>>>>>> 111d7dc9246865d43d1d1264f11370c79aa4e9b8
         </Text>
         <Link href="/about" passHref>
           <Button variant="outline">Learn More</Button>
