@@ -53,42 +53,22 @@ const Brands = () => {
             mx="auto"
           >
             <BrandSliders
-<<<<<<< HEAD
-              item={images.map((image, index) => {
-                return (
-                  <Box w="9rem" h="50px" key={index}>
-                    <Image
-                      display="inline-block"
-                      
-                      src={image}
-                      alt="logipsum"
-                      // objectFit="cover"
-                      w="100%"
-                      h="100%"
-                      mr="10px"
-                      cursor="pointer"
-                      filter="grayscale(100%)"
-                      _hover={{ filter: 'grayscale(0%)' }}
-                    />
-                  </Box>
-                );
-              })}
-=======
               item={images.map((image, index) => (
-                <Image
-                  key={index}
-                  src={image}
-                  alt="logipsum"
-                  w="9rem"
-                  h="auto"
-                  // objectFit="cover"
-                  mr="10px"
-                  cursor="pointer"
-                  filter="grayscale(100%)"
-                  _hover={{ filter: 'grayscale(0%)' }}
-                />
+                <Box w="9rem" h="50px" key={index}>
+                  <Image
+                    display="inline-block"
+                    src={image}
+                    alt="logipsum"
+                    // objectFit="cover"
+                    w="100%"
+                    h="100%"
+                    mr="10px"
+                    cursor="pointer"
+                    filter="grayscale(100%)"
+                    _hover={{ filter: 'grayscale(0%)' }}
+                  />
+                </Box>
               ))}
->>>>>>> 111d7dc9246865d43d1d1264f11370c79aa4e9b8
             />
           </Box>
         </Box>
