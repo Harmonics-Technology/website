@@ -55,7 +55,7 @@ const MeetourPeople = () => {
   return (
     <Box mt="30px">
       <Box
-        w="95%"
+        w="90%"
         margin="auto"
         sx={{
           '@media(min-width: 800px)': {

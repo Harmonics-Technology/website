@@ -12,21 +12,15 @@ import { BsArrowRight } from 'react-icons/bs';
 const Thoughts = () => {
   const thoughts = [
     {
-      heading: '5 Importance of Sktech in Design',
+      heading: 'My Tech Journey: How I Started My Career In Product Design',
       textContent:
-        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous',
+        'I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father’s land, as a teacher, in a private school.',
     },
 
     {
-      heading: '5 Importance of Sktech in Design',
+      heading: 'The Differences between UI design and UX design',
       textContent:
-        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous',
-    },
-
-    {
-      heading: '5 Importance of Sktech in Design',
-      textContent:
-        'You know how often we try to save up for a purpose, to meet a target or just a general “putting aside some money” for miscellaneous',
+        'Often times, the term UI and UX Design are being used mutually in the industry and outside the design industry. Incase you don’t know, UI and UX are two different words but work together. UI means User Interface while UX means User Experience.',
     },
   ];
   return (
@@ -88,7 +82,13 @@ const Thoughts = () => {
                 h="100%"
               />
             </Box>
-            <Box padding="10px">
+            <Box
+              padding="10px"
+              h="15rem"
+              display="flex"
+              flexDirection="column"
+              justifyContent="flex-end"
+            >
               <Text
                 fontWeight="500"
                 fontSize="16px"
@@ -106,6 +106,10 @@ const Thoughts = () => {
                 fontWeight="400"
                 fontSize="10px"
                 color="brand.200"
+                h="3.5rem"
+                overflow="hidden"
+                textOverflow="ellipsis"
+                // whiteSpace="nowrap"
                 mt={3}
                 sx={{
                   '@media(min-width: 700px)': {
@@ -115,7 +119,7 @@ const Thoughts = () => {
               >
                 {item.textContent}
               </Text>
-              <Flex justify="flex-end" mt="1.4rem">
+              <Flex justify="flex-end" alignSelf="flex-end" mt="1.4rem">
                 <BsArrowRight />
               </Flex>
             </Box>

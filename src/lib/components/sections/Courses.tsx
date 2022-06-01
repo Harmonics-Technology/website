@@ -38,7 +38,7 @@ const Courses = () => {
     },
   ];
   return (
-    <Box my="8rem">
+    <Box my="8rem" opacity="0.3">
       <Box w="90%" margin="auto">
         <Flex justify="space-between" w="full" align="center">
           <Heading
@@ -62,7 +62,7 @@ const Courses = () => {
               },
             }}
           >
-            View All Courses
+            Coming soon...
           </Text>
         </Flex>
         <SimpleGrid

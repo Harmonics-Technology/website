@@ -7,6 +7,7 @@ import {
   Image,
   Text,
   VStack,
+  Link,
 } from '@chakra-ui/react';
 
 const Hero = () => (
@@ -37,9 +38,12 @@ const Hero = () => (
       </Box>
       <HStack justify="space-between" mt="2.5rem !important">
         {/* <Input placeholder="Enter your email address" height="55px" /> */}
-        <Button variant="solid" w={['full', 'fit-content']}>
-          Chat with us
-        </Button>
+
+        <Link href="https://wa.me/2348180041801" target="_blank">
+          <Button variant="solid" w={['full', 'fit-content']}>
+            Chat with us
+          </Button>
+        </Link>
       </HStack>
     </VStack>
     <VStack w="full">

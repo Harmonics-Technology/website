@@ -1,25 +1,27 @@
 /** @type {import('next-seo').DefaultSeoProps} */
 const defaultSEOConfig = {
-  title: "nextarter-chakra",
-  titleTemplate: "%s | nextarter-chakra",
-  defaultTitle: "nextarter-chakra",
-  description: "Next.js + chakra-ui + TypeScript template",
-  canonical: "https://nextarter-chakra.sznm.dev",
+  title: 'Harmonics Technology',
+  titleTemplate: '%s | leading technology solution',
+  defaultTitle: 'Harmonics Technology',
+  description:
+    'Harmonic Technology specialize in software development, Graphics designs and Product designs/(uiux). We create well-researched user interfaces and build resourceful applications that are tailored to suit our client’s specific needs.',
+  canonical: 'https://harmonicstechnology.com',
   openGraph: {
-    url: "https://nextarter-chakra.sznm.dev",
-    title: "nextarter-chakra",
-    description: "Next.js + chakra-ui + TypeScript template",
+    url: 'https://harmonicstechnology.com',
+    title: 'Harmonics Technology',
+    description:
+      'Harmonic Technology specialize in software development, Graphics designs and Product designs/(uiux). We create well-researched user interfaces and build resourceful applications that are tailored to suit our client’s specific needs.',
     images: [
       {
-        url: "https://og-image.sznm.dev/**nextarter-chakra**.sznm.dev.png?theme=dark&md=1&fontSize=125px&images=https%3A%2F%2Fsznm.dev%2Favataaars.svg&widths=250",
-        alt: "nextarter-chakra.sznm.dev og-image",
+        url: 'https://www.harmonicstechnology.com/Rectangle2.png,',
+        alt: 'harmonics-technology',
       },
     ],
-    site_name: "nextarter-chakra",
+    site_name: 'Harmonics Technology',
   },
   twitter: {
-    handle: "@sozonome",
-    cardType: "summary_large_image",
+    handle: '@harmonicsTechnology',
+    cardType: 'summary_large_image',
   },
 };
 

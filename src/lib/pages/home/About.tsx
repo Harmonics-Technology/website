@@ -19,7 +19,7 @@ function About() {
       <Box w="100%" mt="40px">
         <Grid
           templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)']}
-          w="95%"
+          w="90%"
           margin="auto"
           sx={{
             '@media(min-width: 800px)': {
@@ -138,7 +138,7 @@ function About() {
         <Link>
           <Flex
             direction="column"
-            w="95%"
+            w="90%"
             margin="20px auto"
             sx={{
               '@media(min-width: 800px)': {

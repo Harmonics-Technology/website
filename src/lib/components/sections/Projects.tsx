@@ -6,6 +6,7 @@ import {
   Flex,
   Button,
   Image,
+  Link,
 } from '@chakra-ui/react';
 
 const Projects = () => (
@@ -54,7 +55,7 @@ const Projects = () => (
               }}
             >
               <Image
-                src="/FI-1-03 1.png"
+                src="img4.jpg"
                 alt="Placeholder"
                 objectFit="cover"
                 height="full"
@@ -75,16 +76,17 @@ const Projects = () => (
         >
           <Box>
             <Heading fontSize="2.5rem" fontFamily="brRegular" color="brand.200">
-              Project Name
+              Property Mataaz
             </Heading>
             <Text fontSize=".9rem" fontWeight="regular" w="95%" my="2rem">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-              nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed
-              magna eget nibh in turpis. Consequat duis diam lacus arcu.
-              Faucibus venenatis felis id augue sit cursus pellentesque enim
-              arcu. Elementum felis magna
+              Property Mataaz is an Estate Management agency located in Lagos
+              Nigeria whose main drive is to provide solutions to property sale,
+              rent, loans and related
             </Text>
-            <Button variant="outline">Read More</Button>
+
+            <Link href="https://propertymataaz.com" target="_blank">
+              <Button variant="outline">Read More</Button>
+            </Link>
           </Box>
         </Box>
       </Flex>
@@ -111,16 +113,20 @@ const Projects = () => (
             }}
           >
             <Heading fontSize="2.5rem" fontFamily="brRegular" color="brand.200">
-              Project Name
+              Liquede
             </Heading>
             <Text fontSize=".9rem" fontWeight="regular" w="95%" my="2rem">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus
-              nibh mauris, nec turpis orci lectus maecenas. Suspendisse sed
-              magna eget nibh in turpis. Consequat duis diam lacus arcu.
-              Faucibus venenatis felis id augue sit cursus pellentesque enim
-              arcu. Elementum felis magna
+              Liquede is a product of Liquede Limited, a subsidiary of Oxygen
+              Holdings. Banking services on Liquede are provided by Bank
+              Limited, which is registered with the Central Bank of Nigeria.
+              Payments on Liquede are made via Interswitch; a PCI DSS certified
+              payment platform with bank-level security to ensure your
+              transactions and financial information are kept safe at all times.
             </Text>
-            <Button variant="outline">Read More</Button>
+
+            <Link href="https://liquede.com">
+              <Button variant="outline">Read More</Button>
+            </Link>
           </Box>
         </VStack>
         <VStack alignItems="flex-start" height="full" width="full">
@@ -137,7 +143,7 @@ const Projects = () => (
               }}
             >
               <Image
-                src="/Rectangle45.png"
+                src="/img3.jpg"
                 alt="Placeholder"
                 objectFit="cover"
                 height="full"

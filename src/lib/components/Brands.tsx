@@ -62,18 +62,21 @@ const Brands = () => {
             <BrandSliders
               item={images.map((image, index) => {
                 return (
-                  <Image
-                    key={index}
-                    src={image}
-                    alt="logipsum"
-                    w="9rem"
-                    h="auto"
-                    // objectFit="cover"
-                    mr="10px"
-                    cursor="pointer"
-                    filter="grayscale(100%)"
-                    _hover={{ filter: 'grayscale(0%)' }}
-                  />
+                  <Box w="9rem" h="50px" key={index}>
+                    <Image
+                      display="inline-block"
+                      
+                      src={image}
+                      alt="logipsum"
+                      // objectFit="cover"
+                      w="100%"
+                      h="100%"
+                      mr="10px"
+                      cursor="pointer"
+                      filter="grayscale(100%)"
+                      _hover={{ filter: 'grayscale(0%)' }}
+                    />
+                  </Box>
                 );
               })}
             />

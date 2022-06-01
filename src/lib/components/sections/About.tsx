@@ -9,6 +9,7 @@ import {
   Button,
   Image,
 } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const About = () => (
   <Box w="90%" margin="6rem auto 0px">
@@ -119,56 +120,20 @@ const About = () => (
           }}
           lineHeight={1.5}
         >
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
-          et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
-          felis, ultricies nec, pellentesque eu, <br />
-          <br />
-          pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-          fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-          rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis
-          eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
-          elementum semper nisi. Aenean vulputate eleifend tellus.
+          Harmonics Technologies is an online education platform aimed at
+          educating and inspiring designers and developers around the world. As
+          an innovative product market, we offer a wealth of advanced e-learning
+          solutions to help product enthusiasts and businesses grow.
+          <br /> <br /> We are committed to growing the community in the
+          technology industry by providing practical user-centric design and
+          product knowledge to increase creativity and passion.
         </Text>
-        <Button variant="outline">Learn More</Button>
+        <Link href="/about" passHref>
+          <Button variant="outline">Learn More</Button>
+        </Link>
       </Box>
     </Flex>
   </Box>
 );
 
 export default About;
-
-{
-  /* <Box mb="20px" mt="20px" w="100%">
-  <Box
-    border="2px solid green"
-    w="80%"
-    h="300px"
-    margin="80px 0 20px"
-    pos="relative"
-    sx={{
-      '::before': {
-        content: '""',
-        width: '100%',
-        backroundColor: 'red',
-        position: 'absolute',
-        zIndex: -1,
-        top: '-50px',
-        left: '50px',
-        borderRadius: '10px',
-      },
-    }}
-  >
-    <Image
-      src="/image 3.png"
-      alt="image3"
-      w="100%"
-      h="100%"
-      borderRadius="10px"
-      sx={{
-        objectFit: 'cover',
-      }}
-    />
-  </Box>
-</Box>; */
-}
