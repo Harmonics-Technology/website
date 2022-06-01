@@ -13,7 +13,7 @@ const customTheme = extendTheme({
     brRegular: 'BR Firma Regular, san-serif',
     brSemi: 'BR Firma SemiBold, san-serif',
     brMid: 'BR Firma Medium, san-serif',
-    body: 'DM Sans, serif',
+    body: '"DM Sans", serif',
   },
   colors,
   components: {

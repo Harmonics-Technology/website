@@ -1,5 +1,6 @@
 /* Global Styling here */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css');
 
 @font-face {
   font-family: 'BR Firma Regular';
@@ -22,6 +23,9 @@
 @font-face {
   font-family: 'BR Firma Medium';
   src: url('/brfirma/BR\ Firma\ Regular.otf') format('opentype');
+}
+.react-multi-carousel-track {
+  align-items: center;
 }
 .react-multiple-carousel__arrow {
   background: none !important;
