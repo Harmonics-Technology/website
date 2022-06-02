@@ -22,7 +22,10 @@ import PagesHero from '../../components/sections/PagesHero';
 function ContactUs() {
   return (
     <>
-      <PagesHero />
+      <PagesHero
+        title="Need help? Reach out to us"
+        subtitle="Reach out to us via our social media handles or using our contact form to submit a complaint and one of our customer representative will get back to you!"
+      />
       <Box textAlign="center" my="3rem">
         <Heading
           fontSize={['1.2rem', '2.5rem']}
