@@ -216,7 +216,7 @@ function Sliders() {
                     textTransform="uppercase"
                     mt="-5px"
                   >
-                    (CEO Liquede)
+                    (CTO Liquede)
                   </Text>
                 </Box>
                 <Rating
@@ -286,7 +286,7 @@ function Sliders() {
                     textTransform="uppercase"
                     mt="-5px"
                   >
-                    (CEO Liquede)
+                    (CTO Liquede)
                   </Text>
                 </Box>
                 <Rating
