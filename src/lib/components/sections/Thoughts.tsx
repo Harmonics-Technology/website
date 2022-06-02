@@ -12,15 +12,17 @@ import { BsArrowRight } from 'react-icons/bs';
 const Thoughts = () => {
   const thoughts = [
     {
-      heading: 'My Tech Journey: How I Started My Career In Product Design',
-      textContent:
-        'I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father’s land, as a teacher, in a private school.',
-    },
-
-    {
       heading: 'The Differences between UI design and UX design',
       textContent:
         'Often times, the term UI and UX Design are being used mutually in the industry and outside the design industry. Incase you don’t know, UI and UX are two different words but work together. UI means User Interface while UX means User Experience.',
+      img: 'img8.jpg',
+    },
+
+    {
+      heading: 'My Tech Journey: How I Started My Career In Product Design',
+      textContent:
+        'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father’s land, as a teacher, in a private school.',
+      img: 'img7.jpg',
     },
   ];
   return (
@@ -75,11 +77,12 @@ const Thoughts = () => {
               }}
             >
               <Image
-                src="/Rectangle1.png"
+                src={item.img}
                 alt="course1"
                 borderRadius="10px 10px 0 0"
                 w="100%"
                 h="100%"
+                objectFit="cover"
               />
             </Box>
             <Box

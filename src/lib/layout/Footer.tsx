@@ -11,6 +11,7 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  Link,
 } from '@chakra-ui/react';
 import {
   FaArrowRight,
@@ -20,21 +21,6 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 
-// export const FooterMenu = () => (
-//   <GridItem colSpan={1}>
-//     <VStack align="flex-start" spacing={6}>
-//       <Text fontSize="1.1rem" color="white" fontWeight="bold">
-//         Company
-//       </Text>
-//       <VStack fontSize=".7rem" color="white" spacing={4} align="flex-start">
-//         <Text>Home</Text>
-//         <Text>About us</Text>
-//         <Text>Team</Text>
-//         <Text>Careers</Text>
-//       </VStack>
-//     </VStack>
-//   </GridItem>
-// );
 export const FooterImage = () => (
   <GridItem colSpan={2}>
     <InputGroup>
@@ -69,7 +55,6 @@ export const FooterWidget = () => (
       w="full"
       spacingY={5}
       display={['grid', 'grid']}
-      // flexDirection={['column-reverse']}
     >
       <GridItem colSpan={1}>
         <VStack align="flex-start" spacing={6}>
@@ -77,34 +62,52 @@ export const FooterWidget = () => (
             Company
           </Text>
           <VStack fontSize=".7rem" color="white" spacing={4} align="flex-start">
-            <Text>Home</Text>
-            <Text>About us</Text>
-            <Text>Team</Text>
-            <Text>Careers</Text>
+            <Link href="/">
+              <Text>Home</Text>
+            </Link>
+
+            <Link href="/about">
+              <Text>About us</Text>
+            </Link>
+
+            <Link href="/our-work">
+              <Text>Projects</Text>
+            </Link>
           </VStack>
         </VStack>
       </GridItem>
       <GridItem colSpan={1}>
         <VStack align="flex-start" spacing={6}>
           <Text fontSize="1.1rem" color="white" fontWeight="bold">
-            Company
+            Contact
           </Text>
           <VStack fontSize=".7rem" color="white" spacing={4} align="flex-start">
-            <Text>Enquiry</Text>
-            <Text>Help & Support</Text>
+            <Link href="/contact-us">
+              <Text>Work with us</Text>
+            </Link>
+            <Link href="/contact-us">
+              <Text>Help &amp; support</Text>
+            </Link>
           </VStack>
         </VStack>
       </GridItem>
       <GridItem colSpan={1}>
         <VStack align="flex-start" spacing={6}>
           <Text fontSize="1.1rem" color="white" fontWeight="bold">
-            Company
+            Legal
           </Text>
           <VStack fontSize=".7rem" color="white" spacing={4} align="flex-start">
-            <Text>Terms & Conditions</Text>
-            <Text>Refund & Cancellation</Text>
-            <Text>Privacy Policy</Text>
-            <Text>Cookie Policy</Text>
+            <Link href="#">
+              <Text>Terms &amp; Conditions</Text>
+            </Link>
+
+            <Link href="#">
+              <Text>Privacy Policy</Text>
+            </Link>
+
+            <Link href="#">
+              <Text>Cookie Policy</Text>
+            </Link>
           </VStack>
         </VStack>
       </GridItem>
@@ -129,7 +132,7 @@ export const FooterLinks = () => (
       fontWeight="medium"
       mb={['.5rem', 'unset']}
     >
-      © 2021 Nigeria Harmonicdev. All rights reserved
+      © 2022 Nigeria Harmonics Technology. All rights reserved
     </Text>
     <HStack
       spacing={[0, 5]}

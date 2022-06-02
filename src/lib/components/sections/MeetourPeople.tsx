@@ -49,7 +49,7 @@ const MeetourPeople = () => {
   ];
 
   return (
-    <Box mt="30px">
+    <Box mt="30px" display="none">
       <Box
         w="90%"
         margin="auto"

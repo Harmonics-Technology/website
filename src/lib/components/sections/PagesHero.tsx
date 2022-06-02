@@ -1,6 +1,11 @@
 import { Box, Text } from '@chakra-ui/react';
 
-function PagesHero() {
+interface PagesProps {
+  title: string;
+  subtitle: string;
+}
+
+function PagesHero({ title, subtitle }: PagesProps) {
   return (
     <Box
       w="full"
@@ -21,11 +26,10 @@ function PagesHero() {
         mb={3}
         w={['full', '80%']}
       >
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+        {title}
       </Text>
       <Text color="white" fontSize={['13px', '18px']} w={['full', '80%']}>
-        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem
-        cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.
+        {subtitle}
       </Text>
     </Box>
   );

@@ -1,8 +1,24 @@
 /* eslint-disable prettier/prettier */
-import Image from 'next/image';
-import { Box, Heading, Text, Stack, Button } from '@chakra-ui/react';
 
-const Work = ({ bg }: { bg: string }) => (
+import {
+  Box,
+  Heading,
+  Text,
+  Stack,
+  Button,
+  Link,
+  Image,
+} from '@chakra-ui/react';
+
+interface WorksProps {
+  bg: string;
+  img: string;
+  title: string;
+  content: string;
+  link: string;
+}
+
+const Work = ({ bg, img, title, content, link }: WorksProps) => (
   <Box
     w="full"
     h={['18rem', '40rem']}
@@ -12,7 +28,7 @@ const Work = ({ bg }: { bg: string }) => (
     overflow="hidden"
   >
     <Box h="50%" bg="#c4c4c4" mt="-6" mx="-6" mb="6" pos="relative">
-      <Image src="/ourWork.svg" layout="fill" />
+      <Image src={img} w="100%" h="100%" objectFit="cover" />
     </Box>
     <Stack px={['1rem', '3rem']} pt={['0', '1rem']}>
       <Heading
@@ -20,7 +36,7 @@ const Work = ({ bg }: { bg: string }) => (
         fontFamily="brRegular"
         fontSize={['1rem', '2.2em']}
       >
-        Project Name
+        {title}
       </Heading>
       <Text
         fontWeight="400"
@@ -30,20 +46,21 @@ const Work = ({ bg }: { bg: string }) => (
         h={['3rem', '7rem']}
         overflow="hidden"
       >
-        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem
-        cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.
+        {content}
       </Text>
-      <Button
-        bgColor="brand.800"
-        variant="solid"
-        minWidth={['100%', '50%']}
-        width={['100%', '50%']}
-        height={['2rem', '58px']}
-        fontSize={['.7rem', '1rem']}
-        borderRadius={['2px', '6px']}
-      >
-        Read More
-      </Button>
+      <Link href={link} target="_blank">
+        <Button
+          bgColor="brand.800"
+          variant="solid"
+          minWidth={['100%', '50%']}
+          width={['100%', '50%']}
+          height={['2rem', '58px']}
+          fontSize={['.7rem', '1rem']}
+          borderRadius={['2px', '6px']}
+        >
+          View Website
+        </Button>
+      </Link>
     </Stack>
   </Box>
 );

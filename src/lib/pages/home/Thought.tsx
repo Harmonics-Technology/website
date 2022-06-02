@@ -6,7 +6,10 @@ import PagesHero from 'lib/components/sections/PagesHero';
 
 const Thought = () => (
   <>
-    <PagesHero />
+    <PagesHero
+      title="Catch up with recent stories"
+      subtitle="Get the latest trends and software inventions from time to time."
+    />
     <Gist />
     <News />
   </>

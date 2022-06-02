@@ -10,34 +10,9 @@ import {
 
 const items = [
   {
-    src: 'news1.png',
-    tittle: 'Data: The next great resource',
-    text: "Forget oil, gas or rare-earth elements. In coming years data is set to become the world's most valuable resource. Advances in technology, from robotics to artificial intelligence, are transforming industries across the world.",
-  },
-  {
-    src: 'news2.png',
-    tittle: 'A giant leap into the future',
-    text: "The corona pandemic drove Sandvik's tube site in Germany to go fully digital in only two days, a change that normally would have taken five years. A flatter, more efficient organization and improved flexibility make it a production model for the future.",
-  },
-  {
-    src: 'news3.png',
-    tittle: 'Starting an office over the web',
-    text: 'The medical wire business within Sandvik was looking to expand operations in the US, but the pandemic hindered our search for a new site. So, they did it entirely virtual instead.',
-  },
-  {
-    src: 'news1.png',
-    tittle: 'Data: The next great resource',
-    text: "Forget oil, gas or rare-earth elements. In coming years data is set to become the world's most valuable resource. Advances in technology, from robotics to artificial intelligence, are transforming industries across the world.",
-  },
-  {
-    src: 'news2.png',
-    tittle: 'A giant leap into the future',
-    text: "The corona pandemic drove Sandvik's tube site in Germany to go fully digital in only two days, a change that normally would have taken five years. A flatter, more efficient organization and improved flexibility make it a production model for the future.",
-  },
-  {
-    src: 'news3.png',
-    tittle: 'Starting an office over the web',
-    text: 'The medical wire business within Sandvik was looking to expand operations in the US, but the pandemic hindered our search for a new site. So, they did it entirely virtual instead.',
+    src: 'img7.jpg',
+    tittle: 'My Tech Journey: How I Started My Career In Product Design',
+    text: 'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father’s land, as a teacher, in a private school.',
   },
 ];
 const News = () => (

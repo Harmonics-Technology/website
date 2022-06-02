@@ -28,18 +28,20 @@ const Gist = () => (
           fontSize={{ base: '1.1rem', md: '1.5rem', xl: '2.5rem' }}
           color="brand.200"
         >
-          Digital tools make a big difference
+          The Differences between UI design and UX design
         </Heading>
         <Text fontSize=".9rem" fontWeight="regular" w="95%">
-          Digitalization is a key enabler behind the transformation known as
-          Industry 4.0, as increased connectivity and cloud-based solutions help
-          reduce costs, enhance productivity and manage variability in
-          industries across the world. <br />
-          <br />
-          Digital solutions should simplify the working environment for all of
-          us. Sandvik develops solutions that support digital manufacturing, all
-          the way from planning and design to in-machining and machining
-          analysis.
+          In this article, you will learn “What is UI?”, “What is UX?”, and the
+          Difference between UI and UX design.
+          <br /> <br />
+          Often times, the term UI and UX Design are being used mutually in the
+          industry and outside the design industry. Incase you don’t know, UI
+          and UX are two different words but work together. UI means User
+          Interface while UX means User Experience. <br /> <br />
+          As a product designer when being ask by friends or people outside the
+          tech industry what UI and UX Design is, i personally tell them that UI
+          refers to how your design (Web, Mobile,…) looks while UX refers to how
+          your applications works and how it feels.
         </Text>
         <Button
           fontSize=".9rem"
@@ -52,7 +54,7 @@ const Gist = () => (
         </Button>
       </VStack>
       <Box w={{ base: 'full', md: '40%', lg: '55%' }}>
-        <Image src="image 11.png" alt="work" />
+        <Image src="img8.jpg" alt="work" />
       </Box>
     </Stack>
   </Box>
