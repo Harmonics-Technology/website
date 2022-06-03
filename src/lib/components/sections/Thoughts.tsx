@@ -38,7 +38,7 @@ const Thoughts = () => {
             },
           }}
         >
-          Our thought
+          Our thoughts
         </Heading>
       </Flex>
       <SimpleGrid

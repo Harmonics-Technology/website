@@ -20,7 +20,7 @@ const defaultSEOConfig = {
     site_name: 'Harmonics Technology',
   },
   twitter: {
-    handle: '@harmonicsTechnology',
+    handle: '@harmonicstech',
     cardType: 'summary_large_image',
   },
 };

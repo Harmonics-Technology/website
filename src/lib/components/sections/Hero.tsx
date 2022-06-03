@@ -31,9 +31,9 @@ const Hero = () => (
           </Text>
         </Heading>
         <Text color="brand.200" fontSize={['1rem', '18px']}>
-          The Harmonic Dev agency specializes in software development and
-          design. Our team designs and builds mobile apps and websites to help
-          you make your dreams come true.
+          The Harmonics Technology agency specializes in software development
+          and design. Our team designs and builds mobile apps and websites to
+          help you make your dreams come true.
         </Text>
       </Box>
       <HStack justify="space-between" mt="2.5rem !important">

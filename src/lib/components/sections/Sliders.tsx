@@ -98,7 +98,7 @@ function Sliders() {
             </Text>
             <Text fontSize={['.9rem', '1rem']} textAlign="center">
               “Over the years I have had to struggle with growth in my business
-              but with the help of Harmonic Technologies, my business has been
+              but with the help of Harmonics Technology, my business has been
               able to grow. During the design period, they carried me along with
               all their progress so far by conducting weekly meetings where they
               provide me with updates on my design and we deliberate more on
@@ -168,7 +168,7 @@ function Sliders() {
             </Text>
             <Text fontSize={['.9rem', '1rem']} textAlign="center">
               “Over the years I have had to struggle with growth in my business
-              but with the help of Harmonic Technologies, my business has been
+              but with the help of Harmonics Technology, my business has been
               able to grow. During the design period, they carried me along with
               all their progress so far by conducting weekly meetings where they
               provide me with updates on my design and we deliberate more on
@@ -238,7 +238,7 @@ function Sliders() {
             </Text>
             <Text fontSize={['.9rem', '1rem']} textAlign="center">
               “Over the years I have had to struggle with growth in my business
-              but with the help of Harmonic Technologies, my business has been
+              but with the help of Harmonics Technology, my business has been
               able to grow. During the design period, they carried me along with
               all their progress so far by conducting weekly meetings where they
               provide me with updates on my design and we deliberate more on
@@ -308,7 +308,7 @@ function Sliders() {
             </Text>
             <Text fontSize={['.9rem', '1rem']} textAlign="center">
               “Over the years I have had to struggle with growth in my business
-              but with the help of Harmonic Technologies, my business has been
+              but with the help of Harmonics Technology, my business has been
               able to grow. During the design period, they carried me along with
               all their progress so far by conducting weekly meetings where they
               provide me with updates on my design and we deliberate more on

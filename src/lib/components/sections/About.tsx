@@ -120,7 +120,7 @@ const About = () => (
           }}
           lineHeight={1.5}
         >
-          Harmonics Technologies is an online education platform aimed at
+          Harmonics Technology is an online education platform aimed at
           educating and inspiring designers and developers around the world. As
           an innovative product market, we offer a wealth of advanced e-learning
           solutions to help product enthusiasts and businesses grow.

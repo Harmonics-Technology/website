@@ -16,7 +16,7 @@ import {
   Textarea,
   Button,
 } from '@chakra-ui/react';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import PagesHero from '../../components/sections/PagesHero';
 
 function ContactUs() {
@@ -34,8 +34,10 @@ function ContactUs() {
         >
           Get in touch !
         </Heading>
-        <Text fontSize=".9rem" fontWeight="regular" w="90%" mx="auto">
-          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+        <Text fontSize=".9rem" fontWeight="regular" w="50%" mx="auto">
+          Do you have a question, or would like to make enquiry on our products
+          or other related services, kindly reach out to us. we are just a
+          distance away
         </Text>
       </Box>
       <Flex
@@ -70,19 +72,22 @@ function ContactUs() {
               <Text fontSize="1rem" fontWeight="600">
                 Phone
               </Text>
-              <Text fontSize="1rem">+2348131214602</Text>
+              <Text fontSize="1rem">++234 818 004 1801, +234 802 627 6487</Text>
             </Box>
             <Box>
               <Text fontSize="1rem" fontWeight="600">
                 Email
               </Text>
-              <Text fontSize="1rem">info@harmonictechlogies.com</Text>
+              <Text fontSize="1rem">info@harmonicstechnology.com</Text>
             </Box>
             <Box>
               <Text fontSize="1rem" fontWeight="600">
                 Address
               </Text>
-              <Text fontSize="1rem">47, Adewale Avenue, Yaba Lagos</Text>
+              <Text fontSize="1rem">
+                34 Peter Agah street, Oke afa, Mass burial road, Isolo Lagos,
+                Nigeria.
+              </Text>
             </Box>
             <Image
               src="/laptop.png"
@@ -92,14 +97,41 @@ function ContactUs() {
             />
           </VStack>
           <HStack spacing={0} mt="1rem">
-            <Circle size="32px" bg="brand.100" color="white">
-              <FaFacebook />
-            </Circle>
-            <Circle size="32px" bg="brand.100" color="white">
+            <Circle
+              as="a"
+              href="https://instagram.com/harmonicstechnology"
+              size="32px"
+              bg="brand.100"
+              color="white"
+            >
               <FaInstagram />
             </Circle>
-            <Circle size="32px" bg="brand.100" color="white">
+            <Circle
+              as="a"
+              href="https://facebook.com/harmonicstechnology"
+              size="32px"
+              bg="brand.100"
+              color="white"
+            >
+              <FaFacebook />
+            </Circle>
+            <Circle
+              as="a"
+              href="https://twitter.com/HarmonicsTech"
+              size="32px"
+              bg="brand.100"
+              color="white"
+            >
               <FaTwitter />
+            </Circle>
+            <Circle
+              as="a"
+              href="https://linkedin.com/harmonicstechnology"
+              size="32px"
+              bg="brand.100"
+              color="white"
+            >
+              <FaLinkedin />
             </Circle>
           </HStack>
         </Box>

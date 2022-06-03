@@ -6,9 +6,9 @@ const Brands = () => {
   const [images, setImages] = useState<string[]>([
     '/brands/liquede.png',
     '/brands/flypal.png',
-    '/Frame2.svg',
-    '/Frame3.svg',
-    '/Frame4.svg',
+    // '/Frame2.svg',
+    // '/Frame3.svg',
+    // '/Frame4.svg',
   ]);
 
   return (

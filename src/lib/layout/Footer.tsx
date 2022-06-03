@@ -17,6 +17,7 @@ import {
   FaArrowRight,
   FaFacebook,
   FaInstagram,
+  FaLinkedin,
   FaTwitter,
   FaYoutube,
 } from 'react-icons/fa';
@@ -143,17 +144,41 @@ export const FooterLinks = () => (
       left="50%"
       gap={[5, 0]}
     >
-      <Circle size="32px" bg="brand.50" color="white">
+      <Circle
+        as="a"
+        href="https://instagram.com/harmonicstechnology"
+        size="32px"
+        bg="brand.50"
+        color="white"
+      >
         <FaInstagram />
       </Circle>
-      <Circle size="32px" bg="brand.50" color="white">
+      <Circle
+        as="a"
+        href="https://facebook.com/harmonicstechnology"
+        size="32px"
+        bg="brand.50"
+        color="white"
+      >
         <FaFacebook />
       </Circle>
-      <Circle size="32px" bg="brand.50" color="white">
+      <Circle
+        as="a"
+        href="https://twitter.com/HarmonicsTech"
+        size="32px"
+        bg="brand.50"
+        color="white"
+      >
         <FaTwitter />
       </Circle>
-      <Circle size="32px" bg="brand.50" color="white">
-        <FaYoutube />
+      <Circle
+        as="a"
+        href="https://linkedin.com/harmonicstechnology"
+        size="32px"
+        bg="brand.50"
+        color="white"
+      >
+        <FaLinkedin />
       </Circle>
     </HStack>
   </Flex>

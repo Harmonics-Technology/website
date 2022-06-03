@@ -24,7 +24,7 @@ function About() {
   return (
     <Box w="full" border="2px hidden red">
       <PagesHero
-        title="About Harmonic Technologies"
+        title="About Harmonics Technology"
         subtitle=" We are a brand that is powered by an ingenious team committed to
         empowering businesses and individuals through technology and innovation
         that reflect your ideas."
@@ -137,7 +137,7 @@ function About() {
             </Heading>
 
             <Text fontSize={['16px', '18px']} lineHeight={1.5}>
-              Harmonics Technologies is an online education platform aimed at
+              Harmonics Technology is an online education platform aimed at
               educating and inspiring designers and developers around the world.
               As an innovative product market, we offer a wealth of advanced
               e-learning solutions to help product enthusiasts and businesses

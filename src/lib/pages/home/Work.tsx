@@ -5,7 +5,7 @@ import Work from '../../components/sections/Work';
 const Works = () => (
   <>
     <PagesHero
-      title="Few Projects Done By Harmonic Technologies"
+      title="Few Projects Done By Harmonics Technology"
       subtitle="We've brainstormed using the most recent code base standard to provide a problem solving platform to all our clients"
     />
     <Grid
