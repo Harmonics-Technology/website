@@ -137,13 +137,19 @@ function About() {
             </Heading>
 
             <Text fontSize={['16px', '18px']} lineHeight={1.5}>
-              Harmonics Technology is an online education platform aimed at
-              educating and inspiring designers and developers around the world.
-              As an innovative product market, we offer a wealth of advanced
-              e-learning solutions to help product enthusiasts and businesses
-              grow. <br /> <br /> We are committed to growing the community in
-              the technology industry by providing practical user-centric design
-              and product knowledge to increase creativity and passion.
+              Harmonics Technology is a brand that is powered by an ingenious
+              team committed to creating world-class products that reflect your
+              ideas. Our goal is to provide organizations with services that add
+              value to their businesses and solve problems thereby allowing the
+              space for financial growth.<br></br> As a team, we are attentive &
+              empathetic to our client’s needs & wants and we strive to create
+              unique design solutions that are user-centred for their various
+              businesses. <br></br>At harmonic technologies, we believe in
+              continuity, so we provide courses in uiux, software
+              development(frontend & Backend ), Graphics. to help build your
+              career in tech. <br></br>We are committed to growing the community
+              in the technology industry by providing practical user-centric
+              design and product knowledge to increase creativity and passion.
             </Text>
 
             <Heading

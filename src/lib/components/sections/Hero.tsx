@@ -31,9 +31,10 @@ const Hero = () => (
           </Text>
         </Heading>
         <Text color="brand.200" fontSize={['1rem', '18px']}>
-          The Harmonics Technology agency specializes in software development
-          and design. Our team designs and builds mobile apps and websites to
-          help you make your dreams come true.
+          THarmonic Technology specialize in software development, Graphics
+          designs and Product designs/(uiux). We create well-researched user
+          interfaces and build resourceful applications that are tailored to
+          suit our client’s specific needs.
         </Text>
       </Box>
       <HStack justify="space-between" mt="2.5rem !important">
