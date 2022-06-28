@@ -129,11 +129,17 @@ function About() {
           >
             <Heading
               fontSize="24px"
-              textAlign={['center', 'left']}
+              fontFamily="brSemi"
+              color="brand.200"
+              sx={{
+                '@media(min-width: 700px)': {
+                  fontSize: '2rem',
+                },
+              }}
               lineHeight={1.5}
               mb="10px"
             >
-              Who are we ?
+              Who are we?
             </Heading>
 
             <Text fontSize={['16px', '18px']} lineHeight={1.5}>
@@ -141,15 +147,22 @@ function About() {
               team committed to creating world-class products that reflect your
               ideas. Our goal is to provide organizations with services that add
               value to their businesses and solve problems thereby allowing the
-              space for financial growth.<br></br> As a team, we are attentive &
-              empathetic to our client’s needs & wants and we strive to create
-              unique design solutions that are user-centred for their various
-              businesses. <br></br>At harmonic technologies, we believe in
-              continuity, so we provide courses in uiux, software
-              development(frontend & Backend ), Graphics. to help build your
-              career in tech. <br></br>We are committed to growing the community
-              in the technology industry by providing practical user-centric
-              design and product knowledge to increase creativity and passion.
+              space for financial growth.
+              <Text mt="1rem">
+                {' '}
+                As a team, we are attentive and empathetic to our client’s needs
+                and wants and we strive to create unique design solutions that
+                are user-centred for their various businesses.{' '}
+              </Text>
+              <br></br>
+              <Text>
+                At harmonic technologies, we believe in continuity, so we
+                provide courses in ui/ux, software development(frontend &
+                backend) and graphics to help build your career in tech.
+              </Text>{' '}
+              <br></br>We are committed to growing the community in the
+              technology industry by providing practical user-centric design and
+              product knowledge to increase creativity and passion.
             </Text>
 
             <Heading

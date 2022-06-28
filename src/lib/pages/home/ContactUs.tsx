@@ -34,7 +34,12 @@ function ContactUs() {
         >
           Get in touch !
         </Heading>
-        <Text fontSize=".9rem" fontWeight="regular" w="50%" mx="auto">
+        <Text
+          fontSize=".9rem"
+          fontWeight="regular"
+          w={['90%', '50%']}
+          mx="auto"
+        >
           Do you have a question, or would like to make enquiry on our products
           or other related services, kindly reach out to us. we are just a
           distance away

@@ -27,6 +27,7 @@ function Sliders() {
       arrows
       removeArrowOnDeviceType={['tablet', 'mobile']}
       autoPlay
+      autoPlaySpeed={6000}
       infinite
     >
       <Box>

@@ -79,12 +79,16 @@ const Projects = () => (
               Property Mataaz
             </Heading>
             <Text fontSize=".9rem" fontWeight="regular" w="95%" my="2rem">
-              Property Mataaz is an Estate Management agency located in Lagos
+              Property Mataaz is an Estate Management agency located in Lagos,
               Nigeria whose main drive is to provide solutions to property sale,
-              rent, loans and related
+              rent, loans and other related estate management services
             </Text>
 
-            <Link href="https://propertymataaz.com" target="_blank">
+            <Link
+              href="https://propertymataaz.com"
+              target="_blank"
+              textDecoration="none !important"
+            >
               <Button variant="outline">Read More</Button>
             </Link>
           </Box>
@@ -124,7 +128,7 @@ const Projects = () => (
               transactions and financial information are kept safe at all times.
             </Text>
 
-            <Link href="https://liquede.com">
+            <Link href="https://liquede.com" textDecoration="none !important">
               <Button variant="outline">Read More</Button>
             </Link>
           </Box>
@@ -146,6 +150,7 @@ const Projects = () => (
                 src="/img3.jpg"
                 alt="Placeholder"
                 objectFit="cover"
+                objectPosition="left"
                 height="full"
                 w="full"
               />

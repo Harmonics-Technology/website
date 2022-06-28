@@ -24,17 +24,18 @@ const Services = () => (
         colSpan={1}
         h="full"
         borderRadius={['5px', '10px']}
-        bg="rgba(160, 60, 174, 0.08)"
+        bg="brand.100"
         padding="1.5rem"
         display="flex"
         alignItems="center"
         justifyContent="center"
+        color="white"
       >
         <Box>
           <Text
             fontSize={['1.25rem', '2rem']}
             fontWeight="bold"
-            color="brand.100"
+            // color="brand.100"
           >
             Product Design
           </Text>
@@ -98,7 +99,7 @@ const Services = () => (
             fontWeight="bold"
             color="brand.100"
           >
-            Graphics Design
+            Graphic Design
           </Text>
           <Text
             fontSize="0.9rem"

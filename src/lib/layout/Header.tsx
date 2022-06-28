@@ -1,7 +1,8 @@
 import { Box, Flex, Stack, Image, Text, Link } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BsBorderWidth } from 'react-icons/bs';
+import listenForOutsideClick from './listenForOutsideClick';
 // import Link from 'next/link';
 
 // import ThemeToggle from "./ThemeToggle";
@@ -19,7 +20,7 @@ const Header = () => {
   };
 
   const AddBgOnScroll = () => {
-    const scrollHeight = 100;
+    const scrollHeight = 80;
     const pos = window.scrollY;
 
     if (pos >= scrollHeight) {
@@ -31,17 +32,25 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener('scroll', AddBgOnScroll);
   }, []);
+
+  const dropDown = useRef(null);
+  const [listening, setListening] = useState(false);
+
+  useEffect(
+    listenForOutsideClick(listening, setListening, dropDown, setIsOpened)
+  );
   return (
     <Flex
-      bg={navbar ? 'white' : 'transparent'}
+      bg={navbar ? 'white' : 'white'}
       w="full"
+      ref={dropDown}
       boxShadow={
         navbar
           ? '0 3px 7px 0 rgba(0, 0, 0, 0.18), 0 2px 8px 0 rgba(0, 0, 0, 0.15)'
           : ''
       }
       transition={navbar ? '0.5s ease' : ''}
-      pos={['fixed', router.pathname === '/' ? 'fixed' : 'relative']}
+      pos="sticky"
       h="5rem"
       justify="space-between"
       align="center"
@@ -49,7 +58,7 @@ const Header = () => {
       top="0"
       zIndex={5}
     >
-      <Box zIndex="4">
+      <Box zIndex="4" onClick={() => router.push('/')} cursor="pointer">
         <Image
           src="/harmonic.png"
           alt="Harmonic Technologies"
@@ -88,7 +97,7 @@ const Header = () => {
           <Text color={getNavLinks('/thoughts')}>Thoughts</Text>
         </Link>
         <Link href="/contact-us">
-          <Text color={getNavLinks('/contact-us')}>Work for us</Text>
+          <Text color={getNavLinks('/contact-us')}>Work with us</Text>
         </Link>
       </Stack>
       <Box

@@ -22,7 +22,7 @@ const Works = () => (
         img="img4.jpg"
         content="Property Mataaz is an Estate Management agency located in Lagos
               Nigeria whose main drive is to provide solutions to property sale,
-              rent, loans and related"
+              rent, loans and other related services"
         link="https://propertymataaz.com"
       />
       <Work

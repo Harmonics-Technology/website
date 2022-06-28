@@ -64,8 +64,8 @@ const Brands = () => {
                     h="100%"
                     mr="10px"
                     cursor="pointer"
-                    filter="grayscale(100%)"
-                    _hover={{ filter: 'grayscale(0%)' }}
+                    // filter="grayscale(100%)"
+                    // _hover={{ filter: 'grayscale(0%)' }}
                   />
                 </Box>
               ))}

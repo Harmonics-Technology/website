@@ -48,8 +48,7 @@ const About = () => (
           <Box
             w="80%"
             height="300px"
-            bg="brand.grey"
-            bgColor="brand.100"
+            bgColor="rgb(160,60,174, .6)"
             borderRadius="10px"
             ml="auto"
             pos="relative"
@@ -138,9 +137,9 @@ const About = () => (
           }}
           lineHeight={1.5}
         >
-          As a team, we are attentive & empathetic to our client’s needs & wants
-          and we strive to create unique design solutions that are user-centred
-          for their various businesses.
+          As a team, we are attentive and empathetic to our client’s needs and
+          wants and we strive to create unique design solutions that are
+          user-centred for their various businesses.
         </Text>
         <Link href="/about" passHref>
           <Button variant="outline">Learn More</Button>
