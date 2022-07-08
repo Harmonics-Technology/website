@@ -4,19 +4,18 @@ import { useRouter } from 'next/router';
 
 const data = [
   {
-    id: 1,
+    id: "1",
     title: 'The Differences between UI design and UX design',
     src: 'news3.png',
     desc: 'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father land, as a teacher, in a private school.',
   },
   {
-    id: 2,
+    id: "2",
     title: 'The Differences between UI design and UX design',
-    src: 'news3.png',
     desc: 'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father land, as a teacher, in a private school.',
   },
   {
-    id: 3,
+    id: "3",
     title: 'The Differences between UI design and UX design',
     src: 'news3.png',
     desc: 'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father land, as a teacher, in a private school.',
@@ -43,7 +42,8 @@ function MyBlog() {
         <Button
           cursor="pointer"
           color="black"
-          w={['3rem','4rem']}
+          fontWeight="500"
+          w={['2rem','4rem']}
           height="2.5rem"
           _hover={{ color: 'white', bgColor: 'black' }}
           fontSize=".9rem"
