@@ -54,7 +54,7 @@ const Signup=({
                                 {errors.name && <span role="alert">{errors.name.message}</span>}
                                 </Text>
                             </VStack>
-                            <VStack alignItems='flex-start' w='full' mt='2rem' >
+                            <VStack alignItems='flex-start' w='full'  >
                                 <FormLabel color='#000'>Email</FormLabel>
                                 <Input {...register("email",{required: 'required', pattern:{value: /\S+@\S+\.\S+/, message: "Value does not match email format"}})} type='email' color="#000"  placeholder='' background='#fff !important' size='lg' borderColor='#000' value='' />
                                 <Text fontSize=".7rem" color="red">
@@ -70,7 +70,7 @@ const Signup=({
                             </VStack>
                             <Button color='#fff' w='100%' bg='#A03CAE' borderRadius='8px' border='none' _hover={{ color:'#A03CAE', bg:'#fff', border:'1px solid #A03CAE' }} >Sign up</Button>
                             <Stack alignItems='flex-end'w='full' >
-                            <Link href='/login'>
+                            <Link href='/blogs/login'>
                                 <Text color='#000'fontWeight='600' >Login</Text>
                                 </Link>
                             </Stack>

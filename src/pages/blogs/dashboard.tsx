@@ -1,4 +1,4 @@
-import MyBlog from 'lib/pages/home/MyBlog';
+import MyBlog from 'lib/pages/blog/MyBlog';
 
 function blog() {
   return <MyBlog />;
