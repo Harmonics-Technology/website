@@ -2,7 +2,7 @@ import { Box, Text } from '@chakra-ui/react';
 
 interface PagesProps {
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 function PagesHero({ title, subtitle }: PagesProps) {
