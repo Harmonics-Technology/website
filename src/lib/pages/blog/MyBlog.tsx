@@ -42,14 +42,13 @@ function MyBlog() {
         <Button
           cursor="pointer"
           color="black"
-          fontWeight="500"
-          w={['2rem','4rem']}
+          w={['3rem', '4rem']}
           height="2.5rem"
           _hover={{ color: 'white', bgColor: 'black' }}
           fontSize=".9rem"
           bgColor="white"
           variant="solid"
-          onClick={() => router.push('/')}
+          onClick={() => router.push('/blog/create-post/')}
         >
           Create Post
         </Button>
