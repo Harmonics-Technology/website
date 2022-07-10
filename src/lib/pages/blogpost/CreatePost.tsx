@@ -8,11 +8,11 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import React, { useRef } from 'react';
-import { Widget } from '@uploadcare/react-widget';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
+import { Widget } from '@uploadcare/react-widget';
 
 type Props = {};
 
@@ -106,11 +106,13 @@ const CreatePost = (props: Props) => {
                 add image
               </Button>
 
-              <Widget
-                publicKey="fda3a71102659f95625f"
-                imagesOnly
-                ref={widgetapi}
-              />
+              <Box display="none">
+                <Widget
+                  publicKey="fda3a71102659f95625f"
+                  imagesOnly
+                  ref={widgetapi}
+                />
+              </Box>
             </Box>
           </VStack>
         </form>

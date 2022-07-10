@@ -11,7 +11,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
-  const blog = router.pathname.startsWith('/blog');
+  const blog = router.pathname.startsWith('/blogs');
   return (
     <Box margin="0 auto" transition="0.5s ease-out">
       {blog ? null : <Header />}
