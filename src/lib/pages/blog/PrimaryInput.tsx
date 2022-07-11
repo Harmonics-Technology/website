@@ -56,7 +56,7 @@ import {
   }: FormInputProps<TFormValues>) => {
     return (
       <FormControl>
-        <VStack alignItems='flex-start' w='full' mt='2rem' >
+        <VStack alignItems='flex-start' w='full' >
             <FormLabel
             htmlFor={label}
             textTransform="capitalize"

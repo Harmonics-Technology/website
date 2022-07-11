@@ -33,7 +33,7 @@ const ForgotPassword=({email, required, error}: IFormInput)=> {
             <Box w='100%' h='100vh'  display='flex' mt={['-5rem','-3rem','-2rem']} alignItems='center !important' justifyContent='center !important'  >
                 <form onSubmit={handleSubmit(onSubmit)} style={{width:'100%'}}>
                     <Stack w={['75%','50%']}  m='auto' alignItems='center' justifyContent='center' spacing={6}>
-                        <Image  src='/Group 9.png' alt=''  boxSize={['50%','45%','35%']} />
+                        <Image  src='/Group 9.png' alt='' mb='2rem' boxSize={['50%','45%','35%']} />
                         <PrimaryInput
                             label="Email"
                             name="email"

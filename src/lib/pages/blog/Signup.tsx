@@ -68,7 +68,7 @@ const Signup = ({ required, email, name, password, error }: FormInputProps) => {
           justifyContent="center"
           spacing={6}
         >
-          <Image src="/Group 9.png" alt="" boxSize={['50%', '45%', '35%']} />
+          <Image src="/Group 9.png" alt="" mb='2rem' boxSize={['50%', '45%', '35%']} />
           <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
           <PrimaryInput
                 label="Name"

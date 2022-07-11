@@ -75,7 +75,7 @@ const Login = () => {
             justifyContent="center"
             spacing={6}
           >
-            <Image src="/Group 9.png" alt="" boxSize={['50%', '45%', '35%']} />
+            <Image src="/Group 9.png" alt="" mb='2rem' boxSize={['50%', '45%', '35%']} />
             <PrimaryInput
                 label="Email"
                 name="email"
