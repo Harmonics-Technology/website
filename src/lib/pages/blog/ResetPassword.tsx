@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { useRouter } from 'next/router';
 import { useForm,SubmitHandler ,FieldError,UseFormRegister, Path} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import {PrimaryInput} from './PrimaryInput'
 
 
 interface FormInputProps {
@@ -50,20 +51,24 @@ const ResetPassword=({
                 <form onSubmit={handleSubmit(onSubmit)} style={{width:'100%'}}>
                     <Stack w={['75%','50%']}  m='auto' alignItems='center' justifyContent='center' spacing={6}>
                         <Image  src='/Group 9.png' alt=''  boxSize={['50%','45%','35%']} />
-                        <VStack alignItems='flex-start' w='full'>
-                            <FormLabel color='#000'>Password</FormLabel>
-                            <Input {...register("password", {required: "required", minLength: {value: 5,message: "minimum lenght is 5"}})} type='password' placeholder='' color="#000" background='#fff !important' size='lg' borderColor='#000' value=''  />
-                            <Text fontSize=".7rem" color='red'>
-                            {errors.password && <span role="alert">{errors.password.message}</span>}
-                            </Text>
-                        </VStack>
-                        <VStack alignItems='flex-start' w='full'>
-                            <FormLabel color='#000'>Confirm Password</FormLabel>
-                            <Input {...register("password", {required: "required", minLength: {value: 5,message: "minimum lenght is 5"}})} type='password' placeholder='' color="#000" background='#fff !important' size='lg' borderColor='#000' value=''  />
-                            <Text fontSize=".7rem" color='red'>
-                            {errors.password && <span role="alert">{errors.password.message}</span>}
-                            </Text>
-                        </VStack>
+                        <PrimaryInput
+                          label="Password"
+                          name="password"
+                          defaultValue=""
+                          register={register}
+                          changePasswordType={changePasswordField}
+                          type={showPassword ? 'password' : 'text'}
+                          iconClass={showPassword ? 'fa-eye' : 'fa-eye-slash'} error={undefined}              />
+            
+                        <PrimaryInput
+                          label="onfirm Password"
+                          name="password"
+                          defaultValue=""
+                          register={register}
+                          changePasswordType={changePasswordField}
+                          type={showPassword ? 'password' : 'text'}
+                          iconClass={showPassword ? 'fa-eye' : 'fa-eye-slash'} error={undefined}              />
+            
                         <Button color='#fff' w='100%' bg='#A03CAE' borderRadius='8px' border='none' _hover={{ color:'#A03CAE', bg:'#fff', border:'1px solid #A03CAE' }} >Reset</Button>
                         
                     </Stack>
