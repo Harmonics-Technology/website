@@ -3,20 +3,23 @@ import {
   Button,
   Flex,
   FormControl,
+  HStack,
   Input,
-  Textarea,
+  Link,
+  Text,
   VStack,
 } from '@chakra-ui/react';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
 import { Widget } from '@uploadcare/react-widget';
+import { PrimaryEditor } from 'lib/components/Utils/PrimaryEditor';
 
-type Props = {};
+interface Props {}
 
-const CreatePost = (props: Props) => {
+const CreatePost = () => {
   const schema = yup.object().shape({
     title: yup.string().required(),
     articleBody: yup.string().required(),
@@ -26,20 +29,25 @@ const CreatePost = (props: Props) => {
   const widgetapi = useRef<any>();
 
   const router = useRouter();
+  const [published, setPublished] = useState<any>();
 
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(schema),
     mode: 'all',
   });
 
-  const onsubmit = (data: any) => {
+  const onSubmit = (data: any) => {
+    console.log({ data });
     try {
-      console.log({ data });
-      router.push('/my-post');
+      const result = { status: true, data: { id: 1, name: 'no' } };
+      if (result.status) {
+        setPublished(result.data);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -47,26 +55,39 @@ const CreatePost = (props: Props) => {
 
   return (
     <Box w="100%">
-      <Box w="90%" margin="auto" pb="30px" pt={['5px', '30px']}>
-        <form onSubmit={handleSubmit(onsubmit)}>
-          <Flex w="100%" my="20px" justifyContent={['', 'flex-end']}>
+      <Box w="90%" mx="auto" pb="30px">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Flex w="100%" py="2rem" justifyContent={['', 'flex-end']}>
             <Button
               textTransform="capitalize"
               w={['100%', 'unset']}
+              type="submit"
               _hover={{
                 bg: 'transparent',
                 color: 'brand.100',
                 border: '2px solid #A03CAE',
               }}
-              type="submit"
               _focus={{
                 outline: 'none',
               }}
+              // isLoading={loading}
             >
               publish
             </Button>
           </Flex>
 
+          {published && (
+            <HStack my=".5rem">
+              <Text>Post Published Successfully!</Text>
+              <Link
+                color="brand.100"
+                fontWeight="500"
+                href={`/blog/${published.id}`}
+              >
+                View Post
+              </Link>
+            </HStack>
+          )}
           <VStack alignItems="flex-start" w="100%" spacing={5}>
             <FormControl w="100%">
               <Input
@@ -83,19 +104,16 @@ const CreatePost = (props: Props) => {
                 {...register('title')}
               />
             </FormControl>
-
-            <FormControl w="100%">
-              <Textarea
-                resize="none"
-                minH="50vh"
-                _focus={{
-                  outline: 'none',
-                }}
-                {...register('articleBody')}
-                borderColor={errors?.articleBody && 'red'}
-              />
-            </FormControl>
-
+            <PrimaryEditor<Props>
+              //@ts-ignore
+              name="description"
+              control={control}
+              label="Description"
+              register={register}
+              defaultValue=""
+              //@ts-ignore
+              error={errors.description}
+            />
             <Box>
               <Button
                 variant="outline"

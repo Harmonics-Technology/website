@@ -33,7 +33,7 @@ const BlogCard = ({ item }: Props) => {
             />
           ) : (
             <Image
-              src="default.png"
+              src="/default.png"
               h="11rem"
               objectFit="cover"
               w="full"
@@ -50,7 +50,13 @@ const BlogCard = ({ item }: Props) => {
           >
             {item.title}
           </Text>
-          <Text fontWeight="400" fontSize={['13px','14px']} color="brand.200" mt={3}>
+          <Text
+            fontWeight="400"
+            fontSize={['13px', '14px']}
+            color="brand.200"
+            mt={3}
+            noOfLines={6}
+          >
             {item.desc}
           </Text>
           <SimpleGrid columns={2} py=".5rem" spacing="5" w="full">
