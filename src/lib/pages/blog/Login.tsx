@@ -12,17 +12,22 @@ import {
 } from '@chakra-ui/react';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
-import { useForm,SubmitHandler ,FieldError,UseFormRegister, Path} from 'react-hook-form';
+import {
+  useForm,
+  SubmitHandler,
+  FieldError,
+  UseFormRegister,
+  Path,
+} from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {PrimaryInput} from './PrimaryInput'
 
 interface FormInputProps {
-    email: string;
-    password: any;
-    error: FieldError | undefined;
-    required?: boolean;
-  }
-  
+  email: string;
+  password: any;
+  error: FieldError | undefined;
+  required?: boolean;
+}
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),

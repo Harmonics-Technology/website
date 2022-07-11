@@ -4,20 +4,20 @@ import { useRouter } from 'next/router';
 
 const data = [
   {
-    id: "1",
+    id: '1',
     title: 'The Differences between UI design and UX design',
-    src: 'news3.png',
+    src: '/news3.png',
     desc: 'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father land, as a teacher, in a private school.',
   },
   {
-    id: "2",
+    id: '2',
     title: 'The Differences between UI design and UX design',
     desc: 'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father land, as a teacher, in a private school.',
   },
   {
-    id: "3",
+    id: '3',
     title: 'The Differences between UI design and UX design',
-    src: 'news3.png',
+    src: '/news3.png',
     desc: 'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father land, as a teacher, in a private school.',
   },
 ];
@@ -34,21 +34,22 @@ function MyBlog() {
         zIndex={20}
         alignItems="center"
         justifyContent="space-between"
-        bgColor="brand.100"
+        shadow="lg"
+        bgColor="white"
       >
-        <Text color="white" fontSize="1.1rem">
+        <Text color="brand.100" fontSize="1.1rem" fontWeight="bold">
           Hi Anukam
         </Text>
         <Button
           cursor="pointer"
-          color="black"
+          color="white"
           w={['3rem', '4rem']}
           height="2.5rem"
           _hover={{ color: 'white', bgColor: 'black' }}
           fontSize=".9rem"
-          bgColor="white"
+          bgColor="brand.100"
           variant="solid"
-          onClick={() => router.push('/blog/create-post/')}
+          onClick={() => router.push('/blogs/create-post/')}
         >
           Create Post
         </Button>
