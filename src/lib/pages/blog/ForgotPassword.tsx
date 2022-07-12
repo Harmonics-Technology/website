@@ -13,7 +13,7 @@ import * as yup from 'yup';
 import { useRouter } from 'next/router';
 import { useForm, FieldError, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { PrimaryInput } from './PrimaryInput';
+import { PrimaryInput } from '../../components/Utils/PrimaryInput';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),

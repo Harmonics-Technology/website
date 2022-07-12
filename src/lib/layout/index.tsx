@@ -36,9 +36,7 @@ const Layout = ({ children }: LayoutProps) => {
       ) : (
         <Box margin="0 auto" transition="0.5s ease-out">
           <Header />
-          <Box as="main" mt={blog ? '0' : ['5rem', 'unset']}>
-            {children}
-          </Box>
+          <Box as="main">{children}</Box>
           <Footer />
         </Box>
       )}

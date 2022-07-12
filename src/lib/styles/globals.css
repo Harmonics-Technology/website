@@ -71,3 +71,8 @@ a {
 .public-DraftEditor-content {
   height: auto !important;
 }
+blockquote {
+  font-style: italic;
+  border-left: 4px solid;
+  padding: 0 0 0 1rem;
+}

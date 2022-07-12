@@ -7,6 +7,7 @@ import {
   Image,
   Text,
 } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const Gist = () => (
   <Box px={[4, 16]} my={{ base: '3rem', xl: '5rem' }}>
@@ -43,15 +44,17 @@ const Gist = () => (
           refers to how your design (Web, Mobile,…) looks while UX refers to how
           your applications works and how it feels.
         </Text>
-        <Button
-          fontSize=".9rem"
-          variant="ghost"
-          color="brand.100"
-          alignSelf="flex-end"
-          mt="0 !important"
-        >
-          Read More
-        </Button>
+        <Link passHref href={`/blog/1`}>
+          <Button
+            fontSize=".9rem"
+            variant="ghost"
+            color="brand.100"
+            alignSelf="flex-end"
+            mt="0 !important"
+          >
+            Read More
+          </Button>
+        </Link>
       </VStack>
       <Box w={{ base: 'full', md: '40%', lg: '55%' }}>
         <Image src="img8.jpg" alt="work" />

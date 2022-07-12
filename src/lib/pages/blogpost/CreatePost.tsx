@@ -14,7 +14,7 @@ import * as yup from 'yup';
 import { useRouter } from 'next/router';
 import { Widget } from '@uploadcare/react-widget';
 import { PrimaryEditor } from 'lib/components/Utils/PrimaryEditor';
-import { PrimaryInput } from '../blog/PrimaryInput';
+import { PrimaryInput } from '../../components/Utils/PrimaryInput';
 
 interface IFormInput {
   title: string;

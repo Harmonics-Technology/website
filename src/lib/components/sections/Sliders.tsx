@@ -3,7 +3,9 @@ import { BsStar, BsStarFill } from 'react-icons/bs';
 import { HiBadgeCheck } from 'react-icons/hi';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Rating from 'react-rating';
+import ReactRating from 'react-rating';
+
+// var ReactRating = require('react-rating');
 
 function Sliders() {
   const responsive = {
@@ -65,13 +67,13 @@ function Sliders() {
                   (CTO Liquede)
                 </Text>
               </Box>
-              <Rating
+              {/* <ReactRating
                 fractions={2}
                 initialRating={4.5}
                 readonly
                 fullSymbol={<BsStarFill color="A03CAE" size="1.5rem" />}
                 emptySymbol={<BsStar color="A03CAE" size="1.5rem" />}
-              />
+              /> */}
             </VStack>
           </Flex>
           <Text
@@ -135,13 +137,13 @@ function Sliders() {
                   (COO PropertyMattaz)
                 </Text>
               </Box>
-              <Rating
+              {/* <ReactRating
                 fractions={2}
                 initialRating={4.5}
                 readonly
                 fullSymbol={<BsStarFill color="A03CAE" size="1.5rem" />}
                 emptySymbol={<BsStar color="A03CAE" size="1.5rem" />}
-              />
+              /> */}
             </VStack>
           </Flex>
           <Text
@@ -205,13 +207,13 @@ function Sliders() {
                   (CTO Liquede)
                 </Text>
               </Box>
-              <Rating
+              {/* <ReactRating
                 fractions={2}
                 initialRating={4.5}
                 readonly
                 fullSymbol={<BsStarFill color="A03CAE" size="1.5rem" />}
                 emptySymbol={<BsStar color="A03CAE" size="1.5rem" />}
-              />
+              /> */}
             </VStack>
           </Flex>
           <Text
@@ -275,13 +277,13 @@ function Sliders() {
                   (CTO Liquede)
                 </Text>
               </Box>
-              <Rating
+              {/* <ReactRating
                 fractions={2}
                 initialRating={4.5}
                 readonly
                 fullSymbol={<BsStarFill color="A03CAE" size="1.5rem" />}
                 emptySymbol={<BsStar color="A03CAE" size="1.5rem" />}
-              />
+              /> */}
             </VStack>
           </Flex>
           <Text

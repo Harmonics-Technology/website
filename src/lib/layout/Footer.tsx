@@ -120,9 +120,10 @@ export const FooterWidget = () => (
 export const FooterLinks = () => (
   <Flex
     height={['auto', '3.4rem']}
-    w="full"
+    w={['full', '90%']}
+    mx="auto"
     justify="space-between"
-    px={['1rem', 40]}
+    px={['1rem', 0]}
     align="center"
     flexDirection={['column', 'row']}
     pb={['1rem', 'unset']}
