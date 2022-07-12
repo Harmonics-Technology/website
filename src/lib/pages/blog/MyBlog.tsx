@@ -31,7 +31,7 @@ function MyBlog() {
         top="0"
         px={['1rem', 16]}
         h="5rem"
-        zIndex={20}
+        zIndex={4}
         alignItems="center"
         justifyContent="space-between"
         shadow="lg"

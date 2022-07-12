@@ -59,12 +59,14 @@ a {
 }
 .editor-class {
   height: 60vh !important;
-  border: 1px solid #e6e4e4;
+  border: 1px solid #a03cae;
   border-top: none;
   padding: 0 1rem;
 }
 .rdw-editor-toolbar {
   margin-bottom: 0 !important;
+  border: 1px solid #a03cae !important;
+  padding: 1rem 0.4rem !important;
 }
 .DraftEditor-editorContainer,
 .DraftEditor-root,

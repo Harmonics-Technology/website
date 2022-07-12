@@ -5,7 +5,7 @@ const Input: DeepPartial<Theme['components']['Input']> = {
     outline: {
       field: {
         borderColor: 'brand.100',
-        border: '2px solid',
+        border: '1px solid',
         backgroundColor: 'white',
         color: '#8B8B8B',
         fontSize: '16px',
