@@ -2,7 +2,7 @@
 import { Box, GridItem, Heading, SimpleGrid, Text } from '@chakra-ui/react';
 
 const Services = () => (
-  <Box w="90%" margin="20px auto">
+  <Box w="90%" margin="5rem auto 3rem">
     <Box w="100%" mt="20px">
       <Heading
         fontSize="1.5rem"

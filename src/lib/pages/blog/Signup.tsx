@@ -1,45 +1,29 @@
 import React from 'react';
-import {
-  Box,
-  Input,
-  Button,
-  Stack,
-  Link,
-  VStack,
-  Text,
-  FormLabel,
-  Image,
-} from '@chakra-ui/react';
+import { Box, Button, Stack, Link, Text, Image } from '@chakra-ui/react';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
-import {
-  useForm,
-  SubmitHandler,
-  FieldError,
-  UseFormRegister,
-  Path,
-} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import {PrimaryInput} from './PrimaryInput'
+import { PrimaryInput } from './PrimaryInput';
+import { BiHide, BiShowAlt } from 'react-icons/bi';
 
 interface FormInputProps {
-  name: string;
+  fullName: string;
   email: string;
-  password: any;
-  error: FieldError | undefined;
-  required?: boolean;
+  password: string;
 }
 
 const schema = yup.object().shape({
   email: yup.string().email().required('required'),
+  fullName: yup.string().email().required('required'),
   password: yup.string().required('required'),
 });
 
-const Signup = ({ required, email, name, password, error }: FormInputProps) => {
-    const [showPassword, setShowPassword] = React.useState(true);
-    const changePasswordField = () => {
-      setShowPassword(!showPassword);
-    };
+const Signup = () => {
+  const [showPassword, setShowPassword] = React.useState(true);
+  const changePasswordField = () => {
+    setShowPassword(!showPassword);
+  };
   const {
     register,
     handleSubmit,
@@ -49,7 +33,7 @@ const Signup = ({ required, email, name, password, error }: FormInputProps) => {
     mode: 'all',
   });
 
-  const onSubmit: SubmitHandler<FormInputProps> = (data) => console.log(data);
+  const onSubmit = (data: FormInputProps) => {};
 
   return (
     <>
@@ -61,44 +45,54 @@ const Signup = ({ required, email, name, password, error }: FormInputProps) => {
         alignItems="center !important"
         justifyContent="center !important"
       >
-        <Stack
-          w={['75%', '50%']}
-          m="auto"
-          alignItems="center"
-          justifyContent="center"
-          spacing={6}
-        >
-          <Image src="/Group 9.png" alt="" mb='2rem' boxSize={['50%', '45%', '35%']} />
-          <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
-          <PrimaryInput
-                label="Name"
-                name="name"
-                type='text'
-                error={undefined}
-                defaultValue=""
-                register={register}
-              />
-            <PrimaryInput
-                label="Email"
-                name="email"
-                error={errors.email}
-                defaultValue=""
-                register={register}
-              />
-              <PrimaryInput
-                          label="Password"
-                          name="password"
-                          defaultValue=""
-                          register={register}
-                          changePasswordType={changePasswordField}
-                          type={showPassword ? 'password' : 'text'}
-                          iconClass={showPassword ? 'fa-eye' : 'fa-eye-slash'} error={undefined}              />
+        <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
+          <Stack
+            w={['75%', '50%']}
+            m="auto"
+            alignItems="center"
+            justifyContent="center"
+            spacing={6}
+          >
+            <Image
+              src="/Group 9.png"
+              alt=""
+              mb="2rem"
+              boxSize={['50%', '45%', '35%']}
+            />
+            <PrimaryInput<FormInputProps>
+              name="fullName"
+              error={errors.fullName}
+              defaultValue=""
+              register={register}
+              label="Full name"
+              placeholder="Adekunle watawi"
+            />
+            <PrimaryInput<FormInputProps>
+              name="email"
+              error={errors.email}
+              defaultValue=""
+              register={register}
+              label="Email"
+              placeholder="user@harmonicstechnology.com"
+            />
+            <PrimaryInput<FormInputProps>
+              name="password"
+              defaultValue=""
+              register={register}
+              changePasswordType={changePasswordField}
+              type={showPassword ? 'password' : 'text'}
+              error={errors.password}
+              icon={showPassword ? <BiShowAlt /> : <BiHide />}
+              label="password"
+              placeholder="********"
+            />
             <Button
               color="#fff"
               w="100%"
               bg="#A03CAE"
               borderRadius="8px"
               border="none"
+              type="submit"
               _hover={{
                 color: '#A03CAE',
                 bg: '#fff',
@@ -114,8 +108,8 @@ const Signup = ({ required, email, name, password, error }: FormInputProps) => {
                 </Text>
               </Link>
             </Stack>
-          </form>
-        </Stack>
+          </Stack>
+        </form>
       </Box>
     </>
   );

@@ -2,9 +2,7 @@ import {
   Box,
   Button,
   Flex,
-  FormControl,
   HStack,
-  Input,
   Link,
   Text,
   VStack,
@@ -16,8 +14,12 @@ import * as yup from 'yup';
 import { useRouter } from 'next/router';
 import { Widget } from '@uploadcare/react-widget';
 import { PrimaryEditor } from 'lib/components/Utils/PrimaryEditor';
+import { PrimaryInput } from '../blog/PrimaryInput';
 
-interface Props {}
+interface IFormInput {
+  title: string;
+  articleBody: string;
+}
 
 const CreatePost = () => {
   const schema = yup.object().shape({
@@ -36,12 +38,12 @@ const CreatePost = () => {
     handleSubmit,
     control,
     formState: { errors, isValid },
-  } = useForm({
+  } = useForm<IFormInput>({
     resolver: yupResolver(schema),
     mode: 'all',
   });
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: IFormInput) => {
     console.log({ data });
     try {
       const result = { status: true, data: { id: 1, name: 'no' } };
@@ -89,30 +91,21 @@ const CreatePost = () => {
             </HStack>
           )}
           <VStack alignItems="flex-start" w="100%" spacing={5}>
-            <FormControl w="100%">
-              <Input
-                placeholder="Title"
-                type="text"
-                variant="outline"
-                // borderColor=" #E6E4E4"
-                borderColor={errors?.title ? 'red' : '#E6E4E4'}
-                h="3rem"
-                backgroundColor="transparent"
-                _focus={{
-                  outline: 'none',
-                }}
-                {...register('title')}
-              />
-            </FormControl>
-            <PrimaryEditor<Props>
-              //@ts-ignore
-              name="description"
+            <PrimaryInput<IFormInput>
+              name="title"
+              error={errors.title}
+              defaultValue=""
+              register={register}
+              label="title"
+              placeholder="Post title"
+            />
+            <PrimaryEditor<IFormInput>
+              name="articleBody"
               control={control}
               label="Description"
               register={register}
               defaultValue=""
-              //@ts-ignore
-              error={errors.description}
+              error={errors.articleBody}
             />
             <Box>
               <Button

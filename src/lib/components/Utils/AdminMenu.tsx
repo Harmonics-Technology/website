@@ -25,16 +25,12 @@ function AdminMenu({ text, url, icon, isOpen }: CardsType) {
         borderRadius={isOpen ? '30px' : '50%'}
         w={isOpen ? 'full' : '2rem'}
         h={isOpen ? 'unset' : '2rem'}
-        // pl={getNavLinks('.8rem')}
+        cursor="pointer"
         spacing={4}
         justifyContent={isOpen ? 'flex-start' : 'center'}
       >
         {icon}
-        {isOpen && (
-          <Text cursor="pointer" noOfLines={1}>
-            {text}
-          </Text>
-        )}
+        {isOpen && <Text noOfLines={1}>{text}</Text>}
       </HStack>
     </NextLink>
   );

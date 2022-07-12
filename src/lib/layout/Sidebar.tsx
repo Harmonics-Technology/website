@@ -71,13 +71,16 @@ function Sidebar({ isOpen, setIsOpen }: any) {
             icon={<TbViewfinder />}
             isOpen={isOpen}
           />
-          <HStack align="center" p=".5rem" w="full" spacing={4} color="white">
+          <HStack
+            align="center"
+            p=".5rem"
+            w="full"
+            spacing={4}
+            color="white"
+            cursor="pointer"
+          >
             <AiOutlineLogout />
-            {isOpen && (
-              <Text cursor="pointer" noOfLines={1}>
-                Logout
-              </Text>
-            )}
+            {isOpen && <Text noOfLines={1}>Logout</Text>}
           </HStack>
         </VStack>
       </Box>

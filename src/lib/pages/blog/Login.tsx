@@ -1,32 +1,15 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Input,
-  Link,
-  Button,
-  Stack,
-  VStack,
-  Text,
-  FormLabel,
-  Image,
-} from '@chakra-ui/react';
+import { Box, Link, Button, Stack, Text, Image } from '@chakra-ui/react';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
-import {
-  useForm,
-  SubmitHandler,
-  FieldError,
-  UseFormRegister,
-  Path,
-} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import {PrimaryInput} from './PrimaryInput'
+import { PrimaryInput } from './PrimaryInput';
+import { BiHide, BiShowAlt } from 'react-icons/bi';
 
 interface FormInputProps {
   email: string;
-  password: any;
-  error: FieldError | undefined;
-  required?: boolean;
+  password: string;
 }
 
 const schema = yup.object().shape({
@@ -58,7 +41,7 @@ const Login = () => {
     }
   };
 
-  const onSubmit = () => {
+  const onSubmit = (data: FormInputProps) => {
     handleAfterLogin();
   };
 
@@ -80,31 +63,39 @@ const Login = () => {
             justifyContent="center"
             spacing={6}
           >
-            <Image src="/Group 9.png" alt="" mb='2rem' boxSize={['50%', '45%', '35%']} />
-            <PrimaryInput
-                label="Email"
-                name="email"
-                error={errors.email}
-                defaultValue=""
-                register={register}
-              />
-              <PrimaryInput
-                label="Password"
-                name="password"
-                defaultValue=""
-                register={register}
-                changePasswordType={changePasswordField}
-                type={showPassword ? 'password' : 'text'}
-                iconClass={showPassword ? 'fa-eye' : 'fa-eye-slash'}
-                 error={undefined}             
-                />
-    
+            <Image
+              src="/Group 9.png"
+              alt=""
+              mb="2rem"
+              boxSize={['50%', '45%', '35%']}
+            />
+            <PrimaryInput<FormInputProps>
+              name="email"
+              error={errors.email}
+              defaultValue=""
+              register={register}
+              label="Email"
+              placeholder="user@harmonicstechnology.com"
+            />
+            <PrimaryInput<FormInputProps>
+              name="password"
+              defaultValue=""
+              register={register}
+              changePasswordType={changePasswordField}
+              type={showPassword ? 'password' : 'text'}
+              error={errors.password}
+              icon={showPassword ? <BiShowAlt /> : <BiHide />}
+              label="password"
+              placeholder="********"
+            />
+
             <Button
               color="#fff"
               w="100%"
               bg="#A03CAE"
               borderRadius="8px"
               border="none"
+              type="submit"
               _hover={{
                 color: '#A03CAE',
                 bg: '#fff',
