@@ -24,7 +24,7 @@ function Sidebar({ isOpen, setIsOpen }: any) {
 
   return (
     <Box
-      w={isOpen ? '15%' : '5%'}
+      w={[isOpen ? '50%' : '0%', isOpen ? '15%' : '5%']}
       h="100vh"
       pos="fixed"
       bgColor="brand.100"
@@ -32,8 +32,9 @@ function Sidebar({ isOpen, setIsOpen }: any) {
       display={isOpen ? 'block' : 'flex'}
       justifyContent="center"
       transition="all .3s ease-out"
+      zIndex="5"
     >
-      <Box pos="relative">
+      <Box pos="relative" w={['full', 'unset']}>
         <Flex
           onClick={() => router.push('/')}
           cursor="pointer"
@@ -49,16 +50,27 @@ function Sidebar({ isOpen, setIsOpen }: any) {
         </Flex>
         <Circle
           pos="absolute"
-          right={isOpen ? '-2.3rem' : '-2rem'}
+          right={[
+            isOpen ? '-2.3rem' : '-1.8rem',
+            isOpen ? '-2.3rem' : '-1.7rem',
+          ]}
           bgColor="brand.100"
           color="white"
           size="2rem"
+          border="4px solid white"
           onClick={() => setIsOpen(!isOpen)}
           cursor="pointer"
         >
           {isOpen ? <AiOutlineClose /> : <AiOutlineMenuFold />}
         </Circle>
-        <VStack align="flex-start" spacing={10} mt="3rem" h="70vh">
+        <VStack
+          align="flex-start"
+          spacing={10}
+          mt="3rem"
+          h="70vh"
+          w="full"
+          overflow="hidden"
+        >
           <AdminMenu
             text="Create Post"
             url="create-post"

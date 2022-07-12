@@ -26,7 +26,7 @@ const Layout = ({ children }: LayoutProps) => {
           {!login && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
           <Box
             as="main"
-            w={isOpen ? '85%' : login ? 'full' : '95%'}
+            w={['full', isOpen ? '85%' : login ? 'full' : '95%']}
             ml="auto"
             transition="all .3s ease-out"
           >
