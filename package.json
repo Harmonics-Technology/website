@@ -16,7 +16,8 @@
     "up-latest": "yarn up --latest",
     "release": "standard-version",
     "push-release": "git push --follow-tags origin main",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "codegen":"openapi --input https://harmonicsapi.herokuapp.com/swagger/v1/swagger.json --output ./client --client axios"
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.11",
@@ -71,6 +72,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
     "next-sitemap": "^2.5.1",
+    "openapi-typescript-codegen": "^0.23.0",
     "prettier": "2.5.1",
     "standard-version": "^9.3.2",
     "typescript": "^4.6.3"
