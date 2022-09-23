@@ -52,7 +52,7 @@ export const PrimaryInput = <TFormValues extends Record<string, any>>({
   borderColor,
 }: FormInputProps<TFormValues>) => {
   return (
-    <FormControl isInvalid={error?.type === 'required'}>
+    <FormControl isInvalid={error ? true : false}>
       <InputGroup>
         <Input
           type={type}

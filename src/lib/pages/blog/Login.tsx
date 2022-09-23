@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import { Box, Link, Button, Stack, Text, Image } from '@chakra-ui/react';
+import { Box, Link, Button, Stack, Text, Image, useToast } from '@chakra-ui/react';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { PrimaryInput } from '../../components/Utils/PrimaryInput';
 import { BiHide, BiShowAlt } from 'react-icons/bi';
-
-interface FormInputProps {
-  email: string;
-  password: string;
-}
+import { LoginModel, OpenAPI, UserService, UserViewStandardResponse } from '../../../../client';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -21,14 +17,16 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
-  } = useForm<FormInputProps>({
+    formState: { errors, isValid, isSubmitting },
+  } = useForm<LoginModel>({
     resolver: yupResolver(schema),
     mode: 'all',
   });
 
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(true);
+  const [error, setError] = useState<any>('');
+  const toast = useToast();
   const changePasswordField = () => {
     setShowPassword(!showPassword);
   };
@@ -37,12 +35,40 @@ const Login = () => {
     if (router.query && router.query.from) {
       router.push(router.query.from as unknown as string);
     } else {
-      window.location.href = '/';
+      window.location.href = '/blogs/dashboard';
     }
   };
 
-  const onSubmit = (data: FormInputProps) => {
-    handleAfterLogin();
+  const onSubmit = async (data: LoginModel) => {
+    try {
+      const response = await UserService.loginUser({requestBody: data}) as UserViewStandardResponse;
+      if (response.status === true) {
+        OpenAPI.TOKEN = response?.data?.token as string;
+        toast({
+          position: 'top-right',
+          render: () => (
+            <Box color="white" p={3} bg="brand.100">
+              Login Successful
+            </Box>
+          ),
+        });
+
+        handleAfterLogin();
+        return;
+      }
+      toast({
+        position: 'top-right',
+        render: () => (
+          <Box color="white" p={3} bg="red.500">
+            {response.message}
+          </Box>
+        ),
+      });
+      return; 
+    } catch (error) {
+      console.log({ error });
+      setError('An error occured');
+    }
   };
 
   return (
@@ -55,6 +81,7 @@ const Login = () => {
         alignItems="center !important"
         justifyContent="center !important"
       >
+        <Text color="red">{error ? error : null}</Text>
         <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
           <Stack
             w={['75%', '50%']}
@@ -69,7 +96,7 @@ const Login = () => {
               mb="2rem"
               boxSize={['50%', '45%', '35%']}
             />
-            <PrimaryInput<FormInputProps>
+            <PrimaryInput<LoginModel>
               name="email"
               error={errors.email}
               defaultValue=""
@@ -77,7 +104,7 @@ const Login = () => {
               label="Email"
               placeholder="user@harmonicstechnology.com"
             />
-            <PrimaryInput<FormInputProps>
+            <PrimaryInput<LoginModel>
               name="password"
               defaultValue=""
               register={register}
@@ -96,6 +123,7 @@ const Login = () => {
               borderRadius="8px"
               border="none"
               type="submit"
+              isLoading={isSubmitting}
               _hover={{
                 color: '#A03CAE',
                 bg: '#fff',

@@ -18,7 +18,7 @@ const Layout = ({ children }: LayoutProps) => {
     router.pathname.startsWith('/blogs/sign-up') ||
     router.pathname.startsWith('/blogs/forgot-password');
   // || router.pathname.startsWith('/blogs/reset-password');
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <>
       {blog ? (
