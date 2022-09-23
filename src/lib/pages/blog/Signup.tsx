@@ -6,16 +6,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { PrimaryInput } from '../../components/Utils/PrimaryInput';
 import { BiHide, BiShowAlt } from 'react-icons/bi';
-
-interface FormInputProps {
-  fullName: string;
-  email: string;
-  password: string;
-}
+import { RegisterModel, UserService, UserViewStandardResponse } from '../../../../client';
 
 const schema = yup.object().shape({
   email: yup.string().email().required('required'),
-  fullName: yup.string().email().required('required'),
+  firstName: yup.string().required('required'),
   password: yup.string().required('required'),
 });
 
@@ -28,12 +23,21 @@ const Signup = () => {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<FormInputProps>({
+  } = useForm<RegisterModel>({
     resolver: yupResolver(schema),
     mode: 'all',
   });
 
-  const onSubmit = (data: FormInputProps) => {};
+  const onSubmit = async (data: RegisterModel) => {
+    console.log(data);
+
+    try {
+      const response = await UserService.create({requestBody: data}) as UserViewStandardResponse;
+      console.log({ response });
+    } catch (error) {
+      console.log({ error });
+    }
+  };
 
   return (
     <>
@@ -59,15 +63,15 @@ const Signup = () => {
               mb="2rem"
               boxSize={['50%', '45%', '35%']}
             />
-            <PrimaryInput<FormInputProps>
-              name="fullName"
-              error={errors.fullName}
+            <PrimaryInput<RegisterModel>
+              name="firstName"
+              error={errors.firstName}
               defaultValue=""
               register={register}
-              label="Full name"
-              placeholder="Adekunle watawi"
+              label="First name"
+              placeholder="Adekunle"
             />
-            <PrimaryInput<FormInputProps>
+            <PrimaryInput<RegisterModel>
               name="email"
               error={errors.email}
               defaultValue=""
@@ -75,7 +79,7 @@ const Signup = () => {
               label="Email"
               placeholder="user@harmonicstechnology.com"
             />
-            <PrimaryInput<FormInputProps>
+            <PrimaryInput<RegisterModel>
               name="password"
               defaultValue=""
               register={register}

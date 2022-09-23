@@ -17,7 +17,7 @@
     "release": "standard-version",
     "push-release": "git push --follow-tags origin main",
     "prepare": "husky install",
-    "codegen":"openapi --input https://harmonicsapi.herokuapp.com/swagger/v1/swagger.json --output ./client --client axios"
+    "codegen": "openapi --input https://harmonicsapi.herokuapp.com/swagger/v1/swagger.json --output ./client --client axios --useOptions"
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.11",
@@ -29,6 +29,7 @@
     "@types/draftjs-to-html": "^0.8.1",
     "@types/react-draft-wysiwyg": "^1.13.4",
     "@uploadcare/react-widget": "^2.1.1",
+    "axios": "^0.27.2",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
     "eslint-import-resolver-typescript": "^2.7.1",

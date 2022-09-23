@@ -13,15 +13,16 @@ import { request as __request } from '../core/request';
 export class PostService {
 
     /**
-     * @param xApiKey 
-     * @param requestBody 
      * @returns PostViewStandardResponse Success
      * @throws ApiError
      */
-    public static createPost(
+    public static createPost({
+xApiKey,
+requestBody,
+}: {
 xApiKey?: any,
 requestBody?: PostModel,
-): CancelablePromise<PostViewStandardResponse> {
+}): CancelablePromise<PostViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/Post/create',
@@ -37,15 +38,16 @@ requestBody?: PostModel,
     }
 
     /**
-     * @param xApiKey 
-     * @param requestBody 
      * @returns PostViewStandardResponse Success
      * @throws ApiError
      */
-    public static updatePost(
+    public static updatePost({
+xApiKey,
+requestBody,
+}: {
 xApiKey?: any,
 requestBody?: UpdatePostModel,
-): CancelablePromise<PostViewStandardResponse> {
+}): CancelablePromise<PostViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/Post/update',
@@ -61,15 +63,16 @@ requestBody?: UpdatePostModel,
     }
 
     /**
-     * @param id 
-     * @param xApiKey 
      * @returns PostViewStandardResponse Success
      * @throws ApiError
      */
-    public static getPost(
+    public static getPost({
+id,
+xApiKey,
+}: {
 id: string,
 xApiKey?: any,
-): CancelablePromise<PostViewStandardResponse> {
+}): CancelablePromise<PostViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Post/{id}',
@@ -86,19 +89,20 @@ xApiKey?: any,
     }
 
     /**
-     * @param offset 
-     * @param limit 
-     * @param search 
-     * @param xApiKey 
      * @returns PostViewPagedCollectionStandardResponse Success
      * @throws ApiError
      */
-    public static getPosts(
+    public static getPosts({
+offset,
+limit,
+search,
+xApiKey,
+}: {
 offset?: number,
 limit?: number,
 search?: string,
 xApiKey?: any,
-): CancelablePromise<PostViewPagedCollectionStandardResponse> {
+}): CancelablePromise<PostViewPagedCollectionStandardResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Post/list',
@@ -117,21 +121,22 @@ xApiKey?: any,
     }
 
     /**
-     * @param categoryId 
-     * @param offset 
-     * @param limit 
-     * @param search 
-     * @param xApiKey 
      * @returns PostViewPagedCollectionStandardResponse Success
      * @throws ApiError
      */
-    public static getPostsByCategory(
+    public static getPostsByCategory({
+categoryId,
+offset,
+limit,
+search,
+xApiKey,
+}: {
 categoryId: string,
 offset?: number,
 limit?: number,
 search?: string,
 xApiKey?: any,
-): CancelablePromise<PostViewPagedCollectionStandardResponse> {
+}): CancelablePromise<PostViewPagedCollectionStandardResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Post/list/{categoryId}',

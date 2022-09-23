@@ -6,8 +6,8 @@ import type { LoginModel } from '../models/LoginModel';
 import type { PasswordReset } from '../models/PasswordReset';
 import type { RegisterModel } from '../models/RegisterModel';
 import type { UpdateUserModel } from '../models/UpdateUserModel';
-import type { UserProfileViewStandardResponseTask } from '../models/UserProfileViewStandardResponseTask';
-import type { UserViewStandardResponseTask } from '../models/UserViewStandardResponseTask';
+import type { UserProfileViewStandardResponse } from '../models/UserProfileViewStandardResponse';
+import type { UserViewStandardResponse } from '../models/UserViewStandardResponse';
 
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
@@ -16,15 +16,16 @@ import { request as __request } from '../core/request';
 export class UserService {
 
     /**
-     * @param xApiKey 
-     * @param requestBody 
-     * @returns UserViewStandardResponseTask Success
+     * @returns UserViewStandardResponse Success
      * @throws ApiError
      */
-    public static create(
+    public static create({
+xApiKey,
+requestBody,
+}: {
 xApiKey?: any,
 requestBody?: RegisterModel,
-): CancelablePromise<UserViewStandardResponseTask> {
+}): CancelablePromise<UserViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/User/register',
@@ -37,15 +38,16 @@ requestBody?: RegisterModel,
     }
 
     /**
-     * @param xApiKey 
-     * @param requestBody 
-     * @returns UserViewStandardResponseTask Success
+     * @returns UserViewStandardResponse Success
      * @throws ApiError
      */
-    public static loginUser(
+    public static loginUser({
+xApiKey,
+requestBody,
+}: {
 xApiKey?: any,
 requestBody?: LoginModel,
-): CancelablePromise<UserViewStandardResponseTask> {
+}): CancelablePromise<UserViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/User/login',
@@ -58,15 +60,16 @@ requestBody?: LoginModel,
     }
 
     /**
-     * @param token 
-     * @param xApiKey 
-     * @returns UserViewStandardResponseTask Success
+     * @returns UserViewStandardResponse Success
      * @throws ApiError
      */
-    public static verify(
+    public static verify({
+token,
+xApiKey,
+}: {
 token: string,
 xApiKey?: any,
-): CancelablePromise<UserViewStandardResponseTask> {
+}): CancelablePromise<UserViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/User/verifyUser/{token}',
@@ -80,17 +83,18 @@ xApiKey?: any,
     }
 
     /**
-     * @param redirectUrl 
-     * @param xApiKey 
-     * @param requestBody 
-     * @returns UserViewStandardResponseTask Success
+     * @returns UserViewStandardResponse Success
      * @throws ApiError
      */
-    public static initiateReset(
+    public static initiateReset({
+redirectUrl,
+xApiKey,
+requestBody,
+}: {
 redirectUrl?: string,
 xApiKey?: any,
 requestBody?: InitiateResetModel,
-): CancelablePromise<UserViewStandardResponseTask> {
+}): CancelablePromise<UserViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/User/reset/initiate',
@@ -106,15 +110,16 @@ requestBody?: InitiateResetModel,
     }
 
     /**
-     * @param xApiKey 
-     * @param requestBody 
-     * @returns UserViewStandardResponseTask Success
+     * @returns UserViewStandardResponse Success
      * @throws ApiError
      */
-    public static completeReset(
+    public static completeReset({
+xApiKey,
+requestBody,
+}: {
 xApiKey?: any,
 requestBody?: PasswordReset,
-): CancelablePromise<UserViewStandardResponseTask> {
+}): CancelablePromise<UserViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/User/reset/complete',
@@ -127,15 +132,16 @@ requestBody?: PasswordReset,
     }
 
     /**
-     * @param xApiKey 
-     * @param requestBody 
-     * @returns UserViewStandardResponseTask Success
+     * @returns UserViewStandardResponse Success
      * @throws ApiError
      */
-    public static updateUser(
+    public static updateUser({
+xApiKey,
+requestBody,
+}: {
 xApiKey?: any,
 requestBody?: UpdateUserModel,
-): CancelablePromise<UserViewStandardResponseTask> {
+}): CancelablePromise<UserViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/User/update',
@@ -148,15 +154,16 @@ requestBody?: UpdateUserModel,
     }
 
     /**
-     * @param password 
-     * @param xApiKey 
-     * @returns UserViewStandardResponseTask Success
+     * @returns UserViewStandardResponse Success
      * @throws ApiError
      */
-    public static updatePassword(
+    public static updatePassword({
+password,
+xApiKey,
+}: {
 password?: string,
 xApiKey?: any,
-): CancelablePromise<UserViewStandardResponseTask> {
+}): CancelablePromise<UserViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/User/change_password',
@@ -170,15 +177,16 @@ xApiKey?: any,
     }
 
     /**
-     * @param userId 
-     * @param xApiKey 
-     * @returns UserProfileViewStandardResponseTask Success
+     * @returns UserProfileViewStandardResponse Success
      * @throws ApiError
      */
-    public static userProfile(
+    public static userProfile({
+userId,
+xApiKey,
+}: {
 userId: string,
 xApiKey?: any,
-): CancelablePromise<UserProfileViewStandardResponseTask> {
+}): CancelablePromise<UserProfileViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/User/user-profile/{userId}',
@@ -192,13 +200,14 @@ xApiKey?: any,
     }
 
     /**
-     * @param xApiKey 
-     * @returns UserViewStandardResponseTask Success
+     * @returns UserViewStandardResponse Success
      * @throws ApiError
      */
-    public static validateToken(
+    public static validateToken({
+xApiKey,
+}: {
 xApiKey?: any,
-): CancelablePromise<UserViewStandardResponseTask> {
+}): CancelablePromise<UserViewStandardResponse> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/User/validate-token',

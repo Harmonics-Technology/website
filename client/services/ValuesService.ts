@@ -8,13 +8,14 @@ import { request as __request } from '../core/request';
 export class ValuesService {
 
     /**
-     * @param xApiKey 
      * @returns string Success
      * @throws ApiError
      */
-    public static getApiValues(
+    public static getApiValues({
+xApiKey,
+}: {
 xApiKey?: any,
-): CancelablePromise<Array<string>> {
+}): CancelablePromise<Array<string>> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Values',
@@ -25,15 +26,16 @@ xApiKey?: any,
     }
 
     /**
-     * @param xApiKey 
-     * @param requestBody 
      * @returns any Success
      * @throws ApiError
      */
-    public static postApiValues(
+    public static postApiValues({
+xApiKey,
+requestBody,
+}: {
 xApiKey?: any,
 requestBody?: string,
-): CancelablePromise<any> {
+}): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'POST',
             url: '/api/Values',
@@ -46,15 +48,16 @@ requestBody?: string,
     }
 
     /**
-     * @param id 
-     * @param xApiKey 
      * @returns string Success
      * @throws ApiError
      */
-    public static getApiValues1(
+    public static getApiValues1({
+id,
+xApiKey,
+}: {
 id: number,
 xApiKey?: any,
-): CancelablePromise<string> {
+}): CancelablePromise<string> {
         return __request(OpenAPI, {
             method: 'GET',
             url: '/api/Values/{id}',
@@ -68,17 +71,18 @@ xApiKey?: any,
     }
 
     /**
-     * @param id 
-     * @param xApiKey 
-     * @param requestBody 
      * @returns any Success
      * @throws ApiError
      */
-    public static putApiValues(
+    public static putApiValues({
+id,
+xApiKey,
+requestBody,
+}: {
 id: number,
 xApiKey?: any,
 requestBody?: string,
-): CancelablePromise<any> {
+}): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'PUT',
             url: '/api/Values/{id}',
@@ -94,15 +98,16 @@ requestBody?: string,
     }
 
     /**
-     * @param id 
-     * @param xApiKey 
      * @returns any Success
      * @throws ApiError
      */
-    public static deleteApiValues(
+    public static deleteApiValues({
+id,
+xApiKey,
+}: {
 id: number,
 xApiKey?: any,
-): CancelablePromise<any> {
+}): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'DELETE',
             url: '/api/Values/{id}',
