@@ -27,7 +27,6 @@ const VerifyToken = ({ token }: { token: string }) => {
         setVerified(response.data);
         return;
       }
-      
     } catch (error) {}
   };
   useEffect(() => {

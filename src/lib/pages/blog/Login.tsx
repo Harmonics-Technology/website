@@ -59,6 +59,7 @@ const Login = () => {
         requestBody: data,
       })) as UserViewStandardResponse;
       if (response.status === true) {
+        console.log({ response });
         OpenAPI.TOKEN = response?.data?.token as string;
         Cookies.set('token', response?.data?.token as string);
         Cookies.set('user', JSON.stringify(response?.data));
@@ -72,7 +73,7 @@ const Login = () => {
           ),
         });
 
-        handleAfterLogin();
+        // handleAfterLogin();
         return;
       }
       toast({
