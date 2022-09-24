@@ -1,29 +1,19 @@
-import { Flex, Text, SimpleGrid, Button } from '@chakra-ui/react';
+import { Flex, Text, SimpleGrid, Button, Center } from '@chakra-ui/react';
 import BlogCard from 'lib/components/sections/BlogCard';
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie';
+import { UserContext } from 'lib/components/Utils/MainContext';
+import { Key, useContext } from 'react';
+import { PostModel, PostView } from '../../../../client';
+import Pagination from 'lib/components/Utils/Pagination';
 
-const data = [
-  {
-    id: '1',
-    title: 'The Differences between UI design and UX design',
-    src: '/news3.png',
-    desc: 'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father land, as a teacher, in a private school.',
-  },
-  {
-    id: '2',
-    title: 'The Differences between UI design and UX design',
-    desc: 'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father land, as a teacher, in a private school.',
-  },
-  {
-    id: '3',
-    title: 'The Differences between UI design and UX design',
-    src: '/news3.png',
-    desc: 'Life Before Starting a Career in Tech I am a graduate of Business Administration, from Tai Solarin University of Education. I graduated in 2015, after 7 months of staying at home and teaching, I was deployed to Arokho, Owan East in Edo state to serve my father land, as a teacher, in a private school.',
-  },
-];
+function MyBlog({ data }: { data: any }) {
 
-function MyBlog() {
+  const result = data?.value;
   const router = useRouter();
+
+  const { user, setUser } = useContext(UserContext);
+
   return (
     <>
       <Flex
@@ -37,13 +27,19 @@ function MyBlog() {
         shadow="lg"
         bgColor="white"
       >
-        <Text color="brand.100" fontSize="1.1rem" fontWeight="bold">
-          Hi Anukam
+        <Text
+          color="brand.100"
+          textTransform="capitalize"
+          fontSize="1.1rem"
+          fontWeight="bold"
+        >
+          {user?.firstName}
         </Text>
         <Button
           cursor="pointer"
           color="white"
-          w={['3rem', '4rem']}
+          w={['auto', '4rem']}
+          minWidth={['auto', '10rem']}
           height="2.5rem"
           _hover={{ color: 'white', bgColor: 'black' }}
           fontSize=".9rem"
@@ -62,10 +58,13 @@ function MyBlog() {
         pb="4rem"
         px={['1rem', 16]}
       >
-        {data.map((item) => (
-          <BlogCard key={item.id} item={item} />
+        {result?.map((item: PostView) => (
+          <BlogCard key={item.title} item={item} />
         ))}
       </SimpleGrid>
+        <Center my="2rem">
+          <Pagination data={data} />
+        </Center>
     </>
   );
 }

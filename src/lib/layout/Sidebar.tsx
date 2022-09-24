@@ -9,6 +9,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import AdminMenu from 'lib/components/Utils/AdminMenu';
+import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import {
@@ -21,6 +22,12 @@ import { TbViewfinder } from 'react-icons/tb';
 
 function Sidebar({ isOpen, setIsOpen }: any) {
   const router = useRouter();
+  const LogUserOut = () => {
+    Cookies.remove('user');
+    Cookies.remove('token');
+    Cookies.remove('userIn');
+    window.location.href = '/';
+  };
 
   return (
     <Box
@@ -90,6 +97,7 @@ function Sidebar({ isOpen, setIsOpen }: any) {
             spacing={4}
             color="white"
             cursor="pointer"
+            onClick={() => LogUserOut()}
           >
             <AiOutlineLogout />
             {isOpen && <Text noOfLines={1}>Logout</Text>}

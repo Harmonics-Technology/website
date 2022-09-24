@@ -1,4 +1,4 @@
-import Mypost from 'lib/pages/blogpost/Mypost';
+import Mypost from 'lib/pages/blog/Mypost';
 import React from 'react';
 
 type Props = {};

@@ -9,6 +9,7 @@ import customTheme from '../lib/styles/customTheme';
 import defaultSEOConfig from '../../next-seo.config';
 import '../lib/styles/globals.css';
 import { OpenAPI } from '../../client';
+import { UserProvider } from 'lib/components/Utils/MainContext';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   OpenAPI.BASE = process.env.NEXT_PUBLIC_API_BASEURL as string;
@@ -22,9 +23,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <link rel="icon" href="/harmonicfav.png" type="image/x-icon" />
       </Head>
       <DefaultSeo {...defaultSEOConfig} />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <UserProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </UserProvider>
     </ChakraProvider>
   );
 };

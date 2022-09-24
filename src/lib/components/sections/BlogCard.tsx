@@ -9,26 +9,25 @@ import {
 } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { PostView } from '../../../../client';
+import parse from 'html-react-parser';
 import DeletePost from './DeletePost';
 
-type Props = {
-  item: any;
-};
-
-const BlogCard = ({ item }: Props) => {
+const BlogCard = ({ item }: { item: PostView }) => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const router = useRouter();
+  console.log(item);
   return (
     <>
-      <Box shadow="lg">
+      <Box shadow="lg" h="30rem" pos="relative">
         <Box>
-          {item.src ? (
+          {item?.thumbnail !== null && item?.thumbnail !== 'string' ? (
             <Image
-              src={item.src}
+              src={item?.thumbnail as string}
               h="11rem"
               objectFit="cover"
-              w="full"
-              alt={item.title}
+              w="100%"
+              alt={item?.title as string}
               borderRadius="10px 10px 0 0"
             />
           ) : (
@@ -36,8 +35,8 @@ const BlogCard = ({ item }: Props) => {
               src="/default.png"
               h="11rem"
               objectFit="cover"
-              w="full"
-              alt={item.title}
+              w="100%"
+              alt={item?.title as string}
               borderRadius="10px 10px 0 0"
             />
           )}
@@ -47,31 +46,43 @@ const BlogCard = ({ item }: Props) => {
             fontWeight="900"
             fontSize={['1rem', '1.1rem']}
             color="brand.200"
+            textTransform="capitalize"
           >
             {item.title}
           </Text>
-          <Text
-            fontWeight="400"
-            fontSize={['13px', '14px']}
-            color="brand.200"
-            mt={3}
-            noOfLines={6}
+          <Box>
+            <Text
+              fontWeight="400"
+              fontSize={['13px', '14px']}
+              color="brand.200"
+              mt={3}
+              noOfLines={6}
+            >
+              {parse(item?.content as unknown as string)}
+            </Text>
+          </Box>
+          <SimpleGrid
+            columns={2}
+            py=".5rem"
+            spacing="5"
+            w="full"
+            pos="absolute"
+            bottom="5"
+            left="0"
           >
-            {item.desc}
-          </Text>
-          <SimpleGrid columns={2} py=".5rem" spacing="5" w="full">
             <Button
               fontSize="12px"
               variant="outline"
               color="brand.100"
               height="3rem"
               minWidth="unset"
+              ml="5"
               fontWeight="light"
               _hover={{
                 bgColor: 'brand.100',
                 color: 'white',
               }}
-              onClick={() => router.push(`/blog/edit/${item.id}`)}
+              onClick={() => router.push(`/blogs/edit/${item?.title}`)}
             >
               Edit
             </Button>
@@ -82,6 +93,7 @@ const BlogCard = ({ item }: Props) => {
               minWidth="unset"
               fontWeight="light"
               height="3rem"
+              mr="5"
               borderColor="brand.600"
               _hover={{
                 bgColor: 'brand.600',

@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
-import { Box, Link, Button, Stack, Text, Image, useToast } from '@chakra-ui/react';
+import {
+  Box,
+  Link,
+  Button,
+  Stack,
+  Text,
+  Image,
+  useToast,
+} from '@chakra-ui/react';
 import * as yup from 'yup';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { PrimaryInput } from '../../components/Utils/PrimaryInput';
 import { BiHide, BiShowAlt } from 'react-icons/bi';
-import { LoginModel, OpenAPI, UserService, UserViewStandardResponse } from '../../../../client';
+import Cookies from 'js-cookie';
+import {
+  LoginModel,
+  OpenAPI,
+  UserService,
+  UserViewStandardResponse,
+} from '../../../../client';
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -41,9 +55,14 @@ const Login = () => {
 
   const onSubmit = async (data: LoginModel) => {
     try {
-      const response = await UserService.loginUser({requestBody: data}) as UserViewStandardResponse;
+      const response = (await UserService.loginUser({
+        requestBody: data,
+      })) as UserViewStandardResponse;
       if (response.status === true) {
         OpenAPI.TOKEN = response?.data?.token as string;
+        Cookies.set('token', response?.data?.token as string);
+        Cookies.set('user', JSON.stringify(response?.data));
+        Cookies.set('userIn', 'true');
         toast({
           position: 'top-right',
           render: () => (
@@ -64,7 +83,7 @@ const Login = () => {
           </Box>
         ),
       });
-      return; 
+      return;
     } catch (error) {
       console.log({ error });
       setError('An error occured');
