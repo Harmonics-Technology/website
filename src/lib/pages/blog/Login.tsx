@@ -73,7 +73,7 @@ const Login = () => {
           ),
         });
 
-        // handleAfterLogin();
+        handleAfterLogin();
         return;
       }
       toast({
