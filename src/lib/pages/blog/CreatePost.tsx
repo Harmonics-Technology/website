@@ -9,6 +9,7 @@ import {
   VStack,
   Image,
   Spinner,
+  Stack,
 } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -39,7 +40,7 @@ const CreatePost = ({
 }: {
   postCategoryList: PostCategoryView[];
 }) => {
-  // console.log(postCategoryList)
+  console.log(postCategoryList);
 
   const [uploadedThumbnail, setUploadedThumbnail] = useState<string>();
   const schema = yup.object().shape({
@@ -53,7 +54,7 @@ const CreatePost = ({
 
   const router = useRouter();
   const [published, setPublished] = useState<any>();
-  const token = Cookies.get("token")
+  const token = Cookies.get('token');
 
   const {
     register,
@@ -76,20 +77,14 @@ const CreatePost = ({
     data.thumbnail = uploadedThumbnail;
     console.log({ data });
     try {
-      OpenAPI.TOKEN = token as string
+      OpenAPI.TOKEN = token as string;
       const response = (await PostService.createPost({
-        requestBody: data
+        requestBody: data,
       })) as PostViewStandardResponse;
       if (response.status === true) {
-        toast({
-          position: 'top-right',
-          render: () => (
-            <Box color="white" p={3} bg="brand.100">
-              Post created successfully!
-            </Box>
-          ),
-        });
-        router.push('/blogs/dashboard');
+        console.log({ response });
+
+        // setPublished(response.data);
         return;
       }
       toast({
@@ -111,124 +106,143 @@ const CreatePost = ({
     <Box w="100%">
       <Box w="90%" mx="auto" pb="30px">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Flex w="100%" py="2rem" justifyContent={['', 'flex-end']}>
-            <Button
-              textTransform="capitalize"
-              w={['100%', 'unset']}
-              type="submit"
-              _hover={{
-                bg: 'transparent',
-                color: 'brand.100',
-                border: '2px solid #A03CAE',
-              }}
-              _focus={{
-                outline: 'none',
-              }}
-              isLoading={isSubmitting}
-            >
-              publish
-            </Button>
-          </Flex>
-
-          {published && (
-            <HStack my=".5rem">
-              <Text>Post Published Successfully!</Text>
-              <Link
-                color="brand.100"
-                fontWeight="500"
-                href={`/blog/${published.id}`}
-              >
-                View Post
-              </Link>
-            </HStack>
-          )}
-          <VStack alignItems="flex-start" w="100%" spacing={5}>
-            <PrimaryInput<PostModel>
-              name="title"
-              error={errors.title}
-              defaultValue=""
-              register={register}
-              label="title"
-              placeholder="Post title"
-            />
-            <PrimarySelect<PostModel>
-              register={register}
-              error={errors.postCategoryId}
-              label="Category"
-              placeholder="Select a category"
-              placeholderColor="gray"
-              name="postCategoryId"
-              options={
-                <>
-                  {data.map((x: PostCategoryView) => {
-                    return <option
-                     value={x.id}>{x.name}</option>;
-                  })}
-                </>
-              }
-            />
-            <PrimaryEditor<PostModel>
-              name="content"
-              control={control}
-              label="Description"
-              register={register}
-              defaultValue=""
-              error={errors.content}
-            />
-            <HStack
-              spacing="2"
-              align="flex-start"
-              w="full"
-              justify="space-between"
-            >
-              <Button
-                variant="outline"
-                textTransform="capitalize"
-                type="button"
-                onClick={() => widgetapi.current.openDialog()}
-              >
-                {uploadedThumbnail ? 'change image' : 'add image'}
-              </Button>
-
-              <Box display="none">
-                <Widget
-                  publicKey="fda3a71102659f95625f"
-                  imagesOnly
-                  imageShrink="640x480"
-                  imagePreviewMaxSize={9}
-                  ref={widgetapi}
-                  onChange={(info) => onChangeThumbnail(info)}
+          <Stack w="100%" direction="row" py="5rem" gap="2rem">
+            <Box w="80%">
+              {published && (
+                <HStack my=".5rem">
+                  <Text>Post Published Successfully!</Text>
+                  <Link
+                    color="brand.100"
+                    fontWeight="500"
+                    href={`/blog/${published.id}`}
+                  >
+                    View Post
+                  </Link>
+                </HStack>
+              )}
+              <VStack alignItems="flex-start" w="100%" spacing={5}>
+                <PrimaryInput<PostModel>
+                  name="title"
+                  error={errors.title}
+                  defaultValue=""
+                  register={register}
+                  label="title"
+                  placeholder="Post title"
                 />
-              </Box>
-              <Box>
-                {/* <Spinner color='brand.100' /> */}
-                {uploadedThumbnail && (
-                  <>
-                    <HStack w="full" spacing="1rem" overflow="auto">
-                      <SRLWrapper>
-                        <Box
-                          w="50rem"
-                          h="50rem"
-                          borderRadius="5px"
-                          bgColor="brand.50"
-                          flexShrink={0}
-                          overflow="hidden"
-                        >
-                          <Image
-                            src={uploadedThumbnail as unknown as string}
-                            alt="propery-image"
-                            w="100%"
-                            height="100%"
-                            objectFit="cover"
-                          />
-                        </Box>
-                      </SRLWrapper>
-                    </HStack>
-                  </>
-                )}
-              </Box>
-            </HStack>
-          </VStack>
+
+                <PrimaryEditor<PostModel>
+                  name="content"
+                  control={control}
+                  label="Description"
+                  register={register}
+                  defaultValue=""
+                  error={errors.content}
+                />
+                <HStack
+                  spacing="2"
+                  align="flex-start"
+                  w="full"
+                  justify="space-between"
+                >
+                  <Button
+                    variant="outline"
+                    textTransform="capitalize"
+                    type="button"
+                    onClick={() => widgetapi.current.openDialog()}
+                  >
+                    {uploadedThumbnail ? 'change image' : 'add image'}
+                  </Button>
+
+                  <Box display="none">
+                    <Widget
+                      publicKey="fda3a71102659f95625f"
+                      imagesOnly
+                      imageShrink="640x480"
+                      imagePreviewMaxSize={9}
+                      ref={widgetapi}
+                      onChange={(info) => onChangeThumbnail(info)}
+                    />
+                  </Box>
+                  <Box>
+                    {/* <Spinner color='brand.100' /> */}
+                    {uploadedThumbnail && (
+                      <>
+                        <HStack w="full" spacing="1rem" overflow="auto">
+                          <SRLWrapper>
+                            <Box
+                              w="50rem"
+                              h="50rem"
+                              borderRadius="5px"
+                              bgColor="brand.50"
+                              flexShrink={0}
+                              overflow="hidden"
+                            >
+                              <Image
+                                src={uploadedThumbnail as unknown as string}
+                                alt="propery-image"
+                                w="100%"
+                                height="100%"
+                                objectFit="cover"
+                              />
+                            </Box>
+                          </SRLWrapper>
+                        </HStack>
+                      </>
+                    )}
+                  </Box>
+                </HStack>
+              </VStack>
+            </Box>
+            <Box w="20%">
+              <Stack direction="column" spacing="1rem">
+                <Flex w="100%">
+                  <Button
+                    textTransform="capitalize"
+                    w={['100%', 'unset']}
+                    type="submit"
+                    _hover={{
+                      bg: 'transparent',
+                      color: 'brand.100',
+                      border: '2px solid #A03CAE',
+                    }}
+                    _focus={{
+                      outline: 'none',
+                    }}
+                    isLoading={isSubmitting}
+                  >
+                    publish
+                  </Button>
+                </Flex>
+                <Box>
+                  <Text mb="3">Select a Category</Text>
+                  <PrimarySelect<PostModel>
+                    register={register}
+                    error={errors.postCategoryId}
+                    label="Category"
+                    placeholder="Select a category"
+                    placeholderColor="gray"
+                    name="postCategoryId"
+                    options={
+                      <>
+                        {postCategoryList.map((x: PostCategoryView) => {
+                          return <option value={x.id}>{x.name}</option>;
+                        })}
+                      </>
+                    }
+                  />
+                  <Text>Create New Category</Text>
+                  <PrimaryInput<PostModel>
+                    name="title"
+                    error={errors.title}
+                    defaultValue=""
+                    register={register}
+                    label="title"
+                    placeholder="Post title"
+                  />
+                </Box>
+              </Stack>
+            </Box>
+          </Stack>
         </form>
       </Box>
     </Box>

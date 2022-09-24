@@ -107,8 +107,8 @@ const Header = () => {
             <Text color={getNavLinks('/blogs/dashboard')}>Dashboard</Text>
           </Link>
         ) : (
-          <Link href="/blogs/sign-up">
-            <Text color={getNavLinks('/blogs/sign-up')}>Sign up</Text>
+          <Link href="/blogs/register">
+            <Text color={getNavLinks('/blogs/register')}>Sign up</Text>
           </Link>
         )}
       </Stack>

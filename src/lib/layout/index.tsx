@@ -15,10 +15,10 @@ const Layout = ({ children }: LayoutProps) => {
   const blog = router.pathname.startsWith('/blogs');
   const login =
     router.pathname.startsWith('/blogs/login') ||
-    router.pathname.startsWith('/blogs/sign-up') ||
+    router.pathname.startsWith('/blogs/register') ||
     router.pathname.startsWith('/blogs/forgot-password');
   // || router.pathname.startsWith('/blogs/reset-password');
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       {blog ? (
