@@ -16,7 +16,7 @@ import { UserService, UserViewStandardResponse } from '../../../../client';
 const VerifyToken = ({ token }: { token: string }) => {
   console.log({ token });
   const router = useRouter();
-  const [verified, setVerified] = useState<any>();
+  const [verified, setVerified] = useState<any>('Please wait...');
 
   const VerifyUser = async () => {
     try {
@@ -24,24 +24,23 @@ const VerifyToken = ({ token }: { token: string }) => {
         token: token,
       })) as UserViewStandardResponse;
       if (response.status === true) {
-        setVerified(response.data);
+        setVerified(response.message);
         return;
       }
-      
+      setVerified(response.message);
     } catch (error) {}
   };
   useEffect(() => {
     VerifyUser();
   }, []);
-  console.log({ verified });
 
   return (
     <Flex w="100%" justify="center" align="center" height="100vh">
-      {verified !== null && verified !== undefined ? (
+      {verified !== 'Unsuccessful' && verified !== 'Please wait...' ? (
         <VStack spacing="1rem">
           <HStack>
             <Icon as={BsShieldFillCheck} w={12} h={12} />
-            <Text fontSize="2rem">Account Verified</Text>
+            <Text fontSize="2rem">{verified}</Text>
           </HStack>
           <Box>
             <Button
@@ -62,7 +61,11 @@ const VerifyToken = ({ token }: { token: string }) => {
           </Box>
         </VStack>
       ) : (
-        <Text>Verifying...</Text>
+        <Text>
+          {verified !== 'Please wait...'
+            ? verified + ' Please try again!'
+            : verified}
+        </Text>
       )}
     </Flex>
   );

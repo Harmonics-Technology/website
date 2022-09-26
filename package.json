@@ -28,6 +28,7 @@
     "@types/draft-js": "^0.11.9",
     "@types/draftjs-to-html": "^0.8.1",
     "@types/react-draft-wysiwyg": "^1.13.4",
+    "@types/simple-react-lightbox": "^3.6.1",
     "@uploadcare/react-widget": "^2.1.1",
     "axios": "^0.27.2",
     "draft-js": "^0.11.7",

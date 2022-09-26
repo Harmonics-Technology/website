@@ -37,7 +37,7 @@ export const PrimarySelect = <TFormValues extends Record<string, any>>({
   fontSize = '1rem',
   options,
   defaultValue,
-  placeholderColor
+  placeholderColor,
 }: FormInputProps<TFormValues>) => {
   return (
     <FormControl isInvalid={error?.type === 'required'}>
@@ -51,7 +51,7 @@ export const PrimarySelect = <TFormValues extends Record<string, any>>({
         textTransform="capitalize"
         placeholder={placeholder}
         defaultValue={defaultValue}
-        _placeholder={{color: placeholderColor}}
+        _placeholder={{ color: placeholderColor }}
         // isReadOnly
         icon={<MdOutlineKeyboardArrowDown />}
       >

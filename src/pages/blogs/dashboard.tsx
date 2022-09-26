@@ -11,16 +11,18 @@ import {
 } from '../../../client';
 
 function blog({ data }: { data: PostModel[] }) {
- 
-   //Redirect user to login and back here when login is successful
-   const router = useRouter();
-   const isUser = Cookies.get('userIn');
-   useEffect(() => {
-     if (isUser !== 'true') {
-       router.push({ pathname: '/blogs/login', query: { from: router.pathname } });
-       return;
-     }
-   });
+  //Redirect user to login and back here when login is successful
+  const router = useRouter();
+  const isUser = Cookies.get('userIn');
+  useEffect(() => {
+    if (isUser !== 'true') {
+      router.push({
+        pathname: '/blogs/login',
+        query: { from: router.pathname },
+      });
+      return;
+    }
+  });
 
   return <MyBlog data={data} />;
 }
@@ -31,8 +33,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const token = ctx.req.cookies['token'];
 
   try {
-    OpenAPI.TOKEN = token as string;
-
     const data = (await PostService.getPosts({}))
       .data as PostViewStandardResponse;
     console.log(data);

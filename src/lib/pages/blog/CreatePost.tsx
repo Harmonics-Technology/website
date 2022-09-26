@@ -31,17 +31,11 @@ import {
 import { PrimarySelect } from 'lib/components/Utils/PrimarySelect';
 import Cookies from 'js-cookie';
 
-const data = [
-  { id: '08da9db0-ce67-4037-867d-db79ce9d79f1', name: 'technology' },
-];
-
 const CreatePost = ({
   postCategoryList,
 }: {
   postCategoryList: PostCategoryView[];
 }) => {
-  console.log(postCategoryList);
-
   const [uploadedThumbnail, setUploadedThumbnail] = useState<string>();
   const schema = yup.object().shape({
     title: yup.string().required(),
@@ -70,14 +64,12 @@ const CreatePost = ({
 
   const onChangeThumbnail = async (info: any) => {
     const thumbnailUrl = info.originalUrl;
-
     setUploadedThumbnail(thumbnailUrl);
   };
   const onSubmit = async (data: PostModel) => {
     data.thumbnail = uploadedThumbnail;
     console.log({ data });
     try {
-      OpenAPI.TOKEN = token as string;
       const response = (await PostService.createPost({
         requestBody: data,
       })) as PostViewStandardResponse;
@@ -138,59 +130,6 @@ const CreatePost = ({
                   defaultValue=""
                   error={errors.content}
                 />
-                <HStack
-                  spacing="2"
-                  align="flex-start"
-                  w="full"
-                  justify="space-between"
-                >
-                  <Button
-                    variant="outline"
-                    textTransform="capitalize"
-                    type="button"
-                    onClick={() => widgetapi.current.openDialog()}
-                  >
-                    {uploadedThumbnail ? 'change image' : 'add image'}
-                  </Button>
-
-                  <Box display="none">
-                    <Widget
-                      publicKey="fda3a71102659f95625f"
-                      imagesOnly
-                      imageShrink="640x480"
-                      imagePreviewMaxSize={9}
-                      ref={widgetapi}
-                      onChange={(info) => onChangeThumbnail(info)}
-                    />
-                  </Box>
-                  <Box>
-                    {/* <Spinner color='brand.100' /> */}
-                    {uploadedThumbnail && (
-                      <>
-                        <HStack w="full" spacing="1rem" overflow="auto">
-                          <SRLWrapper>
-                            <Box
-                              w="50rem"
-                              h="50rem"
-                              borderRadius="5px"
-                              bgColor="brand.50"
-                              flexShrink={0}
-                              overflow="hidden"
-                            >
-                              <Image
-                                src={uploadedThumbnail as unknown as string}
-                                alt="propery-image"
-                                w="100%"
-                                height="100%"
-                                objectFit="cover"
-                              />
-                            </Box>
-                          </SRLWrapper>
-                        </HStack>
-                      </>
-                    )}
-                  </Box>
-                </HStack>
               </VStack>
             </Box>
             <Box w="20%">
@@ -198,7 +137,7 @@ const CreatePost = ({
                 <Flex w="100%">
                   <Button
                     textTransform="capitalize"
-                    w={['100%', 'unset']}
+                    w="full"
                     type="submit"
                     _hover={{
                       bg: 'transparent',
@@ -214,32 +153,74 @@ const CreatePost = ({
                   </Button>
                 </Flex>
                 <Box>
-                  <Text mb="3">Select a Category</Text>
-                  <PrimarySelect<PostModel>
-                    register={register}
-                    error={errors.postCategoryId}
-                    label="Category"
-                    placeholder="Select a category"
-                    placeholderColor="gray"
-                    name="postCategoryId"
-                    options={
-                      <>
-                        {postCategoryList.map((x: PostCategoryView) => {
-                          return <option value={x.id}>{x.name}</option>;
-                        })}
-                      </>
-                    }
-                  />
-                  <Text>Create New Category</Text>
-                  <PrimaryInput<PostModel>
-                    name="title"
-                    error={errors.title}
-                    defaultValue=""
-                    register={register}
-                    label="title"
-                    placeholder="Post title"
-                  />
+                  <Text mb="2">Select a Category</Text>
+                  {postCategoryList?.length > 0 && (
+                    <PrimarySelect<PostModel>
+                      register={register}
+                      error={errors.postCategoryId}
+                      label="Category"
+                      placeholder="Select a category"
+                      placeholderColor="gray"
+                      name="postCategoryId"
+                      options={
+                        <>
+                          {postCategoryList.map((x: PostCategoryView) => {
+                            return <option value={x.id}>{x.name}</option>;
+                          })}
+                        </>
+                      }
+                    />
+                  )}
+                  <Text fontSize=".8rem">Create New Category</Text>
                 </Box>
+                <VStack
+                  spacing="2"
+                  align="flex-end"
+                  w="full"
+                  justify="space-between"
+                >
+                  <Box
+                    w="100%"
+                    h="13rem"
+                    borderRadius="5px"
+                    bgColor="brand.100"
+                    flexShrink={0}
+                    overflow="hidden"
+                  >
+                    <SRLWrapper>
+                      {uploadedThumbnail && (
+                        <Image
+                          src={uploadedThumbnail as unknown as string}
+                          alt="propery-image"
+                          w="100%"
+                          height="100%"
+                          objectFit="cover"
+                        />
+                      )}
+                    </SRLWrapper>
+                  </Box>
+
+                  <Button
+                    variant="outline"
+                    textTransform="capitalize"
+                    type="button"
+                    w="full"
+                    onClick={() => widgetapi.current.openDialog()}
+                  >
+                    {uploadedThumbnail ? 'change image' : 'add thumbnail'}
+                  </Button>
+
+                  <Box display="none">
+                    <Widget
+                      publicKey="fda3a71102659f95625f"
+                      imagesOnly
+                      imageShrink="640x480"
+                      imagePreviewMaxSize={9}
+                      ref={widgetapi}
+                      onChange={(info) => onChangeThumbnail(info)}
+                    />
+                  </Box>
+                </VStack>
               </Stack>
             </Box>
           </Stack>
