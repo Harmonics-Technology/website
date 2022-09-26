@@ -6,10 +6,12 @@ import { UserContext } from 'lib/components/Utils/MainContext';
 import { Key, useContext } from 'react';
 import { PostModel, PostView } from '../../../../client';
 import Pagination from 'lib/components/Utils/Pagination';
+import WelcomePost from './WelcomePost';
 
 function MyBlog({ data }: { data: any }) {
 
   const result = data?.value;
+  const length = result?.length;
   const router = useRouter();
 
   const { user, setUser } = useContext(UserContext);
@@ -50,6 +52,9 @@ function MyBlog({ data }: { data: any }) {
           Create Post
         </Button>
       </Flex>
+      
+      <WelcomePost />
+
       <SimpleGrid
         columns={{ base: 1, md: 2, lg: 3 }}
         spacingX={5}
@@ -62,9 +67,9 @@ function MyBlog({ data }: { data: any }) {
           <BlogCard key={item.title} item={item} />
         ))}
       </SimpleGrid>
-        <Center my="2rem">
-          <Pagination data={data} />
-        </Center>
+      <Center my="2rem">
+        <Pagination data={data} />
+      </Center>
     </>
   );
 }
