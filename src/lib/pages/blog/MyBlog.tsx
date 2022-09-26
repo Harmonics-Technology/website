@@ -52,7 +52,7 @@ function MyBlog({ data }: { data: any }) {
           Create Post
         </Button>
       </Flex>
-      
+
       <WelcomePost />
 
       <SimpleGrid
@@ -63,13 +63,14 @@ function MyBlog({ data }: { data: any }) {
         pb="4rem"
         px={['1rem', 16]}
       >
-        {result?.map((item: PostView) => (
+        {/* {result?.map((item: PostView) => (
           <BlogCard key={item.title} item={item} />
-        ))}
+        ))} */}
+        
       </SimpleGrid>
-      <Center my="2rem">
-        <Pagination data={data} />
-      </Center>
+      {/* <Center my="2rem">
+          <Pagination data={data} />
+        </Center> */}
     </>
   );
 }
