@@ -1,7 +1,10 @@
 import React from 'react'
-import {Box, Text, Button} from '@chakra-ui/react'
+import {Box, Text, Button, Icon } from '@chakra-ui/react'
+import { useRouter } from 'next/router';
+import {RiBallPenLine} from 'react-icons/ri'
 
 const WelcomePost = () => {
+     const router = useRouter();
   return (
     <>
       <Box
@@ -9,11 +12,12 @@ const WelcomePost = () => {
         flexDirection="column"
         alignItems="center"
         w="full"
-        h="100%"
+        h={["100%","100vh"]}
         p='2rem'
         justifyContent="center"
       >
-        <Text fontWeight='500' fontSize={['1.3rem', '1.5rem']} color="">
+        <Icon boxSize={['3rem','4rem']} as={RiBallPenLine}/>
+        <Text fontWeight='700' fontSize={['1.3rem', '2.5rem']} color="">
           Welcome to Harmonics Blog
         </Text>
         <Text>
@@ -28,6 +32,7 @@ const WelcomePost = () => {
           borderRadius="8px"
           border="none"
           type="submit"
+          onClick={() => router.push('/blogs/create-post/')}
           _hover={{
             color: '#A03CAE',
             bg: '#fff',
