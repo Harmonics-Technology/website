@@ -106,7 +106,7 @@ const BlogCard = ({ item }: { item: PostView }) => {
           </SimpleGrid>
         </VStack>
       </Box>
-      <DeletePost onClose={onClose} isOpen={isOpen} />
+      <DeletePost onClose={onClose} isOpen={isOpen} id={item?.id}/>
     </>
   );
 };

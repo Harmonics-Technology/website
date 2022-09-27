@@ -16,7 +16,7 @@ import * as yup from 'yup';
 import { useRouter } from 'next/router';
 import { useForm, FieldError, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { PrimaryInput } from '../../components/Utils/PrimaryInput';
+import { PrimaryInput } from '../../../lib/components/Utils/PrimaryInput';
 import {
   UserService,
   UserViewStandardResponse,
@@ -71,9 +71,6 @@ const ForgotPassword = () => {
     >
       {showSuccessScreen ? (
         <Box w="100%">
-          <Box w="150px" mx="auto">
-            <Image src="/Group 9.png" alt="" mb="2rem" />
-          </Box>
           <VStack w="100%" spacing={6} alignItems="flex-start">
             <Flex
               w="50px"
@@ -92,7 +89,7 @@ const ForgotPassword = () => {
               textAlign="center"
               lineHeight={0.5}
               fontWeight={500}
-              fontSize="20px"
+              fontSize="24px"
               sx={{
                 '::first-letter': {
                   textTransform: 'uppercase',
@@ -102,25 +99,6 @@ const ForgotPassword = () => {
               a mail has been sent to your email.
             </Text>
           </VStack>
-          <Flex mt="30px" w="100%" justifyContent="center">
-            <Button
-              color="#fff"
-              w="150px"
-              h="45px"
-              bg="#A03CAE"
-              borderRadius="8px"
-              border="none"
-              type="submit"
-              _hover={{
-                color: '#A03CAE',
-                bg: '#fff',
-                border: '1px solid #A03CAE',
-              }}
-              onClick={() => router.push('/blog/login.tsx')}
-            >
-              Login
-            </Button>
-          </Flex>
         </Box>
       ) : (
         <>
