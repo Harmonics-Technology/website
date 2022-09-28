@@ -49,6 +49,7 @@ export const PrimarySelect = <TFormValues extends Record<string, any>>({
         height="3rem"
         fontSize=".9rem"
         textTransform="capitalize"
+        borderRadius="0"
         placeholder={placeholder}
         defaultValue={defaultValue}
         _placeholder={{ color: placeholderColor }}

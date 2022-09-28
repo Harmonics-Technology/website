@@ -1,10 +1,10 @@
-import React from 'react'
-import {Box, Text, Button, Icon } from '@chakra-ui/react'
+import React from 'react';
+import { Box, Text, Button, Icon, Circle } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import {RiBallPenLine} from 'react-icons/ri'
+import { RiBallPenLine } from 'react-icons/ri';
 
 const WelcomePost = () => {
-     const router = useRouter();
+  const router = useRouter();
   return (
     <>
       <Box
@@ -12,23 +12,31 @@ const WelcomePost = () => {
         flexDirection="column"
         alignItems="center"
         w="full"
-        h={["100%","100vh"]}
-        p='2rem'
+        h={['100%', '70vh']}
+        p="2rem"
         justifyContent="center"
       >
-        <Icon boxSize={['3rem','4rem']} as={RiBallPenLine}/>
-        <Text fontWeight='700' fontSize={['1.3rem', '2.5rem']} color="">
+        <Circle bgColor="brand.100" color="white" padding="2rem">
+          <Icon boxSize={['3rem', '4rem']} as={RiBallPenLine} />
+        </Circle>
+        <Text
+          fontWeight="700"
+          fontSize={['1.3rem', '2.5rem']}
+          color=""
+          mt="1rem"
+          fontFamily="brEbold"
+        >
           Welcome to Harmonics Blog
         </Text>
-        <Text>
-          You currently do not have any blog post. Get started by creating a
-          blog post.
+        <Text w="30%" textAlign="center" mb="1rem">
+          You currently do not have any blog post. You can get started by
+          creating a blog post.
         </Text>
         <Button
           color="#fff"
           w="30%"
           bg="#A03CAE"
-          mt='1rem'
+          mt="1rem"
           borderRadius="8px"
           border="none"
           type="submit"
@@ -44,6 +52,6 @@ const WelcomePost = () => {
       </Box>
     </>
   );
-}
+};
 
-export default WelcomePost
+export default WelcomePost;

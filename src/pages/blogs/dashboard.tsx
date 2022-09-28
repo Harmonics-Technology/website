@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import { withPageAuthRequired } from 'lib/components/Utils/withAuthPage';
 import MyBlog from 'lib/pages/blog/MyBlog';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
@@ -29,22 +30,23 @@ function blog({ data }: { data: PostModel[] }) {
 
 export default blog;
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const token = ctx.req.cookies['token'];
+export const getServerSideProps: GetServerSideProps = withPageAuthRequired(
+  async (ctx: any) => {
+    const token = ctx.req.cookies['token'];
 
-  try {
-    const data = (await PostService.getPosts({}))
-      .data as PostViewStandardResponse;
-    console.log(data);
-    return {
-      props: {
-        data,
-      },
-    };
-  } catch (error) {
-    console.log(error);
-    return {
-      props: {},
-    };
+    try {
+      const data = (await PostService.getPosts({}))
+        .data as PostViewStandardResponse;
+      return {
+        props: {
+          data,
+        },
+      };
+    } catch (error) {
+      console.log(error);
+      return {
+        props: {},
+      };
+    }
   }
-};
+);

@@ -10,8 +10,9 @@ import {
   Image,
   Spinner,
   Stack,
+  Heading,
 } from '@chakra-ui/react';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -23,6 +24,7 @@ import { SRLWrapper } from 'simple-react-lightbox';
 import {
   OpenAPI,
   PostCategoryModel,
+  PostCategoryService,
   PostCategoryView,
   PostModel,
   PostService,
@@ -30,6 +32,7 @@ import {
 } from '../../../../client';
 import { PrimarySelect } from 'lib/components/Utils/PrimarySelect';
 import Cookies from 'js-cookie';
+import AddCategory from 'lib/components/Utils/AddCategory';
 
 const CreatePost = ({
   postCategoryList,
@@ -48,12 +51,20 @@ const CreatePost = ({
 
   const router = useRouter();
   const [published, setPublished] = useState<any>();
-  const token = Cookies.get('token');
+  const [isOpen, setIsOpen] = useState(false);
+  const [listCat, setListCat] = useState<any>(postCategoryList);
+  const openIsModal = () => {
+    setIsOpen(true);
+  };
+  const closeIsModal = () => {
+    setIsOpen(false);
+  };
 
   const {
     register,
     handleSubmit,
     control,
+    getValues,
     formState: { errors, isValid, isSubmitting },
   } = useForm<PostModel>({
     resolver: yupResolver(schema),
@@ -75,8 +86,7 @@ const CreatePost = ({
       })) as PostViewStandardResponse;
       if (response.status === true) {
         console.log({ response });
-
-        // setPublished(response.data);
+        setPublished(response.data);
         return;
       }
       toast({
@@ -94,11 +104,26 @@ const CreatePost = ({
     }
   };
 
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const category = (await PostCategoryService.list({})).data;
+        setListCat(category);
+      } catch (error) {
+        console.log({ error });
+      }
+    };
+    fetchCategories();
+  }, [isOpen]);
+
   return (
     <Box w="100%">
-      <Box w="90%" mx="auto" pb="30px">
+      <Box w="90%" mx="auto" py="4rem">
+        <Text mb="2rem" fontSize="2.5rem" fontWeight="500">
+          Create new Post
+        </Text>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Stack w="100%" direction="row" py="5rem" gap="2rem">
+          <Stack w="100%" direction="row" gap="2rem">
             <Box w="80%">
               {published && (
                 <HStack my=".5rem">
@@ -134,27 +159,51 @@ const CreatePost = ({
             </Box>
             <Box w="20%">
               <Stack direction="column" spacing="1rem">
-                <Flex w="100%">
-                  <Button
-                    textTransform="capitalize"
+                <Box
+                  w="full"
+                  // p="1rem"
+                  h="5rem"
+                  bgColor="white"
+                  borderRadius="4px"
+                >
+                  <Flex w="100%" justify="flex-end">
+                    <Button
+                      textTransform="capitalize"
+                      width="fit-content"
+                      type="submit"
+                      px="2rem"
+                      minWidth="3rem"
+                      height="3rem"
+                      borderRadius="0"
+                      variant="solid"
+                      fontSize=".9rem"
+                      _hover={{
+                        bg: 'transparent',
+                        color: 'brand.100',
+                        border: '2px solid #A03CAE',
+                      }}
+                      _focus={{
+                        outline: 'none',
+                      }}
+                      isLoading={isSubmitting}
+                    >
+                      + publish
+                    </Button>
+                  </Flex>
+                </Box>
+                <Box mt="2rem !important">
+                  <Text
+                    mb="3"
                     w="full"
-                    type="submit"
-                    _hover={{
-                      bg: 'transparent',
-                      color: 'brand.100',
-                      border: '2px solid #A03CAE',
-                    }}
-                    _focus={{
-                      outline: 'none',
-                    }}
-                    isLoading={isSubmitting}
+                    borderLeft="4px solid"
+                    pl=".3rem"
+                    fontSize=".9rem"
+                    fontWeight="500"
+                    borderColor="brand.100"
                   >
-                    publish
-                  </Button>
-                </Flex>
-                <Box>
-                  <Text mb="2">Select a Category</Text>
-                  {postCategoryList?.length > 0 && (
+                    Select a Category
+                  </Text>
+                  {listCat?.length > 0 && (
                     <PrimarySelect<PostModel>
                       register={register}
                       error={errors.postCategoryId}
@@ -162,16 +211,26 @@ const CreatePost = ({
                       placeholder="Select a category"
                       placeholderColor="gray"
                       name="postCategoryId"
+                      borderRadius="0"
                       options={
                         <>
-                          {postCategoryList.map((x: PostCategoryView) => {
+                          {listCat.map((x: PostCategoryView) => {
                             return <option value={x.id}>{x.name}</option>;
                           })}
                         </>
                       }
                     />
                   )}
-                  <Text fontSize=".8rem">Create New Category</Text>
+                  <Text
+                    fontSize=".8rem"
+                    my="1rem"
+                    cursor="pointer"
+                    textDecoration="underline"
+                    onClick={() => openIsModal()}
+                  >
+                    + Create New Category
+                  </Text>
+                  {/* {addCat && <AddCategory />} */}
                 </Box>
                 <VStack
                   spacing="2"
@@ -183,7 +242,7 @@ const CreatePost = ({
                     w="100%"
                     h="13rem"
                     borderRadius="5px"
-                    bgColor="brand.100"
+                    bgColor="brand.300"
                     flexShrink={0}
                     overflow="hidden"
                   >
@@ -202,12 +261,26 @@ const CreatePost = ({
 
                   <Button
                     variant="outline"
+                    px="2rem"
+                    minWidth="3rem"
+                    height="3rem"
+                    borderRadius="0"
                     textTransform="capitalize"
                     type="button"
                     w="full"
+                    fontSize=".9rem"
+                    mt="1.5rem !important"
+                    _hover={{
+                      bg: 'transparent',
+                      color: 'brand.100',
+                      border: '2px solid #A03CAE',
+                    }}
+                    _focus={{
+                      outline: 'none',
+                    }}
                     onClick={() => widgetapi.current.openDialog()}
                   >
-                    {uploadedThumbnail ? 'change image' : 'add thumbnail'}
+                    {uploadedThumbnail ? 'change image' : '[.] add thumbnail'}
                   </Button>
 
                   <Box display="none">
@@ -225,6 +298,7 @@ const CreatePost = ({
             </Box>
           </Stack>
         </form>
+        <AddCategory isOpen={isOpen} onClose={closeIsModal} />
       </Box>
     </Box>
   );
