@@ -19,6 +19,7 @@ import {
   AiOutlineMenuFold,
 } from 'react-icons/ai';
 import { TbViewfinder } from 'react-icons/tb';
+import { FaUserAlt } from 'react-icons/fa';
 
 function Sidebar({ isOpen, setIsOpen }: any) {
   const router = useRouter();
@@ -88,6 +89,13 @@ function Sidebar({ isOpen, setIsOpen }: any) {
             text="View Posts"
             url="dashboard"
             icon={<TbViewfinder />}
+            isOpen={isOpen}
+          />
+
+          <AdminMenu
+            text="Profile"
+            url="/profile"
+            icon={<FaUserAlt />}
             isOpen={isOpen}
           />
           <HStack
