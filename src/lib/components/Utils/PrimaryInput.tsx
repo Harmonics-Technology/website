@@ -33,6 +33,7 @@ interface FormInputProps<TFormValues extends Record<string, unknown>> {
   onChange?: any;
   changePasswordType?: any;
   border?: string;
+  fontSize?: string;
 }
 
 export const PrimaryInput = <TFormValues extends Record<string, any>>({
@@ -51,6 +52,7 @@ export const PrimaryInput = <TFormValues extends Record<string, any>>({
   border,
   borderColor,
   placeholderColor,
+  fontSize,
 }: FormInputProps<TFormValues>) => {
   return (
     <FormControl isInvalid={error ? true : false}>
@@ -64,7 +66,9 @@ export const PrimaryInput = <TFormValues extends Record<string, any>>({
           disabled={disableLabel}
           border={border}
           borderColor={borderColor}
-          _placeholder={{ color: placeholderColor}}
+          borderRadius="0"
+          fontSize={fontSize}
+          _placeholder={{ color: placeholderColor }}
         />
 
         <InputRightElement

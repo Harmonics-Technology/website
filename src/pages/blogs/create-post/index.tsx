@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import { withPageAuthRequired } from 'lib/components/Utils/withAuthPage';
 // import { DataAccess } from 'lib/components/Utils/Api';
 import CreatePost from 'lib/pages/blog/CreatePost';
 import { GetServerSideProps } from 'next';
@@ -8,46 +9,30 @@ import {
   PostCategoryService,
   PostCategoryView,
   PostCategoryViewListStandardResponse,
-  PostService,
 } from '../../../../client';
 
-const index = ({ data }: { data: any }) => {
-  //Redirect user to login and back here when login is successful
-  const router = useRouter();
-  const isUser = Cookies.get('userIn');
-  useEffect(() => {
-    if (isUser !== 'true') {
-      router.push({
-        pathname: '/blogs/login',
-        query: { from: router.pathname },
-      });
-      return;
-    }
-  });
-  return <CreatePost postCategoryList={data.data} />;
+const index = ({ data }: { data: PostCategoryView[] }) => {
+  return <CreatePost postCategoryList={data} />;
 };
 
 export default index;
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  // const bearer = `Bearer ${ctx.req.cookies.token}`;
-  // const _dataAccess = new DataAccess(bearer);
-
-  try {
-    const data = (await PostCategoryService.list(
-      {}
-    )) as PostCategoryViewListStandardResponse;
-    console.log({ data });
-    return {
-      props: {
-        data,
-      },
-    };p
-  } catch (error) {
-    return {
-      props: {
-        data: {},
-      },
-    };
+export const getServerSideProps: GetServerSideProps = withPageAuthRequired(
+  async () => {
+    try {
+      const category = (await PostCategoryService.list({})).data;
+      console.log({ category });
+      return {
+        props: {
+          data: category,
+        },
+      };
+    } catch (error) {
+      return {
+        props: {
+          data: [],
+        },
+      };
+    }
   }
-};
+);

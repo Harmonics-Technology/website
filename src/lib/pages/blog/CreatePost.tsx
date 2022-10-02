@@ -10,8 +10,9 @@ import {
   Image,
   Spinner,
   Stack,
+  Heading,
 } from '@chakra-ui/react';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -23,6 +24,7 @@ import { SRLWrapper } from 'simple-react-lightbox';
 import {
   OpenAPI,
   PostCategoryModel,
+  PostCategoryService,
   PostCategoryView,
   PostModel,
   PostService,
@@ -30,18 +32,13 @@ import {
 } from '../../../../client';
 import { PrimarySelect } from 'lib/components/Utils/PrimarySelect';
 import Cookies from 'js-cookie';
-
-const data = [
-  { id: '08da9db0-ce67-4037-867d-db79ce9d79f1', name: 'technology' },
-];
+import AddCategory from 'lib/components/Utils/AddCategory';
 
 const CreatePost = ({
   postCategoryList,
 }: {
   postCategoryList: PostCategoryView[];
 }) => {
-  console.log(postCategoryList);
-
   const [uploadedThumbnail, setUploadedThumbnail] = useState<string>();
   const schema = yup.object().shape({
     title: yup.string().required(),
@@ -54,12 +51,20 @@ const CreatePost = ({
 
   const router = useRouter();
   const [published, setPublished] = useState<any>();
-  const token = Cookies.get('token');
+  const [isOpen, setIsOpen] = useState(false);
+  const [listCat, setListCat] = useState<any>(postCategoryList);
+  const openIsModal = () => {
+    setIsOpen(true);
+  };
+  const closeIsModal = () => {
+    setIsOpen(false);
+  };
 
   const {
     register,
     handleSubmit,
     control,
+    getValues,
     formState: { errors, isValid, isSubmitting },
   } = useForm<PostModel>({
     resolver: yupResolver(schema),
@@ -70,21 +75,18 @@ const CreatePost = ({
 
   const onChangeThumbnail = async (info: any) => {
     const thumbnailUrl = info.originalUrl;
-
     setUploadedThumbnail(thumbnailUrl);
   };
   const onSubmit = async (data: PostModel) => {
     data.thumbnail = uploadedThumbnail;
     console.log({ data });
     try {
-      OpenAPI.TOKEN = token as string;
       const response = (await PostService.createPost({
         requestBody: data,
       })) as PostViewStandardResponse;
       if (response.status === true) {
         console.log({ response });
-
-        // setPublished(response.data);
+        setPublished(response.data);
         return;
       }
       toast({
@@ -102,11 +104,26 @@ const CreatePost = ({
     }
   };
 
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const category = (await PostCategoryService.list({})).data;
+        setListCat(category);
+      } catch (error) {
+        console.log({ error });
+      }
+    };
+    fetchCategories();
+  }, [isOpen]);
+
   return (
     <Box w="100%">
-      <Box w="90%" mx="auto" pb="30px">
+      <Box w="90%" mx="auto" py="4rem">
+        <Text mb="2rem" fontSize="2.5rem" fontWeight="500">
+          Create new Post
+        </Text>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Stack w="100%" direction="row" py="5rem" gap="2rem">
+          <Stack w="100%" direction="row" gap="2rem">
             <Box w="80%">
               {published && (
                 <HStack my=".5rem">
@@ -138,19 +155,132 @@ const CreatePost = ({
                   defaultValue=""
                   error={errors.content}
                 />
-                <HStack
+              </VStack>
+            </Box>
+            <Box w="20%">
+              <Stack direction="column" spacing="1rem">
+                <Box
+                  w="full"
+                  // p="1rem"
+                  h="5rem"
+                  bgColor="white"
+                  borderRadius="4px"
+                >
+                  <Flex w="100%" justify="flex-end">
+                    <Button
+                      textTransform="capitalize"
+                      width="fit-content"
+                      type="submit"
+                      px="2rem"
+                      minWidth="3rem"
+                      height="3rem"
+                      borderRadius="0"
+                      variant="solid"
+                      fontSize=".9rem"
+                      _hover={{
+                        bg: 'transparent',
+                        color: 'brand.100',
+                        border: '2px solid #A03CAE',
+                      }}
+                      _focus={{
+                        outline: 'none',
+                      }}
+                      isLoading={isSubmitting}
+                    >
+                      + publish
+                    </Button>
+                  </Flex>
+                </Box>
+                <Box mt="2rem !important">
+                  <Text
+                    mb="3"
+                    w="full"
+                    borderLeft="4px solid"
+                    pl=".3rem"
+                    fontSize=".9rem"
+                    fontWeight="500"
+                    borderColor="brand.100"
+                  >
+                    Select a Category
+                  </Text>
+                  {listCat?.length > 0 && (
+                    <PrimarySelect<PostModel>
+                      register={register}
+                      error={errors.postCategoryId}
+                      label="Category"
+                      placeholder="Select a category"
+                      placeholderColor="gray"
+                      name="postCategoryId"
+                      borderRadius="0"
+                      options={
+                        <>
+                          {listCat.map((x: PostCategoryView) => {
+                            return <option value={x.id}>{x.name}</option>;
+                          })}
+                        </>
+                      }
+                    />
+                  )}
+                  <Text
+                    fontSize=".8rem"
+                    my="1rem"
+                    cursor="pointer"
+                    textDecoration="underline"
+                    onClick={() => openIsModal()}
+                  >
+                    + Create New Category
+                  </Text>
+                  {/* {addCat && <AddCategory />} */}
+                </Box>
+                <VStack
                   spacing="2"
-                  align="flex-start"
+                  align="flex-end"
                   w="full"
                   justify="space-between"
                 >
+                  <Box
+                    w="100%"
+                    h="13rem"
+                    borderRadius="5px"
+                    bgColor="brand.300"
+                    flexShrink={0}
+                    overflow="hidden"
+                  >
+                    <SRLWrapper>
+                      {uploadedThumbnail && (
+                        <Image
+                          src={uploadedThumbnail as unknown as string}
+                          alt="propery-image"
+                          w="100%"
+                          height="100%"
+                          objectFit="cover"
+                        />
+                      )}
+                    </SRLWrapper>
+                  </Box>
+
                   <Button
                     variant="outline"
+                    px="2rem"
+                    minWidth="3rem"
+                    height="3rem"
+                    borderRadius="0"
                     textTransform="capitalize"
                     type="button"
+                    w="full"
+                    fontSize=".9rem"
+                    mt="1.5rem !important"
+                    _hover={{
+                      bg: 'transparent',
+                      color: 'brand.100',
+                      border: '2px solid #A03CAE',
+                    }}
+                    _focus={{
+                      outline: 'none',
+                    }}
                     onClick={() => widgetapi.current.openDialog()}
                   >
-                    {uploadedThumbnail ? 'change image' : 'add image'}
+                    {uploadedThumbnail ? 'change image' : '[.] add thumbnail'}
                   </Button>
 
                   <Box display="none">
@@ -163,87 +293,12 @@ const CreatePost = ({
                       onChange={(info) => onChangeThumbnail(info)}
                     />
                   </Box>
-                  <Box>
-                    {/* <Spinner color='brand.100' /> */}
-                    {uploadedThumbnail && (
-                      <>
-                        <HStack w="full" spacing="1rem" overflow="auto">
-                          <SRLWrapper>
-                            <Box
-                              w="50rem"
-                              h="50rem"
-                              borderRadius="5px"
-                              bgColor="brand.50"
-                              flexShrink={0}
-                              overflow="hidden"
-                            >
-                              <Image
-                                src={uploadedThumbnail as unknown as string}
-                                alt="propery-image"
-                                w="100%"
-                                height="100%"
-                                objectFit="cover"
-                              />
-                            </Box>
-                          </SRLWrapper>
-                        </HStack>
-                      </>
-                    )}
-                  </Box>
-                </HStack>
-              </VStack>
-            </Box>
-            <Box w="20%">
-              <Stack direction="column" spacing="1rem">
-                <Flex w="100%">
-                  <Button
-                    textTransform="capitalize"
-                    w={['100%', 'unset']}
-                    type="submit"
-                    _hover={{
-                      bg: 'transparent',
-                      color: 'brand.100',
-                      border: '2px solid #A03CAE',
-                    }}
-                    _focus={{
-                      outline: 'none',
-                    }}
-                    isLoading={isSubmitting}
-                  >
-                    publish
-                  </Button>
-                </Flex>
-                <Box>
-                  <Text mb="3">Select a Category</Text>
-                  <PrimarySelect<PostModel>
-                    register={register}
-                    error={errors.postCategoryId}
-                    label="Category"
-                    placeholder="Select a category"
-                    placeholderColor="gray"
-                    name="postCategoryId"
-                    options={
-                      <>
-                        {postCategoryList.map((x: PostCategoryView) => {
-                          return <option value={x.id}>{x.name}</option>;
-                        })}
-                      </>
-                    }
-                  />
-                  <Text>Create New Category</Text>
-                  <PrimaryInput<PostModel>
-                    name="title"
-                    error={errors.title}
-                    defaultValue=""
-                    register={register}
-                    label="title"
-                    placeholder="Post title"
-                  />
-                </Box>
+                </VStack>
               </Stack>
             </Box>
           </Stack>
         </form>
+        <AddCategory isOpen={isOpen} onClose={closeIsModal} />
       </Box>
     </Box>
   );
