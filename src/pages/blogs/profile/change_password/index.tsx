@@ -38,7 +38,7 @@ const ChangeUserPassword = () => {
         </Text>
 
         <Box w="50px" h="50px" borderRadius="50%">
-          <Image src="/ava1.png" w="100%" h="100%" />
+          <Image src={user?.profilePicture || '/dummy.png'} w="100%" h="100%" />
         </Box>
       </Flex>
       <Box w="90%" mx="auto">
@@ -57,7 +57,7 @@ const ChangeUserPassword = () => {
               textTransform="capitalize"
               fontSize="18px"
               fontWeight={600}
-              color="gray.400"
+              // color="gray.400"
               onClick={showEditProfile}
               cursor="pointer"
             >
@@ -67,7 +67,12 @@ const ChangeUserPassword = () => {
               textTransform="capitalize"
               fontSize="18px"
               fontWeight={600}
-              color="gray.400"
+              // color="gray.400"
+              color={
+                router.asPath === '/blogs/profile/change_password'
+                  ? 'brand.100'
+                  : ''
+              }
               onClick={showChangePassword}
               cursor="pointer"
             >

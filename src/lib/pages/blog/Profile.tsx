@@ -25,7 +25,8 @@ const ProfileUpdate = ({ user }: { user: any }) => {
             textTransform="capitalize"
             fontSize="18px"
             fontWeight={600}
-            color="gray.400"
+            // color="gray.400"
+            color={router.asPath === '/blogs/profile' ? 'brand.100' : ''}
             onClick={showEditProfile}
             cursor="pointer"
           >
@@ -35,7 +36,7 @@ const ProfileUpdate = ({ user }: { user: any }) => {
             textTransform="capitalize"
             fontSize="18px"
             fontWeight={600}
-            color="gray.400"
+            // color="gray.400"
             onClick={showChangePassword}
             cursor="pointer"
           >

@@ -6,33 +6,93 @@ import {
   VStack,
   HStack,
   Button,
+  useToast,
+  Spinner,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { MdEdit } from 'react-icons/md';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { UserService, UpdateUserModel } from '../../../../client';
+import {
+  UserService,
+  UpdateUserModel,
+  UserViewStandardResponse,
+} from '../../../../client';
 import ProfileInput from 'lib/components/Utils/ProfileInput';
 import { PrimaryInput } from 'lib/components/Utils/PrimaryInput';
 import { GetServerSidePropsContext } from 'next';
+import { SRLWrapper } from 'simple-react-lightbox';
+import { Widget } from '@uploadcare/react-widget';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 const UpdateProfile = ({ user }: { user: any }) => {
-  const schema = yup.object().shape({
-    id: yup.string().required(),
-    phoneNumber: yup.string().required(),
-    // profilePicture: yup().string().required(),
-  });
   const {
     register,
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
-  } = useForm<UpdateUserModel>({
-    resolver: yupResolver(schema),
-  });
+  } = useForm<UpdateUserModel>();
+  console.log({ user });
+  const [uploadedThumbnail, setUploadedThumbnail] = useState<string>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const widgetapi = useRef<any>();
+  const toast = useToast();
+  const router = useRouter();
 
-  const onsubmit = (data: UpdateUserModel) => {
+  const onSubmit = async (data: UpdateUserModel) => {
     console.log(data);
+    try {
+      const response = (await UserService.updateUser({
+        requestBody: data,
+      })) as UserViewStandardResponse;
+      console.log(response);
+      if (response.status) {
+        toast({
+          position: 'top-right',
+          duration: 9000,
+          render: () => (
+            <Box color="white" p={3} bg="brand.100">
+              Profile updated successfully.
+            </Box>
+          ),
+        });
+        return;
+      }
+    } catch (err) {
+      toast({
+        position: 'top-right',
+        duration: 9000,
+        render: () => (
+          <Box color="white" p={3} bg="red.500">
+            An error occured. Please try again.
+          </Box>
+        ),
+      });
+    }
+  };
+
+  const profileUpdate = {
+    profilePicture: uploadedThumbnail,
+  };
+
+  const onChangeThumbnail = async (info: any) => {
+    setIsLoading(true);
+    const thumbnailUrl = info.originalUrl;
+    setUploadedThumbnail(thumbnailUrl);
+    const updateProfilePic = async (url: UpdateUserModel) => {
+      url.profilePicture = thumbnailUrl;
+      try {
+        const response = await UserService.updateUser({
+          requestBody: url,
+        });
+        Cookies.set('user', JSON.stringify(response?.data));
+        console.log(response);
+        setIsLoading(false);
+      } catch (err) {}
+    };
+
+    updateProfilePic(profileUpdate);
   };
 
   return (
@@ -41,17 +101,38 @@ const UpdateProfile = ({ user }: { user: any }) => {
         edit profile
       </Heading>
 
-      <form onSubmit={handleSubmit(onsubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Box pos="relative" w="250px" mx="auto" my="25px">
-          <Box
-            w="150px"
-            h="150px"
-            borderRadius="50%"
-            mx="auto"
-            overflow="hidden"
-          >
-            <Image src="/ava1.png" w="100%" h="100%" />
-          </Box>
+          <SRLWrapper>
+            <Box
+              w="150px"
+              h="150px"
+              borderRadius="50%"
+              mx="auto"
+              overflow="hidden"
+              pos="relative"
+            >
+              <Image
+                src={uploadedThumbnail || user?.profilePicture || '/dummy.png'}
+                w="100%"
+                h="100%"
+              />
+
+              {isLoading && (
+                <Flex
+                  w="100%"
+                  h="100%"
+                  alignItems="center"
+                  justifyContent="center"
+                  bg="rgba(255,255,255,0.64)"
+                  pos="absolute"
+                  top={0}
+                >
+                  <Spinner color="brand.100" />
+                </Flex>
+              )}
+            </Box>
+          </SRLWrapper>
           <Flex
             w="30px"
             h="30px"
@@ -63,9 +144,20 @@ const UpdateProfile = ({ user }: { user: any }) => {
             pos="absolute"
             bottom={0}
             right={['70px']}
+            onClick={() => widgetapi.current.openDialog()}
           >
             <MdEdit />
           </Flex>
+          <Box display="none">
+            <Widget
+              publicKey="fda3a71102659f95625f"
+              imagesOnly
+              imageShrink="640x480"
+              imagePreviewMaxSize={9}
+              ref={widgetapi}
+              onChange={(info) => onChangeThumbnail(info)}
+            />
+          </Box>
         </Box>
         <VStack alignItems="flex-start" spacing={6}>
           <HStack w="100%" spacing={6}>
@@ -76,7 +168,7 @@ const UpdateProfile = ({ user }: { user: any }) => {
           <PrimaryInput<UpdateUserModel>
             name="phoneNumber"
             error={errors.phoneNumber}
-            defaultValue=""
+            defaultValue={user?.phoneNumber}
             register={register}
             label="Phone Number"
             placeholder="Please enter your phone number"
@@ -105,12 +197,3 @@ const UpdateProfile = ({ user }: { user: any }) => {
 };
 
 export default UpdateProfile;
-
-export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
-  const { id } = ctx.query;
-  return {
-    props: {
-      token: id,
-    },
-  };
-};

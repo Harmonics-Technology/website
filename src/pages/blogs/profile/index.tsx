@@ -29,7 +29,7 @@ const Profile = () => {
         </Text>
 
         <Box w="50px" h="50px" borderRadius="50%">
-          <Image src="/ava1.png" w="100%" h="100%" />
+          <Image src={user?.profilePicture || '/dummy.png'} w="100%" h="100%" />
         </Box>
       </Flex>
 
