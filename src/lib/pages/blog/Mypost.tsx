@@ -18,6 +18,7 @@ import {
   AiOutlineUser,
   AiOutlineCalendar,
   AiOutlineComment,
+  AiOutlineFieldTime,
 } from 'react-icons/ai';
 import { PrimaryInput } from '../../components/Utils/PrimaryInput';
 import { PrimaryTextArea } from 'lib/components/Utils/PrimaryTextArea';
@@ -46,6 +47,8 @@ const Mypost = ({ data }: { data: PostView }) => {
   });
 
   const router = useRouter();
+  const readingTime = require('reading-time');
+  const stats = readingTime(data.content);
 
   const onSubmit = (data: FormInputProps) => {};
   return (
@@ -82,6 +85,10 @@ const Mypost = ({ data }: { data: PostView }) => {
             <HStack fontSize=".9rem" align="center" color="gray.500">
               <BiCategory />
               <Text>{data?.categoryName}</Text>
+            </HStack>
+            <HStack fontSize=".9rem" align="center" color="gray.500">
+              <AiOutlineFieldTime />
+              <Text>{stats.minutes} min read</Text>
             </HStack>
           </HStack>
 

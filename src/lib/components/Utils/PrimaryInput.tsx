@@ -7,6 +7,7 @@ import {
   InputRightElement,
   Text,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import { FieldError, UseFormRegister, Path } from 'react-hook-form';
 
 interface FormInputProps<TFormValues extends Record<string, unknown>> {

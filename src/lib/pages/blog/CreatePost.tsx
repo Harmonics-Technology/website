@@ -64,7 +64,7 @@ const CreatePost = ({
     register,
     handleSubmit,
     control,
-    getValues,
+    watch,
     formState: { errors, isValid, isSubmitting },
   } = useForm<PostModel>({
     resolver: yupResolver(schema),
@@ -72,7 +72,6 @@ const CreatePost = ({
   });
   const toast = useToast();
   const [error, setError] = useState<string>();
-
   const onChangeThumbnail = async (info: any) => {
     const thumbnailUrl = info.originalUrl;
     setUploadedThumbnail(thumbnailUrl);
@@ -115,6 +114,17 @@ const CreatePost = ({
     };
     fetchCategories();
   }, [isOpen]);
+
+  useEffect(() => {
+    const unloadCallback = (event: any) => {
+      event.preventDefault();
+      event.returnValue = '';
+      return '';
+    };
+
+    window.addEventListener('beforeunload', unloadCallback);
+    return () => window.removeEventListener('beforeunload', unloadCallback);
+  }, []);
 
   return (
     <Box w="100%">
@@ -215,7 +225,11 @@ const CreatePost = ({
                       options={
                         <>
                           {listCat.map((x: PostCategoryView) => {
-                            return <option value={x.id}>{x.name}</option>;
+                            return (
+                              <option value={x.id} key={x.id}>
+                                {x.name}
+                              </option>
+                            );
                           })}
                         </>
                       }
