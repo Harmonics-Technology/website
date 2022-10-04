@@ -10,9 +10,11 @@ import defaultSEOConfig from '../../next-seo.config';
 import '../lib/styles/globals.css';
 import { OpenAPI } from '../../client';
 import { UserProvider } from 'lib/components/Utils/MainContext';
+import Cookies from 'js-cookie';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   OpenAPI.BASE = process.env.NEXT_PUBLIC_API_BASEURL as string;
+  OpenAPI.TOKEN = Cookies.get('token');
   return (
     <ChakraProvider theme={customTheme}>
       <Head>

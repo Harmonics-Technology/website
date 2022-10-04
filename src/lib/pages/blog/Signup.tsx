@@ -55,7 +55,7 @@ const Signup = () => {
       const response = (await UserService.create({
         requestBody: data,
       })) as UserViewStandardResponse;
-      
+
       console.log({ response });
       if (response.status === true) {
         toast({
@@ -78,7 +78,7 @@ const Signup = () => {
           </Box>
         ),
       });
-      return; 
+      return;
     } catch (error) {
       console.log({ error });
       setError('An error occured');

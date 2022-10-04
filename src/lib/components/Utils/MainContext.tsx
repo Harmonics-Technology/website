@@ -9,11 +9,11 @@ export const UserProvider = ({ children }: { children: any }) => {
     const users = Cookies.get('user') as unknown as string;
     if (users !== undefined) {
       setUser(JSON.parse(users));
-    } 
+    }
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser}}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );

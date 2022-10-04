@@ -157,5 +157,30 @@ xApiKey?: any,
         });
     }
 
-}
+    /**
+     * @returns PostViewStandardResponse Success
+     * @throws ApiError
+     */
+    public static softDelete({
+id,
+xApiKey,
+}: {
+id: string,
+xApiKey?: any,
+}): CancelablePromise<PostViewStandardResponse> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/api/Post/delete/soft/{id}',
+            path: {
+                'id': id,
+            },
+            headers: {
+                'X-API-KEY': xApiKey,
+            },
+            errors: {
+                400: `Bad Request`,
+            },
+        });
+    }
 
+}
