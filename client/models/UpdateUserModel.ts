@@ -5,4 +5,5 @@
 export type UpdateUserModel = {
     id?: string;
     phoneNumber?: string | null;
+    profilePicture?: string | null;
 };

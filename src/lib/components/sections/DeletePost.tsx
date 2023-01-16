@@ -13,9 +13,17 @@ import {
 type Props = {
   isOpen: boolean;
   onClose: any;
+  id: string;
 };
 
-const DeletePost = ({ isOpen, onClose }: Props) => {
+const DeletePost = ({ isOpen, onClose, id }: Props) => {
+  const removePost = async (id: string) => {
+    try {
+      console.log(id)
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Modal
       isOpen={isOpen}
@@ -65,6 +73,7 @@ const DeletePost = ({ isOpen, onClose }: Props) => {
                 No
               </Button>
               <Button
+                onClick={() => removePost(id)}
                 height="40px"
                 minWidth="unset"
                 width="full"

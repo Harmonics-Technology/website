@@ -16,37 +16,48 @@ import * as yup from 'yup';
 import { useRouter } from 'next/router';
 import { useForm, FieldError, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { PrimaryInput } from '../../components/Utils/PrimaryInput';
+import { PrimaryInput } from '../../../lib/components/Utils/PrimaryInput';
 import {
   UserService,
   UserViewStandardResponse,
-  InitiateResetModel,
+  PasswordReset,
 } from '../../../../client';
+import { BiHide, BiShowAlt } from 'react-icons/bi';
+import { GetServerSidePropsContext } from 'next';
 
 const schema = yup.object().shape({
-  email: yup.string().email().required(),
+  code: yup.string().required(),
+  newPassword: yup.string().required(),
 });
 // interface IFormInput {
 //   email: string;
 // }
-const ForgotPassword = () => {
+const CompleteReset = ({ token }: { token: string }) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<InitiateResetModel>({
+  } = useForm<PasswordReset>({
     resolver: yupResolver(schema),
     mode: 'all',
+    defaultValues: {
+      code: token,
+    },
   });
   const [error, setError] = useState<any>('');
   const toast = useToast();
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(true);
   const [showSuccessScreen, setSuccesScreen] = useState(false);
 
-  const onSubmit = async (data: InitiateResetModel) => {
+  const changePasswordField = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const onSubmit = async (data: PasswordReset) => {
     console.log({ data });
     try {
-      const response = (await UserService.initiateReset({
+      const response = (await UserService.completeReset({
         requestBody: data,
       })) as UserViewStandardResponse;
       if (response.status === true) {
@@ -71,9 +82,6 @@ const ForgotPassword = () => {
     >
       {showSuccessScreen ? (
         <Box w="100%">
-          <Box w="150px" mx="auto">
-            <Image src="/Group 9.png" alt="" mb="2rem" />
-          </Box>
           <VStack w="100%" spacing={6} alignItems="flex-start">
             <Flex
               w="50px"
@@ -99,7 +107,8 @@ const ForgotPassword = () => {
                 },
               }}
             >
-              a mail has been sent to your email.
+              password reset completed. You can now login with your new
+              password.
             </Text>
           </VStack>
           <Flex mt="30px" w="100%" justifyContent="center">
@@ -139,13 +148,16 @@ const ForgotPassword = () => {
                 mb="2rem"
                 boxSize={['50%', '45%', '35%']}
               />
-              <PrimaryInput<InitiateResetModel>
-                name="email"
-                error={errors.email}
+              <PrimaryInput<PasswordReset>
+                name="newPassword"
+                error={errors.newPassword}
                 defaultValue=""
                 register={register}
-                label="Email"
-                placeholder="user@harmonicstechnology.com"
+                label="password"
+                placeholder="*****"
+                icon={showPassword ? <BiShowAlt /> : <BiHide />}
+                changePasswordType={changePasswordField}
+                type={showPassword ? 'password' : 'text'}
               />
               <Button
                 color="#fff"
@@ -170,4 +182,13 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default CompleteReset;
+
+export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
+  const { id } = ctx.query;
+  return {
+    props: {
+      token: id,
+    },
+  };
+};
