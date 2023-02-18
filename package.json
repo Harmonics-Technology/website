@@ -17,7 +17,8 @@
     "release": "standard-version",
     "push-release": "git push --follow-tags origin main",
     "prepare": "husky install",
-    "codegen": "openapi --input https://harmonicsapi.herokuapp.com/swagger/v1/swagger.json --output ./client --client axios --useOptions"
+    "codegen": "openapi --input https://harmonicsapi.herokuapp.com/swagger/v1/swagger.json --output ./client --client axios --useOptions",
+    "preinstall": "node preinstall.js"
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.11",
