@@ -9,6 +9,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import AdminMenu from 'lib/components/Utils/AdminMenu';
+import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import {
@@ -18,9 +19,16 @@ import {
   AiOutlineMenuFold,
 } from 'react-icons/ai';
 import { TbViewfinder } from 'react-icons/tb';
+import { FaUserAlt } from 'react-icons/fa';
 
 function Sidebar({ isOpen, setIsOpen }: any) {
   const router = useRouter();
+  const LogUserOut = () => {
+    Cookies.remove('user');
+    Cookies.remove('token');
+    Cookies.remove('userIn');
+    window.location.href = '/';
+  };
 
   return (
     <Box
@@ -83,6 +91,13 @@ function Sidebar({ isOpen, setIsOpen }: any) {
             icon={<TbViewfinder />}
             isOpen={isOpen}
           />
+
+          <AdminMenu
+            text="Profile"
+            url="/profile"
+            icon={<FaUserAlt />}
+            isOpen={isOpen}
+          />
           <HStack
             align="center"
             p=".5rem"
@@ -90,6 +105,7 @@ function Sidebar({ isOpen, setIsOpen }: any) {
             spacing={4}
             color="white"
             cursor="pointer"
+            onClick={() => LogUserOut()}
           >
             <AiOutlineLogout />
             {isOpen && <Text noOfLines={1}>Logout</Text>}

@@ -1,6 +1,7 @@
 import { Box, Flex, Stack, Image, Text, Link } from '@chakra-ui/react';
+import { UserContext } from 'lib/components/Utils/MainContext';
 import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { BsBorderWidth } from 'react-icons/bs';
 import listenForOutsideClick from './listenForOutsideClick';
 // import Link from 'next/link';
@@ -18,6 +19,8 @@ const Header = () => {
   const getNavLinks = (name: string) => {
     if (router.asPath === name) return 'brand.100';
   };
+
+  const { user, setUser } = useContext(UserContext);
 
   const AddBgOnScroll = () => {
     const scrollHeight = 80;
@@ -99,6 +102,15 @@ const Header = () => {
         <Link href="/contact-us">
           <Text color={getNavLinks('/contact-us')}>Work with us</Text>
         </Link>
+        {user ? (
+          <Link href="/blogs/dashboard">
+            <Text color={getNavLinks('/blogs/dashboard')}>Dashboard</Text>
+          </Link>
+        ) : (
+          <Link href="/blogs/register">
+            <Text color={getNavLinks('/blogs/register')}>Sign up</Text>
+          </Link>
+        )}
       </Stack>
       <Box
         ml="2rem"
