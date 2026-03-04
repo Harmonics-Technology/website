@@ -4,14 +4,16 @@ import News from 'lib/components/sections/News';
 import PagesHero from 'lib/components/sections/PagesHero';
 // import ThoughtsHero from 'lib/components/sections/ThoughtsHero';
 
-const Thought = () => (
-  <>
-    <PagesHero
-      title="Catch up with recent stories"
-      subtitle="Get the latest trends and software inventions from time to time."
-    />
-    <Gist />
-    <News />
-  </>
-);
+const Thought = ({ data }: any) => {
+  return (
+    <>
+      <PagesHero
+        title="Catch up with recent stories"
+        subtitle="Get the latest trends and software inventions from time to time."
+      />
+      <Gist data={data} />
+      <News data={data} />
+    </>
+  );
+};
 export default Thought;

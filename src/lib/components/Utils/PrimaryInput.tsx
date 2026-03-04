@@ -7,6 +7,7 @@ import {
   InputRightElement,
   Text,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import { FieldError, UseFormRegister, Path } from 'react-hook-form';
 
 interface FormInputProps<TFormValues extends Record<string, unknown>> {
@@ -33,6 +34,7 @@ interface FormInputProps<TFormValues extends Record<string, unknown>> {
   onChange?: any;
   changePasswordType?: any;
   border?: string;
+  fontSize?: string;
 }
 
 export const PrimaryInput = <TFormValues extends Record<string, any>>({
@@ -50,6 +52,8 @@ export const PrimaryInput = <TFormValues extends Record<string, any>>({
   changePasswordType,
   border,
   borderColor,
+  placeholderColor,
+  fontSize,
 }: FormInputProps<TFormValues>) => {
   return (
     <FormControl isInvalid={error ? true : false}>
@@ -63,6 +67,9 @@ export const PrimaryInput = <TFormValues extends Record<string, any>>({
           disabled={disableLabel}
           border={border}
           borderColor={borderColor}
+          borderRadius="0"
+          fontSize={fontSize}
+          _placeholder={{ color: placeholderColor }}
         />
 
         <InputRightElement
